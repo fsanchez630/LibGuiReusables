@@ -13,8 +13,7 @@ import javax.swing.JFrame;
 public abstract class LibFormulario extends JFrame {
 
     private JFrame extension;
-    
-    
+       
     public void setExtension (JFrame frame){
     
         extension = frame;
