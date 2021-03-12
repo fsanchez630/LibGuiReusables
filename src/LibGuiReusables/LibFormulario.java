@@ -10,6 +10,7 @@ import javax.swing.JFrame;
  *
  * @author Javi
  */
+
 public abstract class LibFormulario extends JFrame {
 
     private JFrame extension;
