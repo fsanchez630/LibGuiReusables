@@ -11,16 +11,23 @@ import javax.swing.JFrame;
  * @author Javi
  */
 
-public abstract class LibFormulario extends JFrame {
+public abstract class LibFormulario extends JFrame implements IValidable{
 
     private JFrame extension;
        
+    /**
+     *
+     * @param frame
+     */
     public void setExtension (JFrame frame){
     
         extension = frame;
     }
     
-
+    /**
+     *
+     * @return extension
+     */
     public  JFrame getExtension (){
     
         return extension ;

@@ -32,8 +32,11 @@ public class LibFactoriaFormularios {
         return formulario;
     }
 
-    
-    
+    /**
+     *
+     * @param tipo
+     * @return
+     */
     public LibFormularioExtensible crearFormulario(TipoContenedor tipo) {
 
         LibFormularioExtensible formulario ;
