@@ -27,7 +27,7 @@ public class LibFormularioSimple extends LibFormularioExtensible {
 
             pack();
             //Set up the content pane.
-            
+
             this.setSize(400, 300);
             //this.setResizable(false);
 
@@ -48,10 +48,9 @@ public class LibFormularioSimple extends LibFormularioExtensible {
     private void initComponents() {
     }// </editor-fold>//GEN-END:initComponents
 
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
- 
     @Override
     public void aceptar() {
         System.out.println("has pulsado aceptar");
@@ -62,7 +61,7 @@ public class LibFormularioSimple extends LibFormularioExtensible {
         System.out.println("has pulsado rechazar");
     }
 
-       @Override
+    @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
     }
@@ -72,11 +71,9 @@ public class LibFormularioSimple extends LibFormularioExtensible {
         System.out.println("recuperar valor");
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-         System.out.println("evento Accion");
-    }
+    public void actionPerformed(ActionEvent evt) {
+        System.out.println("Botón pulsado: " + evt.getActionCommand());
 
-    
+    }
 
 }

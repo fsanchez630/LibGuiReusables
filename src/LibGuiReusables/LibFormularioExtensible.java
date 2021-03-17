@@ -21,7 +21,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     public LibFormularioExtensible() {
         this.panelBotones = new LibPanelBotones();
-       
+        panelBotones.nuevoActionListener(this);
     }
 
     /**
@@ -101,8 +101,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     private void combinarGuiSimple(LibFormularioExtensible hijo) {
         javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
         JPanel panelHijo = (JPanel) hijo.getContentPane();
-       // panelHijo.setLayout(null);
-       
+        // panelHijo.setLayout(null);
+
         panelHijo.setBorder(blackline);
 
         LibFormularioSimple padreSimple = (LibFormularioSimple) this;
@@ -110,8 +110,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
         padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
-      
-      
+
     }
 
     /**
@@ -127,15 +126,11 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    private LibPanelBotones panelBotones ;
-    
+    private LibPanelBotones panelBotones;
 
     private void addPanelBotones() {
-    
 
         this.getContentPane().add(panelBotones, BorderLayout.SOUTH);
     }
-
-    
 
 }
