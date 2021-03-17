@@ -5,6 +5,8 @@
  */
 package LibGuiReusables;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Javi
@@ -26,8 +28,8 @@ public class LibFormularioSimple extends LibFormularioExtensible {
             pack();
             //Set up the content pane.
             
-            this.setSize(800, 600);
-            this.setResizable(false);
+            this.setSize(400, 300);
+            //this.setResizable(false);
 
             //this.setExtendedState(MAXIMIZED_BOTH);
             return true;
@@ -44,22 +46,37 @@ public class LibFormularioSimple extends LibFormularioExtensible {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    public void aceptar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void rechazar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+ 
+    @Override
+    public void aceptar() {
+        System.out.println("has pulsado aceptar");
+    }
 
-   
+    @Override
+    public void cancelar() {
+        System.out.println("has pulsado rechazar");
+    }
+
+       @Override
+    public void cambiarValor(String nombreComponente, Object valor) {
+        System.out.println("cambiar valor");
+    }
+
+    @Override
+    public void recuperarValorExterno(String nombreComponente, Object valor) {
+        System.out.println("recuperar valor");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+         System.out.println("evento Accion");
+    }
+
+    
 
 }

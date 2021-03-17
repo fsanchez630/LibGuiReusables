@@ -7,17 +7,22 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario {
+public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener {
+
+    public LibFormularioExtensible() {
+        this.panelBotones = new LibPanelBotones();
+       
+    }
 
     /**
      *
@@ -67,7 +72,9 @@ public abstract class LibFormularioExtensible extends LibFormulario {
             nombreContenedor = titulo;
         }
         hijosExtensibles.add(hijo);
-        combinarGui(hijo);
+        if (this instanceof LibFormularioSimple) {
+            combinarGuiSimple(hijo);
+        }
 
     }
 
@@ -84,38 +91,27 @@ public abstract class LibFormularioExtensible extends LibFormulario {
 
         for (LibFormularioExtensible hijo : listaHijos) {
             hijosExtensibles.add(hijo);
-            combinarGui(hijo);
+            if (this instanceof LibFormularioSimple) {
+                combinarGuiSimple(hijo);
+            }
         }
 
     }
 
-    private void combinarGui(LibFormularioExtensible hijo) {
+    private void combinarGuiSimple(LibFormularioExtensible hijo) {
+        javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+        JPanel panelHijo = (JPanel) hijo.getContentPane();
+       // panelHijo.setLayout(null);
+       
+        panelHijo.setBorder(blackline);
 
-        if (this instanceof LibFormularioSimple) {
+        LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+        padreSimple.setTitle(nombreContenedor);
 
-            javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
-            JPanel panelHijo = (JPanel) hijo.getContentPane();
-            panelHijo.setLayout(null);
-            panelHijo.setBorder(blackline);
-
-            //    panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
-            //    panelPrincipal.add(panelHijo);
-            LibFormularioSimple padreSimple = (LibFormularioSimple) this;
-            padreSimple.setTitle(nombreContenedor);
-
-            padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
-            padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
-            /*
-            padreSimple.getContentPane().setLayout((new GridBagLayout()));
-            GridBagConstraints constraints = new GridBagConstraints();
-            constraints.weightx = 0.5;
-            constraints.fill = GridBagConstraints.HORIZONTAL;
-            constraints.gridx = 0;
-            constraints.gridy = 0;
-            padreSimple.getContentPane().add(panelHijo, constraints);
-             */
-        }
-
+        padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
+        padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
+      
+      
     }
 
     /**
@@ -126,51 +122,20 @@ public abstract class LibFormularioExtensible extends LibFormulario {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    private javax.swing.JPanel panelBotones = new JPanel();
-    private javax.swing.JButton botonAceptar = new JButton();
-    private javax.swing.JButton botonCancelar = new JButton();
-
-    private void inicializar() {
-        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAceptarActionPerformed(evt);
-            }
-        });
-
-        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCancelarActionPerformed(evt);
-            }
-        });
-    }
+    private LibPanelBotones panelBotones ;
+    
 
     private void addPanelBotones() {
-        inicializar();
+    
 
-        botonAceptar.setText("Aceptar");
-
-        panelBotones.add(botonAceptar);
-
-        botonCancelar.setText("Cancelar");
-
-        panelBotones.add(botonCancelar);
-
-        this.getContentPane().add(panelBotones);
+        this.getContentPane().add(panelBotones, BorderLayout.SOUTH);
     }
 
-    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-        aceptar();
-    }
-
-    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {
-        rechazar();
-    }
+    
 
 }

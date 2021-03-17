@@ -17,8 +17,8 @@ public interface IValidable {
     public void aceptar();
 
     /**
-     *  rechazar datos formulario
+     *  cancelar datos formulario
      */
-    public void rechazar();
+    public void cancelar();
     
 }

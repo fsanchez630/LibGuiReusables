@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  * @author Javi
  */
 
-public abstract class LibFormulario extends JFrame implements IValidable{
+public abstract class LibFormulario extends JFrame implements IValidable,IComunicable{
 
     private JFrame extension;
        
