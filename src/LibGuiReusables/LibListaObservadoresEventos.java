@@ -15,11 +15,11 @@ import javax.swing.event.EventListenerList;
  *
  * @author Javi
  */
-public class LibObservador {
+public class LibListaObservadoresEventos {
 
     private EventListenerList listeners;
 
-    public LibObservador() {
+    public LibListaObservadoresEventos() {
         listeners = new EventListenerList();
 
     }
