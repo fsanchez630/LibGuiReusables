@@ -6,6 +6,7 @@
 package LibGuiReusables;
 
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -74,6 +75,11 @@ public class LibFormularioSimple extends LibFormularioExtensible {
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());
 
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent evt) {
+         System.out.println("valor cambiado: " + evt.getSource());
     }
 
 }

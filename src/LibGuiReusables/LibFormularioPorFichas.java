@@ -6,6 +6,7 @@
 package LibGuiReusables;
 
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
@@ -69,5 +70,10 @@ public class LibFormularioPorFichas extends LibFormularioExtensible  {
     @Override
     public void actionPerformed(ActionEvent e) {
          System.out.println("evento Accion");
+    }
+    
+     @Override
+    public void stateChanged(ChangeEvent evt) {
+         System.out.println("valor cambiado: " + evt.getSource());
     }
 }

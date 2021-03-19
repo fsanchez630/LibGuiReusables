@@ -17,9 +17,10 @@ import javax.swing.JPanel;
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener {
+public abstract class LibFormularioExtensible extends LibFormulario  {
 
     public LibFormularioExtensible() {
+        initComponents();
         this.panelBotones = new LibPanelBotones();
         panelBotones.nuevoActionListener(this);
     }
@@ -56,8 +57,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @return
      */
     public Boolean configurarFormulario() {
-        initComponents();
+        
         addPanelBotones();
+        this.setLocationRelativeTo(null);
         return true;
     }
 
