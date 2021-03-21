@@ -5,15 +5,13 @@
  */
 package LibGuiReusables;
 
-import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import javax.swing.event.ChangeListener;
 /**
  *
  * @author Javi
  */
 
-public abstract class LibFormulario extends JFrame implements IValidable,IComunicable , ActionListener, ChangeListener{
+public abstract class LibFormulario extends JFrame implements IValidable,IComunicable {
 
     private JFrame extension;
        

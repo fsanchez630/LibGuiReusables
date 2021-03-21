@@ -18,6 +18,7 @@ public interface IComunicable {
      */
     public void cambiarValor(String nombreComponente , Object valor );
 
+  
     /**
      *  obtiene valor de un componente externo
      * @param nombreComponente

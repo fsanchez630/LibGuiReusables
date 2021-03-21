@@ -6,18 +6,24 @@
 package LibGuiReusables;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
  * @author Javi
  */
-public class LibFormularioPorFichas extends LibFormularioExtensible  {
+public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener {
+
+    private JTabbedPane panelPrincipal = new JTabbedPane();
 
     /**
      *
      */
     public LibFormularioPorFichas() {
+        this.setContentPane(panelPrincipal);
         initComponents();
     }
 
@@ -26,6 +32,13 @@ public class LibFormularioPorFichas extends LibFormularioExtensible  {
 
         if (super.configurarFormulario()) {
 
+            pack();
+            //Set up the content pane.
+
+            this.setSize(400, 300);
+            //this.setResizable(false);
+
+            //this.setExtendedState(MAXIMIZED_BOTH);
             return true;
         } else {
             return false;
@@ -40,8 +53,6 @@ public class LibFormularioPorFichas extends LibFormularioExtensible  {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -60,6 +71,10 @@ public class LibFormularioPorFichas extends LibFormularioExtensible  {
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
+          if ("panelPrincipal".equals(nombreComponente)){
+            panelPrincipal = (JTabbedPane) valor;
+            this.setContentPane(panelPrincipal);
+        }
     }
 
     @Override
@@ -68,12 +83,13 @@ public class LibFormularioPorFichas extends LibFormularioExtensible  {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-         System.out.println("evento Accion");
+    public void actionPerformed(ActionEvent evt) {
+        System.out.println("Botón pulsado: " + evt.getActionCommand());
     }
-    
-     @Override
+
+    @Override
     public void stateChanged(ChangeEvent evt) {
-         System.out.println("valor cambiado: " + evt.getSource());
+        System.out.println("evento cambio");
     }
+
 }

@@ -8,6 +8,7 @@ package LibGuiReusables;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario  {
+public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener,ChangeListener {
 
     public LibFormularioExtensible() {
         initComponents();
@@ -77,6 +78,10 @@ public abstract class LibFormularioExtensible extends LibFormulario  {
         if (this instanceof LibFormularioSimple) {
             combinarGuiSimple(hijo);
         }
+        
+         if (this instanceof LibFormularioPorFichas) {
+            combinarGuiPorFichas(hijo);
+        }
 
     }
 
@@ -114,6 +119,22 @@ public abstract class LibFormularioExtensible extends LibFormulario  {
         padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
 
     }
+    
+     private void combinarGuiPorFichas(LibFormularioExtensible hijo) {
+        javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+        JPanel panelHijo = (JPanel) hijo.getContentPane();
+        // panelHijo.setLayout(null);
+
+        panelHijo.setBorder(blackline);
+
+        LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+        padrePorFichas.setTitle(nombreContenedor);
+
+        padrePorFichas.getContentPane().setLayout((new BoxLayout(padrePorFichas.getContentPane(), BoxLayout.Y_AXIS)));
+        padrePorFichas.getContentPane().add(panelHijo, BorderLayout.CENTER);
+
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

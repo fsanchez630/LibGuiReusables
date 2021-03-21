@@ -6,18 +6,23 @@
 package LibGuiReusables;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
  * @author Javi
  */
-public class LibFormularioSimple extends LibFormularioExtensible {
+public class LibFormularioSimple extends LibFormularioExtensible implements ActionListener,ChangeListener {
 
+    private JPanel panelPrincipal = new JPanel();
     /**
      *
      */
     public LibFormularioSimple() {
+        this.setContentPane(panelPrincipal);
         initComponents();
     }
 
@@ -65,6 +70,11 @@ public class LibFormularioSimple extends LibFormularioExtensible {
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
+        if ("panelPrincipal".equals(nombreComponente)){
+            panelPrincipal = (JPanel) valor;
+            this.setContentPane(panelPrincipal);
+        }
+        
     }
 
     @Override
@@ -72,6 +82,7 @@ public class LibFormularioSimple extends LibFormularioExtensible {
         System.out.println("recuperar valor");
     }
 
+    @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());
 
@@ -79,7 +90,9 @@ public class LibFormularioSimple extends LibFormularioExtensible {
 
     @Override
     public void stateChanged(ChangeEvent evt) {
-         System.out.println("valor cambiado: " + evt.getSource());
+          System.out.println("evento cambio");
     }
+
+   
 
 }
