@@ -26,4 +26,11 @@ public interface IComunicable {
      */
     public void recuperarValorExterno(String nombreComponente , Object valor);
     
+    /**
+     * obtiene el valor de un componente propio
+     * @param nombreComponente the value of nombreComponente
+     * @param valor
+          * @return the Object
+     */
+    public Object obtenerValor(String nombreComponente);
 }

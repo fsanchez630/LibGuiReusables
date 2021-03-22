@@ -32,6 +32,13 @@ public class LibFactoriaFormularios {
         return formulario;
     }
 
+     public LibFormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
+
+        LibFormularioExtensible formulario = crearFormulario(tipo);          
+        formulario.setnombreContenedor(nombre);
+
+        return formulario;
+    }
     /**
      *
      * @param tipo

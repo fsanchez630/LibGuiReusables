@@ -13,17 +13,49 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 /**
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener,ChangeListener {
+public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable {
 
     public LibFormularioExtensible() {
         initComponents();
         this.panelBotones = new LibPanelBotones();
         panelBotones.nuevoActionListener(this);
+    }
+
+    @Override
+    public void aceptar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cancelar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cambiarValor(String nombreComponente, Object valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void recuperarValorExterno(String nombreComponente, Object valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     *
+     * @param nombreComponente the value of nombreComponente
+     * @param Valor the value of Valor
+     * @return the Object
+     */
+    @Override
+    public Object obtenerValor(String nombreComponente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -43,6 +75,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      */
     public void setnombreContenedor(String nombre) {
         nombreContenedor = nombre;
+        this.setTitle(nombreContenedor);
     }
 
     /**
@@ -58,7 +91,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @return
      */
     public Boolean configurarFormulario() {
-        
+
         addPanelBotones();
         this.setLocationRelativeTo(null);
         return true;
@@ -70,17 +103,35 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @param titulo
      */
     public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) {
-        if (titulo.isEmpty() || titulo.equals(nombreContenedor)) {
-        } else {
-            nombreContenedor = titulo;
-        }
-        hijosExtensibles.add(hijo);
-        if (this instanceof LibFormularioSimple) {
-            combinarGuiSimple(hijo);
-        }
         
-         if (this instanceof LibFormularioPorFichas) {
-            combinarGuiPorFichas(hijo);
+        hijo.nombreContenedor = titulo;
+        hijosExtensibles.add(hijo);
+
+        if (this instanceof LibFormularioSimple) {
+            javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+            panelHijo.setBorder(blackline);
+
+            LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+            
+            padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
+            padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
+        }
+
+        if (this instanceof LibFormularioPorFichas) {
+            javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+            panelHijo.setBorder(blackline);
+
+            LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+
+            JTabbedPane panelPrincipal = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
+            panelPrincipal.addTab(titulo, panelHijo);
+
         }
 
     }
@@ -119,8 +170,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
 
     }
-    
-     private void combinarGuiPorFichas(LibFormularioExtensible hijo) {
+
+    private void combinarGuiPorFichas(LibFormularioExtensible hijo) {
         javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
         JPanel panelHijo = (JPanel) hijo.getContentPane();
         // panelHijo.setLayout(null);
@@ -134,7 +185,6 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         padrePorFichas.getContentPane().add(panelHijo, BorderLayout.CENTER);
 
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.

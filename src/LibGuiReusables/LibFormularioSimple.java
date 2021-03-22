@@ -15,13 +15,15 @@ import javax.swing.event.ChangeListener;
  *
  * @author Javi
  */
-public class LibFormularioSimple extends LibFormularioExtensible implements ActionListener,ChangeListener {
+public class LibFormularioSimple extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
 
-    private JPanel panelPrincipal = new JPanel();
+    private JPanel panelPrincipal;
+
     /**
      *
      */
     public LibFormularioSimple() {
+        panelPrincipal = new JPanel();
         this.setContentPane(panelPrincipal);
         initComponents();
     }
@@ -70,11 +72,22 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
-        if ("panelPrincipal".equals(nombreComponente)){
+        if ("panelPrincipal".equals(nombreComponente)) {
             panelPrincipal = (JPanel) valor;
             this.setContentPane(panelPrincipal);
         }
-        
+
+    }
+
+    @Override
+    public Object obtenerValor(String nombreComponente) {
+        System.out.println("obtener valor");
+        Object retorno = null;        
+        if ("panelPrincipal".equals(nombreComponente)) {
+            retorno = panelPrincipal;
+        }
+
+        return retorno;
     }
 
     @Override
@@ -90,9 +103,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
 
     @Override
     public void stateChanged(ChangeEvent evt) {
-          System.out.println("evento cambio");
+        System.out.println("evento cambio");
     }
-
-   
 
 }

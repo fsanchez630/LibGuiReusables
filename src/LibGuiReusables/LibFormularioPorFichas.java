@@ -7,6 +7,7 @@ package LibGuiReusables;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -15,15 +16,19 @@ import javax.swing.event.ChangeListener;
  *
  * @author Javi
  */
-public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener {
+public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
 
-    private JTabbedPane panelPrincipal = new JTabbedPane();
+    private JPanel panelPrincipal;
+    private JTabbedPane panelPorFichas;
 
     /**
      *
      */
     public LibFormularioPorFichas() {
+        panelPrincipal = new JPanel();
+        panelPorFichas = new JTabbedPane();
         this.setContentPane(panelPrincipal);
+        this.getContentPane().add(panelPorFichas);
         initComponents();
     }
 
@@ -71,15 +76,34 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
-          if ("panelPrincipal".equals(nombreComponente)){
-            panelPrincipal = (JTabbedPane) valor;
+        if ("panelPrincipal".equals(nombreComponente)) {
+            panelPrincipal = (JPanel) valor;
             this.setContentPane(panelPrincipal);
+        }
+        
+         if ("panelPorFichas".equals(nombreComponente)) {
+            panelPorFichas = (JTabbedPane) valor;            
         }
     }
 
     @Override
     public void recuperarValorExterno(String nombreComponente, Object valor) {
         System.out.println("recuperar valor");
+    }
+
+    @Override
+    public Object obtenerValor(String nombreComponente) {
+        System.out.println("obtener valor");
+        Object retorno = null;
+        if ("panelPrincipal".equals(nombreComponente)) {
+            retorno = panelPrincipal;
+        }
+        
+         if ("panelPorFichas".equals(nombreComponente)) {
+           retorno = panelPorFichas;            
+        }
+
+        return retorno;
     }
 
     @Override
