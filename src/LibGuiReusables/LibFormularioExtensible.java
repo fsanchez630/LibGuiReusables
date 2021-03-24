@@ -103,11 +103,12 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @param titulo
      */
     public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) {
-        
+
         hijo.nombreContenedor = titulo;
         hijosExtensibles.add(hijo);
 
         if (this instanceof LibFormularioSimple) {
+
             javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -115,9 +116,10 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             panelHijo.setBorder(blackline);
 
             LibFormularioSimple padreSimple = (LibFormularioSimple) this;
-            
-            padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
-            padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
+            JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
+
+            panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
         }
 
         if (this instanceof LibFormularioPorFichas) {
@@ -129,8 +131,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
             LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
 
-            JTabbedPane panelPrincipal = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
-            panelPrincipal.addTab(titulo, panelHijo);
+            JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
+            panelPorFichas.addTab(titulo, panelHijo);
 
         }
 
@@ -147,42 +149,46 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             nombreContenedor = titulo;
         }
 
-        for (LibFormularioExtensible hijo : listaHijos) {
-            hijosExtensibles.add(hijo);
-            if (this instanceof LibFormularioSimple) {
-                combinarGuiSimple(hijo);
+        if (this instanceof LibFormularioSimple) {
+            for (LibFormularioExtensible hijo : listaHijos) {
+                hijosExtensibles.add(hijo);
+
+                javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+                JPanel panelHijo = (JPanel) hijo.getContentPane();
+                // panelHijo.setLayout(null);
+
+                panelHijo.setBorder(blackline);
+
+                LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+
+                JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
+
+                panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+                panelPrincipal.add(panelHijo, BorderLayout.CENTER);
             }
+
         }
 
-    }
+        if (this instanceof LibFormularioPorFichas) {
+            LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+            JPanel panelCombinado = new JPanel();
+            panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
 
-    private void combinarGuiSimple(LibFormularioExtensible hijo) {
-        javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
-        JPanel panelHijo = (JPanel) hijo.getContentPane();
-        // panelHijo.setLayout(null);
+            for (LibFormularioExtensible hijo : listaHijos) {
+                hijosExtensibles.add(hijo);
 
-        panelHijo.setBorder(blackline);
+                javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
+                JPanel panelHijo = (JPanel) hijo.getContentPane();
+                // panelHijo.setLayout(null);
 
-        LibFormularioSimple padreSimple = (LibFormularioSimple) this;
-        padreSimple.setTitle(nombreContenedor);
+                panelHijo.setBorder(blackline);
+                panelCombinado.add(panelHijo);
 
-        padreSimple.getContentPane().setLayout((new BoxLayout(padreSimple.getContentPane(), BoxLayout.Y_AXIS)));
-        padreSimple.getContentPane().add(panelHijo, BorderLayout.CENTER);
+            }
+            JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
+            panelPorFichas.addTab(titulo, panelCombinado);
 
-    }
-
-    private void combinarGuiPorFichas(LibFormularioExtensible hijo) {
-        javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
-        JPanel panelHijo = (JPanel) hijo.getContentPane();
-        // panelHijo.setLayout(null);
-
-        panelHijo.setBorder(blackline);
-
-        LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
-        padrePorFichas.setTitle(nombreContenedor);
-
-        padrePorFichas.getContentPane().setLayout((new BoxLayout(padrePorFichas.getContentPane(), BoxLayout.Y_AXIS)));
-        padrePorFichas.getContentPane().add(panelHijo, BorderLayout.CENTER);
+        }
 
     }
 
