@@ -29,10 +29,11 @@ public class LibPanelBotones extends javax.swing.JPanel {
         botonAceptar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         setMinimumSize(new java.awt.Dimension(460, 40));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(460, 40));
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new java.awt.GridLayout());
 
         botonAceptar.setText("Aceptar");
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -40,7 +41,7 @@ public class LibPanelBotones extends javax.swing.JPanel {
                 botonAceptarActionPerformed(evt);
             }
         });
-        add(botonAceptar, new java.awt.GridBagConstraints());
+        add(botonAceptar);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,7 +49,7 @@ public class LibPanelBotones extends javax.swing.JPanel {
                 botonCancelarActionPerformed(evt);
             }
         });
-        add(botonCancelar, new java.awt.GridBagConstraints());
+        add(botonCancelar);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
