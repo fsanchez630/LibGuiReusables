@@ -21,15 +21,12 @@ import javax.swing.JTabbedPane;
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable {
 
-    
-
     public LibFormularioExtensible() {
         initComponents();
         this.panelBotones = new LibPanelBotones();
         panelBotones.nuevoActionListener(this);
     }
-    
-    
+
     /**
      *
      */
@@ -40,10 +37,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     private String nombreContenedor;
 
     private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<>();
-    
-    private LibListaObservadoresEventos listaObservadores ;
-    
-    
+
+    private LibListaObservadoresEventos listaObservadores;
 
     /**
      *
@@ -75,7 +70,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     public void setListaObservadores(LibListaObservadoresEventos listaObservadores) {
         this.listaObservadores = listaObservadores;
     }
-    
+
     @Override
     public void aceptar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -83,6 +78,21 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     @Override
     public void cancelar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean validar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void guardar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void limpiar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -107,8 +117,6 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-
     /**
      *
      * @return
@@ -124,13 +132,18 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      *
      * @param hijo
      * @param titulo
+     * @throws java.lang.Exception
      */
-    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) {
-
-        hijo.nombreContenedor = titulo;
-        hijosExtensibles.add(hijo);
+    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
 
         if (this instanceof LibFormularioSimple) {
+            
+            if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS){
+                Exception err = new Exception("maximos de hijos alacanzado");
+                    throw err;
+            }
+            hijo.nombreContenedor = titulo;
+            hijosExtensibles.add(hijo);
 
             javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
             JPanel panelHijo = (JPanel) hijo.getContentPane();
@@ -146,6 +159,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         }
 
         if (this instanceof LibFormularioPorFichas) {
+            hijo.nombreContenedor = titulo;
+            hijosExtensibles.add(hijo);
+
             javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -165,8 +181,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      *
      * @param listaHijos
      * @param titulo
+     * @throws java.lang.Exception
      */
-    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) {
+    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(nombreContenedor)) {
         } else {
             nombreContenedor = titulo;
@@ -174,6 +191,14 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         if (this instanceof LibFormularioSimple) {
             for (LibFormularioExtensible hijo : listaHijos) {
+                
+                if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS){
+                    Exception err = new Exception("maximos de hijos alacanzado");
+                    
+                    throw err;
+                
+            }
+                
                 hijosExtensibles.add(hijo);
 
                 javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);

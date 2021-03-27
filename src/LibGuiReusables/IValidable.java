@@ -21,4 +21,20 @@ public interface IValidable {
      */
     public void cancelar();
     
+    /**
+     *  validar datos formulario
+     * @return verdadero cuando cumple correctamente las validaciones
+     */
+    boolean validar();
+    
+    /**
+     *  guardar datos formulario
+     */
+    public void guardar();
+    
+    /**
+     *  limpiar datos formulario
+     */
+    public void limpiar();
+    
 }

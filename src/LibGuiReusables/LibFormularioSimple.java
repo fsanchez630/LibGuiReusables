@@ -18,11 +18,13 @@ import javax.swing.event.ChangeListener;
 public class LibFormularioSimple extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
 
     private JPanel panelPrincipal;
+    static final Integer MAXHIJOS = 2;
 
     /**
      *
      */
     public LibFormularioSimple() {
+        
         panelPrincipal = new JPanel();
         this.setContentPane(panelPrincipal);
         initComponents();
