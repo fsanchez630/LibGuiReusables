@@ -21,12 +21,61 @@ import javax.swing.JTabbedPane;
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable {
 
+    
+
     public LibFormularioExtensible() {
         initComponents();
         this.panelBotones = new LibPanelBotones();
         panelBotones.nuevoActionListener(this);
     }
+    
+    
+    /**
+     *
+     */
+    public enum TipoContenedor {
+        SIMPLE, PORFICHAS, ARBOL
+    }
 
+    private String nombreContenedor;
+
+    private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<>();
+    
+    private LibListaObservadoresEventos listaObservadores ;
+    
+    
+
+    /**
+     *
+     * @param nombre
+     */
+    public void setnombreContenedor(String nombre) {
+        nombreContenedor = nombre;
+        this.setTitle(nombreContenedor);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getnombreContenedor() {
+        return nombreContenedor;
+    }
+
+    /**
+     * @return the listaObservadores
+     */
+    public LibListaObservadoresEventos getListaObservadores() {
+        return listaObservadores;
+    }
+
+    /**
+     * @param listaObservadores the listaObservadores to set
+     */
+    public void setListaObservadores(LibListaObservadoresEventos listaObservadores) {
+        this.listaObservadores = listaObservadores;
+    }
+    
     @Override
     public void aceptar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -58,33 +107,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     *
-     */
-    public enum TipoContenedor {
-        SIMPLE, PORFICHAS, ARBOL
-    }
-
-    private String nombreContenedor;
-
-    private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<>();
-
-    /**
-     *
-     * @param nombre
-     */
-    public void setnombreContenedor(String nombre) {
-        nombreContenedor = nombre;
-        this.setTitle(nombreContenedor);
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getnombreContenedor() {
-        return nombreContenedor;
-    }
+    
 
     /**
      *
