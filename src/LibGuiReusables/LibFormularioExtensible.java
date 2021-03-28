@@ -277,7 +277,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     private void addPanelBotones() {
 
-        this.getContentPane().add(panelBotones, BorderLayout.SOUTH);
+        this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
 }
