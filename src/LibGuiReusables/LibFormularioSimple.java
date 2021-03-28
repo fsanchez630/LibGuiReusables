@@ -21,8 +21,9 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
 
-    /**
-     *
+     /**
+     * Constructor por defecto
+     * crea el panel principal 
      */
     public LibFormularioSimple() {
         initComponents();
@@ -63,6 +64,11 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    
+    /**
+     * metodos de la Interface Ivalidable
+     */
+
     @Override
     public void aceptar() {
         System.out.println("has pulsado aceptar");
@@ -73,6 +79,11 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
         System.out.println("has pulsado rechazar");
     }
 
+    /**
+     * metodos de la Interface IComunicable
+     */
+    
+    
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
@@ -99,6 +110,10 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
         System.out.println("recuperar valor");
     }
 
+    /**
+     * metodos de gestion de eventos
+     */
+    
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());

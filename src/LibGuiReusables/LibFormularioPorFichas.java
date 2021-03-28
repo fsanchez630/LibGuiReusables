@@ -14,16 +14,20 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- *
+ * clase derivada Formulario  por Fichas
+ * 
  * @author Javi
  */
 public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
 
+    // panel primcipal 
     private JPanel panelPrincipal;
+    // panel por fichas
     private JTabbedPane panelPorFichas;
 
     /**
-     *
+     * Constructor por defecto
+     * crea el panel principal y el panel por fichas
      */
     public LibFormularioPorFichas() {
         initComponents();
@@ -67,6 +71,12 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    
+     /**
+     * metodos de la Interface Ivalidable
+     */
+
+    
     @Override
     public void aceptar() {
         System.out.println("has pulsado aceptar");
@@ -77,6 +87,10 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         System.out.println("has pulsado rechazar");
     }
 
+    /**
+     * metodos de la Interface IComunicable
+     */
+    
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
@@ -110,6 +124,10 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         return retorno;
     }
 
+    /**
+     * metodos de gestion de eventos
+     */
+    
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());

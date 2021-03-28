@@ -6,7 +6,8 @@
 package LibGuiReusables;
 
 /**
- *
+ *interface para counicar componentees de los formularios
+ * Definee el patron de los metodos que se deben implementar
  * @author Javi
  */
 public interface IComunicable {
@@ -29,7 +30,6 @@ public interface IComunicable {
     /**
      * obtiene el valor de un componente propio
      * @param nombreComponente the value of nombreComponente
-     * @param valor
           * @return the Object
      */
     public Object obtenerValor(String nombreComponente);

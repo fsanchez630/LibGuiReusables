@@ -6,7 +6,8 @@
 package LibGuiReusables;
 
 /**
- *
+ *interface para validacion de datos de los formularios
+ * define el patron los metodos que se deben implementar
  * @author Javi
  */
 public interface IValidable {
@@ -25,7 +26,7 @@ public interface IValidable {
      *  validar datos formulario
      * @return verdadero cuando cumple correctamente las validaciones
      */
-    boolean validar();
+   Boolean validar();
     
     /**
      *  guardar datos formulario

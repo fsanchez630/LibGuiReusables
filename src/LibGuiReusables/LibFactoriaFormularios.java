@@ -9,17 +9,18 @@ import LibGuiReusables.LibFormularioExtensible.TipoContenedor;
 import javax.swing.JFrame;
 
 /**
- *
+ * Clase Factoria de los Formularios extensibles
+ * 
  * @author Javi
  */
 public class LibFactoriaFormularios {
 
     /**
-     *
+     * crea una nueva instancia del tipoContenedor 
      * @param tipo
      * @param extension
      * @param nombre
-     * @return
+     * @return LibFormularioExtensible
      */
     public LibFormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
 
@@ -32,7 +33,13 @@ public class LibFactoriaFormularios {
         return formulario;
     }
 
-     public LibFormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
+    /**
+     * crea una nueva instancia del tipoContenedor 
+     * @param tipo
+     * @param nombre
+     * @return
+     */
+    public LibFormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
 
         LibFormularioExtensible formulario = crearFormulario(tipo);          
         formulario.setnombreContenedor(nombre);
@@ -40,7 +47,7 @@ public class LibFactoriaFormularios {
         return formulario;
     }
     /**
-     *
+     * crea una nueva instancia del tipoContenedor 
      * @param tipo
      * @return
      */

@@ -7,7 +7,7 @@ package LibGuiReusables;
 
 import javax.swing.JFrame;
 /**
- *
+ * clase abstracta que es la clase base  de la libreria de formularios extensibles
  * @author Javi
  */
 
@@ -16,7 +16,7 @@ public abstract class LibFormulario extends JFrame  {
     private JFrame extension;
        
     /**
-     *
+     * establece la extension (Jframe)
      * @param frame
      */
     public void setExtension (JFrame frame){
@@ -25,7 +25,7 @@ public abstract class LibFormulario extends JFrame  {
     }
     
     /**
-     *
+     * recupera la extension (Jframe)
      * @return extension
      */
     public  JFrame getExtension (){

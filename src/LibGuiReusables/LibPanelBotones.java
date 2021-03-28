@@ -4,14 +4,19 @@ package LibGuiReusables;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.EventListenerList;
+
 /**
- *
+ *  Panel Botones Acpetar y Cancelar
  * @author Javi
  */
 public class LibPanelBotones extends javax.swing.JPanel {
 
+    // lista de observadores de eventos
     private EventListenerList listeners;
-    /** Creates new form BotonesPanel */
+    
+    /**
+     *  crear un nuevo PanelBotones y la lista de Observadores de eventos
+     */
     public LibPanelBotones() {
         initComponents();
         listeners = new EventListenerList();
@@ -67,6 +72,11 @@ public class LibPanelBotones extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
 
+    
+    /**
+     *notifica el evento a los observadores de la lista
+     * @param ActionEvent
+     */
     private void disparaActionEvent(ActionEvent evt) {
         ActionListener[] listenerLista = listeners.getListeners(ActionListener.class);
         for (int i = listenerLista.length-1; i>=0; --i) {
@@ -75,6 +85,10 @@ public class LibPanelBotones extends javax.swing.JPanel {
 
     }
 
+    /**
+     * incluye un nuevo observador en la lista
+     * @param listener
+     */
     public void nuevoActionListener(ActionListener listener) {
         listeners.add(ActionListener.class, listener);
     }

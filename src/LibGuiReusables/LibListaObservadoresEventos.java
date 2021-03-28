@@ -12,26 +12,42 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 
 /**
- *
+ * Clase que maneja la lista de observadores de eventos
  * @author Javi
  */
 public class LibListaObservadoresEventos {
 
+    // lista de observadores de eventos
     private EventListenerList listeners;
 
+    /**
+     * crea una nueva lista de observadores de eventos
+     */
     public LibListaObservadoresEventos() {
         listeners = new EventListenerList();
 
     }
 
+    /**
+     * incluye un nuevo observador de cambios en la lista
+     * @param listener
+     */
     public void nuevoChangeListener(ChangeListener listener) {
         listeners.add(ChangeListener.class, listener);
     }
 
+    /**
+     * incluye un nuevo observador de acciones en la lista
+     * @param listener
+     */
     public void nuevoActionListener(ActionListener listener) {
         listeners.add(ActionListener.class, listener);
     }
 
+    /**
+     * notifica el evento cambio a los observaores de la lista
+     * @param evt
+     */
     public void disparaStateChanged(ChangeEvent evt) {
         ChangeListener[] listenerLista = listeners.getListeners(ChangeListener.class);
         for (int i = listenerLista.length - 1; i >= 0; --i) {
@@ -40,6 +56,10 @@ public class LibListaObservadoresEventos {
 
     }
 
+    /**
+     * notifica el evento  accion a los observadores  de la lista
+     * @param evt
+     */
     public void disparaActionEvent(ActionEvent evt) {
         ActionListener[] listenerLista = listeners.getListeners(ActionListener.class);
         for (int i = listenerLista.length - 1; i >= 0; --i) {
