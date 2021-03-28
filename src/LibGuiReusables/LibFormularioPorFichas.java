@@ -14,8 +14,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * clase derivada Formulario  por Fichas
- * 
+ * clase derivada Formulario por Fichas
+ *
  * @author Javi
  */
 public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
@@ -26,8 +26,7 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     private JTabbedPane panelPorFichas;
 
     /**
-     * Constructor por defecto
-     * crea el panel principal y el panel por fichas
+     * Constructor por defecto crea el panel principal y el panel por fichas
      */
     public LibFormularioPorFichas() {
         initComponents();
@@ -35,9 +34,10 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         panelPorFichas = new JTabbedPane();
         //this.setContentPane(panelPrincipal);
         //this.getContentPane().add(panelPorFichas);
+        panelPrincipal.setLayout(new BorderLayout());
         panelPrincipal.add(panelPorFichas);
         this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
-        
+
     }
 
     @Override
@@ -71,12 +71,9 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    
-     /**
+    /**
      * metodos de la Interface Ivalidable
      */
-
-    
     @Override
     public void aceptar() {
         System.out.println("has pulsado aceptar");
@@ -90,17 +87,16 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     /**
      * metodos de la Interface IComunicable
      */
-    
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
         if ("panelPrincipal".equals(nombreComponente)) {
             panelPrincipal = (JPanel) valor;
-          //  this.setContentPane(panelPrincipal);
+            //  this.setContentPane(panelPrincipal);
         }
-        
-         if ("panelPorFichas".equals(nombreComponente)) {
-            panelPorFichas = (JTabbedPane) valor;            
+
+        if ("panelPorFichas".equals(nombreComponente)) {
+            panelPorFichas = (JTabbedPane) valor;
         }
     }
 
@@ -116,9 +112,9 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         if ("panelPrincipal".equals(nombreComponente)) {
             retorno = panelPrincipal;
         }
-        
-         if ("panelPorFichas".equals(nombreComponente)) {
-           retorno = panelPorFichas;            
+
+        if ("panelPorFichas".equals(nombreComponente)) {
+            retorno = panelPorFichas;
         }
 
         return retorno;
@@ -127,7 +123,6 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     /**
      * metodos de gestion de eventos
      */
-    
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());
