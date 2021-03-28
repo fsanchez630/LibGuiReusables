@@ -109,7 +109,6 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     /**
      *
      * @param nombreComponente the value of nombreComponente
-     * @param Valor the value of Valor
      * @return the Object
      */
     @Override
@@ -137,10 +136,10 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
 
         if (this instanceof LibFormularioSimple) {
-            
-            if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS){
+
+            if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS) {
                 Exception err = new Exception("maximos de hijos alacanzado");
-                    throw err;
+                throw err;
             }
             hijo.nombreContenedor = titulo;
             hijosExtensibles.add(hijo);
@@ -191,14 +190,13 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         if (this instanceof LibFormularioSimple) {
             for (LibFormularioExtensible hijo : listaHijos) {
-                
-                if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS){
+
+                if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS) {
                     Exception err = new Exception("maximos de hijos alacanzado");
-                    
+
                     throw err;
-                
-            }
-                
+                }
+
                 hijosExtensibles.add(hijo);
 
                 javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);

@@ -5,6 +5,7 @@
  */
 package LibGuiReusables;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -24,10 +25,11 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
      *
      */
     public LibFormularioSimple() {
-        
-        panelPrincipal = new JPanel();
-        this.setContentPane(panelPrincipal);
         initComponents();
+        panelPrincipal = new JPanel();        
+        this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
+        // this.setContentPane(panelPrincipal);
+        
     }
 
     @Override
@@ -76,7 +78,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
         System.out.println("cambiar valor");
         if ("panelPrincipal".equals(nombreComponente)) {
             panelPrincipal = (JPanel) valor;
-            this.setContentPane(panelPrincipal);
+            //this.setContentPane(panelPrincipal);
         }
 
     }

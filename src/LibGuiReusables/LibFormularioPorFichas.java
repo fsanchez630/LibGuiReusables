@@ -5,6 +5,7 @@
  */
 package LibGuiReusables;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -25,11 +26,14 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
      *
      */
     public LibFormularioPorFichas() {
+        initComponents();
         panelPrincipal = new JPanel();
         panelPorFichas = new JTabbedPane();
-        this.setContentPane(panelPrincipal);
-        this.getContentPane().add(panelPorFichas);
-        initComponents();
+        //this.setContentPane(panelPrincipal);
+        //this.getContentPane().add(panelPorFichas);
+        panelPrincipal.add(panelPorFichas);
+        this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
+        
     }
 
     @Override
@@ -78,7 +82,7 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         System.out.println("cambiar valor");
         if ("panelPrincipal".equals(nombreComponente)) {
             panelPrincipal = (JPanel) valor;
-            this.setContentPane(panelPrincipal);
+          //  this.setContentPane(panelPrincipal);
         }
         
          if ("panelPorFichas".equals(nombreComponente)) {
