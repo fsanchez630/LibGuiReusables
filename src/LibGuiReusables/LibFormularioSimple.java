@@ -41,7 +41,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
             pack();
             //Set up the content pane.
 
-            this.setSize(500, 400);
+          //  this.setSize(500, 400);
             //this.setResizable(false);
 
             //this.setExtendedState(MAXIMIZED_BOTH);

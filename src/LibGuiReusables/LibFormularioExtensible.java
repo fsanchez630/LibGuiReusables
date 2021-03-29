@@ -7,6 +7,8 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
@@ -16,16 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 /**
- * cala se abstracta que contiene las mayoria de la funcionalidad de sus clases derivadas
- * simple, PorFichas y Arbol
- * implementa interfaces para mahejo de eventos
- * implementa interface IValidable para validacion de datos
- * implementa interface IComunicable para comunicion entre componentes
+ * cala se abstracta que contiene las mayoria de la funcionalidad de sus clases
+ * derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
+ * eventos implementa interface IValidable para validacion de datos implementa
+ * interface IComunicable para comunicion entre componentes
+ *
  * @author Javi
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable {
-
-   
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -43,6 +43,10 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     // lista de observadores de eventos
     private LibListaObservadoresEventos listaObservadores;
     
+    int minAltura = 600;  
+    int minAnchura = 450;
+        
+
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
      */
@@ -51,9 +55,10 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.panelBotones = new LibPanelBotones();
         panelBotones.nuevoActionListener(this);
     }
-    
+
     /**
      * obtener el nombre del contenedor
+     *
      * @return
      */
     public String getnombreContenedor() {
@@ -62,6 +67,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     /**
      * poner el nobre del contenedor
+     *
      * @param nombre
      */
     public void setnombreContenedor(String nombre) {
@@ -69,37 +75,49 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.setTitle(nombreContenedor);
     }
 
-
-    /** obtener la lista de observadores
+    /**
+     * obtener la lista de observadores
+     *
      * @return listaObservadores
      */
     public LibListaObservadoresEventos getListaObservadores() {
         return listaObservadores;
     }
 
-    /** poner la lista de observadores
+    /**
+     * poner la lista de observadores
+     *
      * @param listaObservadores the listaObservadores to set
      */
     public void setListaObservadores(LibListaObservadoresEventos listaObservadores) {
         this.listaObservadores = listaObservadores;
     }
-    
+
     /**
      * configurar el formulario
+     *
      * @return Boolean
      */
     public Boolean configurarFormulario() {
 
         addPanelBotones();
-        this.setLocationRelativeTo(null);
+       // this.setLocationRelativeTo(null);
+        Dimension minimumSize = new Dimension();
+        minimumSize.setSize(minAnchura, minAltura);
+        this.setMinimumSize(minimumSize);
+        this.setPreferredSize(minimumSize);
+        
+        this.setSize(minAnchura + 50, minAltura + 50);
         return true;
     }
 
     /**
-     * incluye un nuevo hijo 
+     * incluye un nuevo hijo
+     *
      * @param hijo
      * @param titulo
-     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en Formulario Simple
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
      */
     public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
 
@@ -122,6 +140,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
             panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+            //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+            panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
         }
 
@@ -146,9 +166,11 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     /**
      * inclye los hijos de una lista
+     *
      * @param listaHijos
      * @param titulo
-     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en Formulario Simple
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
      */
     public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(nombreContenedor)) {
@@ -177,7 +199,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
                 JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
-                panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+                //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+                panelPrincipal.setLayout(new GridLayout(0, 1));
                 panelPrincipal.add(panelHijo, BorderLayout.CENTER);
             }
 
@@ -186,8 +209,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         if (this instanceof LibFormularioPorFichas) {
             LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
             JPanel panelCombinado = new JPanel();
-            panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
-
+            //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
+            panelCombinado.setLayout((new GridLayout(0, 1)));
             for (LibFormularioExtensible hijo : listaHijos) {
                 hijosExtensibles.add(hijo);
 
@@ -206,10 +229,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     }
 
-     /**
+    /**
      * metodos de la Interface Ivalidable
      */
-
     @Override
     public void aceptar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -235,10 +257,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-     /**
+    /**
      * metodos de la Interface IComunicable
      */
-    
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -259,7 +280,6 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
