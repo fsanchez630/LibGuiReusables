@@ -42,10 +42,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // lista de observadores de eventos
     private LibListaObservadoresEventos listaObservadores;
-    
-    int minAltura = 600;  
+
+    int minAltura = 600;
     int minAnchura = 450;
-        
 
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
@@ -101,12 +100,12 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     public Boolean configurarFormulario() {
 
         addPanelBotones();
-       // this.setLocationRelativeTo(null);
+        // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
         minimumSize.setSize(minAnchura, minAltura);
         this.setMinimumSize(minimumSize);
         this.setPreferredSize(minimumSize);
-        
+
         this.setSize(minAnchura + 50, minAltura + 50);
         return true;
     }
@@ -130,16 +129,13 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             hijo.nombreContenedor = titulo;
             hijosExtensibles.add(hijo);
 
-            javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
 
-            panelHijo.setBorder(blackline);
-
             LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+
             JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
-            panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
             //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
             panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
@@ -149,11 +145,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             hijo.nombreContenedor = titulo;
             hijosExtensibles.add(hijo);
 
-            javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
-
-            panelHijo.setBorder(blackline);
 
             LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
 
@@ -189,11 +182,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
                 hijosExtensibles.add(hijo);
 
-                javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
-
-                panelHijo.setBorder(blackline);
 
                 LibFormularioSimple padreSimple = (LibFormularioSimple) this;
 
@@ -214,11 +204,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             for (LibFormularioExtensible hijo : listaHijos) {
                 hijosExtensibles.add(hijo);
 
-                javax.swing.border.Border blackline = BorderFactory.createLineBorder(Color.black);
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
 
-                panelHijo.setBorder(blackline);
                 panelCombinado.add(panelHijo);
 
             }
