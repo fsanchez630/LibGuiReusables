@@ -24,8 +24,6 @@ import javax.swing.JTabbedPane;
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable, Cloneable {
 
-   
-
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -35,7 +33,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // nombre del contenedor
     private String nombreContenedor;
-    
+
     /**
      * obtener el nombre del contenedor
      *
@@ -57,8 +55,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // lista de hijos
     private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<LibFormularioExtensible>();
-    
-     /**
+
+    /**
      * @return the hijosExtensibles
      */
     public ArrayList<LibFormularioExtensible> getHijosExtensibles() {
@@ -74,7 +72,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // lista de observadores de eventos
     private LibListaObservadoresEventos listaObservadores;
-    
+
     /**
      * obtener la lista de observadores
      *
@@ -105,26 +103,20 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         panelBotones.nuevoActionListener(this);
     }
 
-      
-
-    
     @Override
-    public Object clone() 
-    {
+    public Object clone() {
         Object clone = null;
-         try 
-         {
-             clone = super.clone();
-         }
-         catch(CloneNotSupportedException e) 
-         {
-             // No debería ocurrir
-         }
-         // Aqui viene la implementacion de la clonación "profunda" ('deep clone')
-         ((LibFormularioExtensible)clone).setExtension(this.getExtension());
-         
-         return clone;
+        try {
+            clone = super.clone();
+        } catch (CloneNotSupportedException e) {
+            // No debería ocurrir
+        }
+        // Aqui viene la implementacion de la clonación "profunda" ('deep clone')
+        ((LibFormularioExtensible) clone).setExtension(this.getExtension());
+
+        return clone;
     }
+
     /**
      * configurar el formulario
      *
@@ -160,7 +152,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
                 throw err;
             }
             hijo.nombreContenedor = titulo;
-            getHijosExtensibles().add(hijo);
+
+            System.out.println(hijo);
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -169,14 +163,20 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
             JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
-            //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
-            panelPrincipal.setLayout(new GridLayout(0, 1));
+                        panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+
+            /*
+            for (int x = 0; x < getHijosExtensibles().size(); x++) {
+                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+                System.out.println(prueba);
+            }
+            */
         }
 
         if (this instanceof LibFormularioPorFichas) {
             hijo.nombreContenedor = titulo;
-            getHijosExtensibles().add(hijo);
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -213,7 +213,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
                     throw err;
                 }
 
-                getHijosExtensibles().add(hijo);
+                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
@@ -235,7 +235,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
             panelCombinado.setLayout((new GridLayout(0, 1)));
             for (LibFormularioExtensible hijo : listaHijos) {
-                getHijosExtensibles().add(hijo);
+                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
