@@ -153,7 +153,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             }
             hijo.nombreContenedor = titulo;
 
-            System.out.println(hijo);
+            // System.out.println(hijo);
             getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
@@ -163,15 +163,18 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
             JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
-                        panelPrincipal.setLayout(new GridLayout(0, 1));
+            panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
             /*
+           // recorrer los hijos
             for (int x = 0; x < getHijosExtensibles().size(); x++) {
-                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
-                System.out.println(prueba);
+                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);               
+
             }
             */
+            
+
         }
 
         if (this instanceof LibFormularioPorFichas) {
