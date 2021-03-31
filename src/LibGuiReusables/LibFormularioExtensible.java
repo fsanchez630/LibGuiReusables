@@ -6,14 +6,11 @@
 package LibGuiReusables;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -25,7 +22,9 @@ import javax.swing.JTabbedPane;
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable {
+public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable, Cloneable {
+
+   
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -36,29 +35,11 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // nombre del contenedor
     private String nombreContenedor;
-
-    // lista de hijos
-    private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<>();
-
-    // lista de observadores de eventos
-    private LibListaObservadoresEventos listaObservadores;
-
-    int minAltura = 600;
-    int minAnchura = 450;
-
-    /**
-     * constructor por defecto crea el panel de botones Aceptar y Cancelar
-     */
-    public LibFormularioExtensible() {
-        initComponents();
-        this.panelBotones = new LibPanelBotones();
-        panelBotones.nuevoActionListener(this);
-    }
-
+    
     /**
      * obtener el nombre del contenedor
      *
-     * @return
+     * @return nombreContenedor
      */
     public String getnombreContenedor() {
         return nombreContenedor;
@@ -74,6 +55,26 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.setTitle(nombreContenedor);
     }
 
+    // lista de hijos
+    private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<LibFormularioExtensible>();
+    
+     /**
+     * @return the hijosExtensibles
+     */
+    public ArrayList<LibFormularioExtensible> getHijosExtensibles() {
+        return hijosExtensibles;
+    }
+
+    /**
+     * @param hijosExtensibles the hijosExtensibles to set
+     */
+    public void setHijosExtensibles(ArrayList<LibFormularioExtensible> hijosExtensibles) {
+        this.hijosExtensibles = hijosExtensibles;
+    }
+
+    // lista de observadores de eventos
+    private LibListaObservadoresEventos listaObservadores;
+    
     /**
      * obtener la lista de observadores
      *
@@ -92,6 +93,38 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.listaObservadores = listaObservadores;
     }
 
+    int minAltura = 600;
+    int minAnchura = 450;
+
+    /**
+     * constructor por defecto crea el panel de botones Aceptar y Cancelar
+     */
+    public LibFormularioExtensible() {
+        initComponents();
+        this.panelBotones = new LibPanelBotones();
+        panelBotones.nuevoActionListener(this);
+    }
+
+      
+
+    
+    @Override
+    public Object clone() 
+    {
+        Object clone = null;
+         try 
+         {
+             clone = super.clone();
+         }
+         catch(CloneNotSupportedException e) 
+         {
+             // No debería ocurrir
+         }
+         // Aqui viene la implementacion de la clonación "profunda" ('deep clone')
+         ((LibFormularioExtensible)clone).setExtension(this.getExtension());
+         
+         return clone;
+    }
     /**
      * configurar el formulario
      *
@@ -122,12 +155,12 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         if (this instanceof LibFormularioSimple) {
 
-            if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS) {
+            if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
                 Exception err = new Exception("maximos de hijos alcanzado");
                 throw err;
             }
             hijo.nombreContenedor = titulo;
-            hijosExtensibles.add(hijo);
+            getHijosExtensibles().add(hijo);
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -143,7 +176,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         if (this instanceof LibFormularioPorFichas) {
             hijo.nombreContenedor = titulo;
-            hijosExtensibles.add(hijo);
+            getHijosExtensibles().add(hijo);
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
@@ -174,13 +207,13 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         if (this instanceof LibFormularioSimple) {
             for (LibFormularioExtensible hijo : listaHijos) {
 
-                if ((hijosExtensibles.size() + 1) > LibFormularioSimple.MAXHIJOS) {
+                if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
                     Exception err = new Exception("maximos de hijos alcanzado");
 
                     throw err;
                 }
 
-                hijosExtensibles.add(hijo);
+                getHijosExtensibles().add(hijo);
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
@@ -202,7 +235,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
             panelCombinado.setLayout((new GridLayout(0, 1)));
             for (LibFormularioExtensible hijo : listaHijos) {
-                hijosExtensibles.add(hijo);
+                getHijosExtensibles().add(hijo);
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
