@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 /**
- * cala se abstracta que contiene las mayoria de la funcionalidad de sus clases
+ * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
  * derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
  * eventos implementa interface IValidable para validacion de datos implementa
  * interface IComunicable para comunicion entre componentes
@@ -258,27 +258,28 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      */
     @Override
     public void aceptar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("aceptar");
     }
 
     @Override
     public void cancelar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("cancelar");
     }
 
     @Override
     public Boolean validar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         System.out.println("validar");
+         return (Boolean.TRUE);
     }
 
     @Override
     public void guardar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("guardar");
     }
 
     @Override
     public void limpiar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("limpiar");
     }
 
     /**

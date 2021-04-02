@@ -65,19 +65,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     
-    /**
-     * metodos de la Interface Ivalidable
-     */
-
-    @Override
-    public void aceptar() {
-        System.out.println("has pulsado aceptar");
-    }
-
-    @Override
-    public void cancelar() {
-        System.out.println("has pulsado rechazar");
-    }
+   
 
     /**
      * metodos de la Interface IComunicable
