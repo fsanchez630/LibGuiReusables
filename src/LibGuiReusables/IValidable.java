@@ -24,9 +24,15 @@ public interface IValidable {
     
     /**
      *  validar datos formulario
-     * @return verdadero cuando cumple correctamente las validaciones
+     * @return verdadero cuando cumple correctamente tosdas las validaciones
      */
    Boolean validar();
+   
+     /**
+     *  validar datos formulario
+     * @return verdadero cuando cumple correctamente las validaciones de los campso
+     */
+   Boolean validarCampos();
     
     /**
      *  guardar datos formulario

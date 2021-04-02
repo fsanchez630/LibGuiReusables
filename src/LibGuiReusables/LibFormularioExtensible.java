@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -23,6 +24,8 @@ import javax.swing.JTabbedPane;
  * @author Javi
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable, Cloneable {
+
+    
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -166,15 +169,6 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
-            /*
-           // recorrer los hijos
-            for (int x = 0; x < getHijosExtensibles().size(); x++) {
-                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);               
-
-            }
-            */
-            
-
         }
 
         if (this instanceof LibFormularioPorFichas) {
@@ -258,28 +252,72 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      */
     @Override
     public void aceptar() {
-        System.out.println("aceptar");
+        System.out.println("aceptar " + this.getClass() + " " + this.getName());
+        if (this.validar()) {
+            this.guardar();
+            this.limpiar();
+            JOptionPane.showMessageDialog(this, "Operacion Realizada");
+        } else {
+            JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
+        }
+
     }
 
     @Override
     public void cancelar() {
-        System.out.println("cancelar");
+        System.out.println("cancelar " + this.getClass() + " " + this.getName());
+
+        this.limpiar();
+        JOptionPane.showMessageDialog(this, "Operacion Cancelada");
     }
 
     @Override
     public Boolean validar() {
-         System.out.println("validar");
-         return (Boolean.TRUE);
+        System.out.println("validar " + this.getClass() + " " + this.getName());
+
+        if (this.validarCampos()) {
+            // recorrer los hijos
+            for (int x = 0; x < getHijosExtensibles().size(); x++) {
+                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+                if (!prueba.validar()) {
+                    return (Boolean.FALSE);
+                }
+            }
+            return (Boolean.TRUE);
+        } else {
+            return (Boolean.FALSE);
+        }
+    }
+    
+    @Override
+    public Boolean validarCampos() {
+       System.out.println("Validar Campos " + this.getClass() + " " + this.getName());
+       return (Boolean.TRUE);
     }
 
     @Override
     public void guardar() {
-        System.out.println("guardar");
+        System.out.println("guardar " + this.getClass() + " " + this.getName());
+
+        // recorrer los hijos
+        for (int x = 0; x < getHijosExtensibles().size(); x++) {
+            LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+            prueba.guardar();
+
+        }
+
     }
 
     @Override
     public void limpiar() {
-        System.out.println("limpiar");
+        System.out.println("limpiar " + this.getClass() + " " + this.getName());
+
+        // recorrer los hijos
+        for (int x = 0; x < getHijosExtensibles().size(); x++) {
+            LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+            prueba.limpiar();
+
+        }
     }
 
     /**
