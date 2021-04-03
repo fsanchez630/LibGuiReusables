@@ -134,6 +134,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.setPreferredSize(minimumSize);
 
         this.setSize(minAnchura, minAltura);
+        this.setLocation(500, 0);
         return true;
     }
 
