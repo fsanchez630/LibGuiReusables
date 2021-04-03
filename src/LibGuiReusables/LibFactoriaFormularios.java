@@ -63,7 +63,7 @@ public class LibFactoriaFormularios {
                 formulario = new LibFormularioPorFichas();
                 break;
             case ARBOL:
-                formulario = new LibFormularioSimple();
+                formulario = new LibFormularioArbol();
                 break;
             default:
                 formulario = new LibFormularioSimple();

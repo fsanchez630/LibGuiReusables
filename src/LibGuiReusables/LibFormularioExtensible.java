@@ -185,6 +185,27 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             panelPorFichas.addTab(titulo, panelHijo);
 
         }
+        
+         if (this instanceof LibFormularioArbol) {
+
+           
+            hijo.nombreContenedor = titulo;
+
+            // System.out.println(hijo);
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+            LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+
+            JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
+
+            //  panelPrincipal.setLayout(new GridLayout(0, 1));
+            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+
+        }
 
     }
 
@@ -245,6 +266,26 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             }
             JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
             panelPorFichas.addTab(titulo, panelCombinado);
+
+        }
+        
+         if (this instanceof LibFormularioArbol) {
+            for (LibFormularioExtensible hijo : listaHijos) {                
+
+                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+                JPanel panelHijo = (JPanel) hijo.getContentPane();
+                // panelHijo.setLayout(null);
+
+                LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+
+                JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
+
+                //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+                //panelPrincipal.setLayout(new GridLayout(0, 1));
+                panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+                panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+            }
 
         }
 
