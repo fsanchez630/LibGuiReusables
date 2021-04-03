@@ -7,6 +7,7 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
@@ -24,8 +25,6 @@ import javax.swing.JTabbedPane;
  * @author Javi
  */
 public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable, Cloneable {
-
-    
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -94,8 +93,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         this.listaObservadores = listaObservadores;
     }
 
-    int minAltura = 600;
-    int minAnchura = 450;
+    int minAltura = 500;
+    int minAnchura = 600;
 
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
@@ -131,10 +130,10 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
         minimumSize.setSize(minAnchura, minAltura);
-        this.setMinimumSize(minimumSize);
+        //this.setMinimumSize(minimumSize);
         this.setPreferredSize(minimumSize);
 
-        this.setSize(minAnchura + 50, minAltura + 50);
+        this.setSize(minAnchura, minAltura);
         return true;
     }
 
@@ -166,7 +165,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
             JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
-            panelPrincipal.setLayout(new GridLayout(0, 1));
+            //  panelPrincipal.setLayout(new GridLayout(0, 1));
+            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
         }
@@ -220,7 +220,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
                 JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
                 //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
-                panelPrincipal.setLayout(new GridLayout(0, 1));
+                //panelPrincipal.setLayout(new GridLayout(0, 1));
+                panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
                 panelPrincipal.add(panelHijo, BorderLayout.CENTER);
             }
 
@@ -230,7 +231,8 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
             JPanel panelCombinado = new JPanel();
             //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
-            panelCombinado.setLayout((new GridLayout(0, 1)));
+            //panelCombinado.setLayout((new GridLayout(0, 1)));
+            panelCombinado.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
             for (LibFormularioExtensible hijo : listaHijos) {
                 getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
 
@@ -288,11 +290,11 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             return (Boolean.FALSE);
         }
     }
-    
+
     @Override
     public Boolean validarCampos() {
-       System.out.println("Validar Campos " + this.getClass() + " " + this.getName());
-       return (Boolean.TRUE);
+        System.out.println("Validar Campos " + this.getClass() + " " + this.getName());
+        return (Boolean.TRUE);
     }
 
     @Override
