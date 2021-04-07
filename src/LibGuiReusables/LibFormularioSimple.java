@@ -6,8 +6,10 @@
 package LibGuiReusables;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -21,16 +23,15 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
 
-     /**
-     * Constructor por defecto
-     * crea el panel principal 
+    /**
+     * Constructor por defecto crea el panel principal
      */
     public LibFormularioSimple() {
         initComponents();
-        panelPrincipal = new JPanel();        
+        panelPrincipal = new JPanel();
         this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
         // this.setContentPane(panelPrincipal);
-        
+
     }
 
     @Override
@@ -41,14 +42,85 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
             pack();
             //Set up the content pane.
 
-          //  this.setSize(500, 400);
+            //  this.setSize(500, 400);
             //this.setResizable(false);
-
             //this.setExtendedState(MAXIMIZED_BOTH);
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * incluye un nuevo hijo
+     *
+     * @param hijo
+     * @param titulo
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    @Override
+    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
+
+        if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
+            Exception err = new Exception("maximos de hijos alcanzado");
+            throw err;
+        }
+
+        hijo.setnombreContenedor(titulo);
+
+        // System.out.println(hijo);
+        getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+        JPanel panelHijo = (JPanel) hijo.getContentPane();
+        // panelHijo.setLayout(null);
+
+        //    LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+        //      JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
+        //  panelPrincipal.setLayout(new GridLayout(0, 1));
+        panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+
+    }
+
+    /**
+     * inclye los hijos de una lista
+     *
+     * @param listaHijos
+     * @param titulo
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    @Override
+    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+        if (titulo.isEmpty() || titulo.equals(getnombreContenedor())) {
+        } else {
+            setnombreContenedor(titulo);
+        }
+
+        for (LibFormularioExtensible hijo : listaHijos) {
+
+            if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
+                Exception err = new Exception("maximos de hijos alcanzado");
+
+                throw err;
+            }
+
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+            //LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+
+          //  JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
+
+            //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+            //panelPrincipal.setLayout(new GridLayout(0, 1));
+            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+        }
+
     }
 
     /**
@@ -64,14 +136,9 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    
-   
-
     /**
      * metodos de la Interface IComunicable
      */
-    
-    
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
         System.out.println("cambiar valor");
@@ -85,7 +152,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     @Override
     public Object obtenerValor(String nombreComponente) {
         System.out.println("obtener valor");
-        Object retorno = null;        
+        Object retorno = null;
         if ("panelPrincipal".equals(nombreComponente)) {
             retorno = panelPrincipal;
         }
@@ -101,7 +168,6 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     /**
      * metodos de gestion de eventos
      */
-    
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());

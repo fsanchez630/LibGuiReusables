@@ -7,8 +7,10 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -43,7 +45,6 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
         raiz = new DefaultMutableTreeNode("Raiz");
         arbol = new JTree(raiz);
         arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        
 
         // incluir categoria y nodo hijo
         crearNodo();
@@ -105,6 +106,69 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
         }
     }
 
+    
+      /**
+     * incluye un nuevo hijo
+     *
+     * @param hijo
+     * @param titulo
+     */
+    @Override
+    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo)  {
+                      
+           hijo.setnombreContenedor(titulo);
+            
+            // System.out.println(hijo);
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+            //LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+
+           // JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
+
+            //  panelPrincipal.setLayout(new GridLayout(0, 1));
+            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            panelPrincipal.add(panelHijo, BorderLayout.CENTER);        
+
+    }
+
+    /**
+     * inclye los hijos de una lista
+     *
+     * @param listaHijos
+     * @param titulo
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    @Override
+    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+        if (titulo.isEmpty() || titulo.equals(this.getnombreContenedor())) {
+        } else {
+            setnombreContenedor ( titulo);
+        }               
+        
+            for (LibFormularioExtensible hijo : listaHijos) {                
+
+                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+                JPanel panelHijo = (JPanel) hijo.getContentPane();
+                // panelHijo.setLayout(null);
+
+             //   LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+
+             //   JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
+
+                //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
+                //panelPrincipal.setLayout(new GridLayout(0, 1));
+                panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+                panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+            }
+        
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -148,64 +148,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      */
     public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
 
-        if (this instanceof LibFormularioSimple) {
-
-            if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
-                Exception err = new Exception("maximos de hijos alcanzado");
-                throw err;
-            }
-            hijo.nombreContenedor = titulo;
-
-            // System.out.println(hijo);
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-            JPanel panelHijo = (JPanel) hijo.getContentPane();
-            // panelHijo.setLayout(null);
-
-            LibFormularioSimple padreSimple = (LibFormularioSimple) this;
-
-            JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
-
-            //  panelPrincipal.setLayout(new GridLayout(0, 1));
-            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-
-        }
-
-        if (this instanceof LibFormularioPorFichas) {
-            hijo.nombreContenedor = titulo;
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-            JPanel panelHijo = (JPanel) hijo.getContentPane();
-            // panelHijo.setLayout(null);
-
-            LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
-
-            JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
-            panelPorFichas.addTab(titulo, panelHijo);
-
-        }
-        
-         if (this instanceof LibFormularioArbol) {
-
-           
-            hijo.nombreContenedor = titulo;
-
-            // System.out.println(hijo);
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-            JPanel panelHijo = (JPanel) hijo.getContentPane();
-            // panelHijo.setLayout(null);
-
-            LibFormularioArbol padreArbol = (LibFormularioArbol) this;
-
-            JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
-
-            //  panelPrincipal.setLayout(new GridLayout(0, 1));
-            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
 
     }
 
@@ -218,77 +161,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * Formulario Simple
      */
     public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
-        if (titulo.isEmpty() || titulo.equals(nombreContenedor)) {
-        } else {
-            nombreContenedor = titulo;
-        }
-
-        if (this instanceof LibFormularioSimple) {
-            for (LibFormularioExtensible hijo : listaHijos) {
-
-                if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
-                    Exception err = new Exception("maximos de hijos alcanzado");
-
-                    throw err;
-                }
-
-                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-                JPanel panelHijo = (JPanel) hijo.getContentPane();
-                // panelHijo.setLayout(null);
-
-                LibFormularioSimple padreSimple = (LibFormularioSimple) this;
-
-                JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
-
-                //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
-                //panelPrincipal.setLayout(new GridLayout(0, 1));
-                panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-                panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-            }
-
-        }
-
-        if (this instanceof LibFormularioPorFichas) {
-            LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
-            JPanel panelCombinado = new JPanel();
-            //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
-            //panelCombinado.setLayout((new GridLayout(0, 1)));
-            panelCombinado.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-            for (LibFormularioExtensible hijo : listaHijos) {
-                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-                JPanel panelHijo = (JPanel) hijo.getContentPane();
-                // panelHijo.setLayout(null);
-
-                panelCombinado.add(panelHijo);
-
-            }
-            JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
-            panelPorFichas.addTab(titulo, panelCombinado);
-
-        }
-        
-         if (this instanceof LibFormularioArbol) {
-            for (LibFormularioExtensible hijo : listaHijos) {                
-
-                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
-
-                JPanel panelHijo = (JPanel) hijo.getContentPane();
-                // panelHijo.setLayout(null);
-
-                LibFormularioArbol padreArbol = (LibFormularioArbol) this;
-
-                JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
-
-                //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
-                //panelPrincipal.setLayout(new GridLayout(0, 1));
-                panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-                panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-            }
-
-        }
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
     }
 
     /**

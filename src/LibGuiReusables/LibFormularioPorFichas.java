@@ -6,8 +6,10 @@
 package LibGuiReusables;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
@@ -56,6 +58,74 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
         } else {
             return false;
         }
+    }
+    
+    
+    /**
+     * incluye un nuevo hijo
+     *
+     * @param hijo
+     * @param titulo
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    @Override
+    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
+
+       
+        if (this instanceof LibFormularioPorFichas) {
+            hijo.setnombreContenedor(titulo);
+            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+            // panelHijo.setLayout(null);
+
+          //  LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+
+          //  JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
+            panelPorFichas.addTab(titulo, panelHijo);
+
+        }
+
+       
+
+    }
+
+    /**
+     * inclye los hijos de una lista
+     *
+     * @param listaHijos
+     * @param titulo
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    @Override
+    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+        if (titulo.isEmpty() || titulo.equals(getnombreContenedor())) {
+        } else {
+            setnombreContenedor (titulo) ;
+        }
+
+             
+          //  LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+            JPanel panelCombinado = new JPanel();
+            //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
+            //panelCombinado.setLayout((new GridLayout(0, 1)));
+            panelCombinado.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            for (LibFormularioExtensible hijo : listaHijos) {
+                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+
+                JPanel panelHijo = (JPanel) hijo.getContentPane();
+                // panelHijo.setLayout(null);
+
+                panelCombinado.add(panelHijo);
+
+            }
+       //     JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
+            panelPorFichas.addTab(titulo, panelCombinado);
+
+            
+
     }
 
     /**
