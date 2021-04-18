@@ -15,7 +15,7 @@ import javax.swing.event.EventListenerList;
  * Clase que maneja la lista de observadores de eventos
  * @author Javi
  */
-public class LibListaObservadoresEventos {
+public class ListaObservadoresEventos {
 
     // lista de observadores de eventos
     private EventListenerList listeners;
@@ -23,7 +23,7 @@ public class LibListaObservadoresEventos {
     /**
      * crea una nueva lista de observadores de eventos
      */
-    public LibListaObservadoresEventos() {
+    public ListaObservadoresEventos() {
         listeners = new EventListenerList();
 
     }

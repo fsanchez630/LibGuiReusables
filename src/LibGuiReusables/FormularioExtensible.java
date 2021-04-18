@@ -7,24 +7,20 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 
 /**
  * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
- * derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
- * eventos implementa interface IValidable para validacion de datos implementa
- * interface IComunicable para comunicion entre componentes
+ derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
+ eventos implementa interface Validable para validacion de datos implementa
+ interface Comunicable para comunicion entre componentes
  *
  * @author Javi
  */
-public abstract class LibFormularioExtensible extends LibFormulario implements ActionListener, ChangeListener, IComunicable, IValidable, Cloneable {
+public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, Comunicable, Validable, Cloneable {
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -56,31 +52,31 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     }
 
     // lista de hijos
-    private ArrayList<LibFormularioExtensible> hijosExtensibles = new ArrayList<LibFormularioExtensible>();
+    private ArrayList<FormularioExtensible> hijosExtensibles = new ArrayList<FormularioExtensible>();
 
     /**
      * @return the hijosExtensibles
      */
-    public ArrayList<LibFormularioExtensible> getHijosExtensibles() {
+    public ArrayList<FormularioExtensible> getHijosExtensibles() {
         return hijosExtensibles;
     }
 
     /**
      * @param hijosExtensibles the hijosExtensibles to set
      */
-    public void setHijosExtensibles(ArrayList<LibFormularioExtensible> hijosExtensibles) {
+    public void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
         this.hijosExtensibles = hijosExtensibles;
     }
 
     // lista de observadores de eventos
-    private LibListaObservadoresEventos listaObservadores;
+    private ListaObservadoresEventos listaObservadores;
 
     /**
      * obtener la lista de observadores
      *
      * @return listaObservadores
      */
-    public LibListaObservadoresEventos getListaObservadores() {
+    public ListaObservadoresEventos getListaObservadores() {
         return listaObservadores;
     }
 
@@ -89,7 +85,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      *
      * @param listaObservadores the listaObservadores to set
      */
-    public void setListaObservadores(LibListaObservadoresEventos listaObservadores) {
+    public void setListaObservadores(ListaObservadoresEventos listaObservadores) {
         this.listaObservadores = listaObservadores;
     }
 
@@ -99,9 +95,9 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
      */
-    public LibFormularioExtensible() {
+    public FormularioExtensible() {
         initComponents();
-        this.panelBotones = new LibPanelBotones();
+        this.panelBotones = new PanelBotones();
         panelBotones.nuevoActionListener(this);
     }
 
@@ -114,7 +110,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
             // No debería ocurrir
         }
         // Aqui viene la implementacion de la clonación "profunda" ('deep clone')
-        ((LibFormularioExtensible) clone).setExtension(this.getExtension());
+        ((FormularioExtensible) clone).setExtension(this.getExtension());
 
         return clone;
     }
@@ -146,7 +142,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
      * Formulario Simple
      */
-    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
+    public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
 
@@ -160,7 +156,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
      * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
      * Formulario Simple
      */
-    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
     }
 
@@ -195,7 +191,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
         if (this.validarCampos()) {
             // recorrer los hijos
             for (int x = 0; x < getHijosExtensibles().size(); x++) {
-                LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+                FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
                 if (!prueba.validar()) {
                     return (Boolean.FALSE);
                 }
@@ -218,7 +214,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         // recorrer los hijos
         for (int x = 0; x < getHijosExtensibles().size(); x++) {
-            LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+            FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
             prueba.guardar();
 
         }
@@ -231,14 +227,14 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
         // recorrer los hijos
         for (int x = 0; x < getHijosExtensibles().size(); x++) {
-            LibFormularioExtensible prueba = (LibFormularioExtensible) getHijosExtensibles().get(x);
+            FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
             prueba.limpiar();
 
         }
     }
 
     /**
-     * metodos de la Interface IComunicable
+     * metodos de la Interface Comunicable
      */
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {
@@ -273,7 +269,7 @@ public abstract class LibFormularioExtensible extends LibFormulario implements A
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    private LibPanelBotones panelBotones;
+    private PanelBotones panelBotones;
 
     private void addPanelBotones() {
 

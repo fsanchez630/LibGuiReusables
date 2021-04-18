@@ -9,7 +9,7 @@ import javax.swing.event.EventListenerList;
  *  Panel Botones Acpetar y Cancelar
  * @author Javi
  */
-public class LibPanelBotones extends javax.swing.JPanel {
+public class PanelBotones extends javax.swing.JPanel {
 
     // lista de observadores de eventos
     private EventListenerList listeners;
@@ -17,7 +17,7 @@ public class LibPanelBotones extends javax.swing.JPanel {
     /**
      *  crear un nuevo PanelBotones y la lista de Observadores de eventos
      */
-    public LibPanelBotones() {
+    public PanelBotones() {
         initComponents();
         listeners = new EventListenerList();
     }
@@ -38,7 +38,7 @@ public class LibPanelBotones extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(460, 40));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(460, 40));
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         botonAceptar.setText("Aceptar");
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {

@@ -26,7 +26,7 @@ import javax.swing.tree.TreeSelectionModel;
  *
  * @author Javi
  */
-public class LibFormularioArbol extends LibFormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener, IComunicable, IValidable {
+public class FormularioArbol extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable {
 
     private JPanel panelPrincipal;
     private JScrollPane panelScroll;
@@ -36,7 +36,7 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
     /**
      * Constructor por defecto crea el panel principal
      */
-    public LibFormularioArbol() {
+    public FormularioArbol() {
         initComponents();
         panelPrincipal = new JPanel();
         panelScroll = new JScrollPane();
@@ -63,9 +63,9 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
     private class InfoNodo {
 
         public String nombreNodo;
-        public LibFormularioExtensible formularioNodo;
+        public FormularioExtensible formularioNodo;
 
-        public InfoNodo(String nombre, LibFormularioExtensible formulario) {
+        public InfoNodo(String nombre, FormularioExtensible formulario) {
             nombreNodo = nombre;
             formularioNodo = formulario;
 
@@ -114,17 +114,17 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
      * @param titulo
      */
     @Override
-    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo)  {
+    public void addHijoExtensible(FormularioExtensible hijo, String titulo)  {
                       
            hijo.setnombreContenedor(titulo);
             
             // System.out.println(hijo);
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
 
-            //LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+            //LibFormularioArbol padreArbol = (FormularioArbol) this;
 
            // JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
 
@@ -143,20 +143,20 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
      * Formulario Simple
      */
     @Override
-    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(this.getnombreContenedor())) {
         } else {
             setnombreContenedor ( titulo);
         }               
         
-            for (LibFormularioExtensible hijo : listaHijos) {                
+            for (FormularioExtensible hijo : listaHijos) {                
 
-                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+                getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
 
-             //   LibFormularioArbol padreArbol = (LibFormularioArbol) this;
+             //   FormularioArbol padreArbol = (FormularioArbol) this;
 
              //   JPanel panelPrincipal = (JPanel) padreArbol.obtenerValor("panelPrincipal");
 
@@ -183,7 +183,7 @@ public class LibFormularioArbol extends LibFormularioExtensible implements Actio
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     /**
-     * metodos de la Interface IComunicable
+     * metodos de la Interface Comunicable
      */
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {

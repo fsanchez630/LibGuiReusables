@@ -20,7 +20,7 @@ import javax.swing.event.ChangeListener;
  *
  * @author Javi
  */
-public class LibFormularioPorFichas extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
+public class FormularioPorFichas extends FormularioExtensible implements ActionListener, ChangeListener, Comunicable, Validable {
 
     // panel primcipal 
     private JPanel panelPrincipal;
@@ -30,7 +30,7 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     /**
      * Constructor por defecto crea el panel principal y el panel por fichas
      */
-    public LibFormularioPorFichas() {
+    public FormularioPorFichas() {
         initComponents();
         panelPrincipal = new JPanel();
         panelPorFichas = new JTabbedPane();
@@ -70,17 +70,17 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
      * Formulario Simple
      */
     @Override
-    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
+    public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
 
        
-        if (this instanceof LibFormularioPorFichas) {
+        if (this instanceof FormularioPorFichas) {
             hijo.setnombreContenedor(titulo);
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
 
-          //  LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+          //  FormularioPorFichas padrePorFichas = (FormularioPorFichas) this;
 
           //  JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
             panelPorFichas.addTab(titulo, panelHijo);
@@ -100,20 +100,20 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
      * Formulario Simple
      */
     @Override
-    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(getnombreContenedor())) {
         } else {
             setnombreContenedor (titulo) ;
         }
 
              
-          //  LibFormularioPorFichas padrePorFichas = (LibFormularioPorFichas) this;
+          //  FormularioPorFichas padrePorFichas = (FormularioPorFichas) this;
             JPanel panelCombinado = new JPanel();
             //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
             //panelCombinado.setLayout((new GridLayout(0, 1)));
             panelCombinado.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-            for (LibFormularioExtensible hijo : listaHijos) {
-                getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+            for (FormularioExtensible hijo : listaHijos) {
+                getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
                 JPanel panelHijo = (JPanel) hijo.getContentPane();
                 // panelHijo.setLayout(null);
@@ -143,7 +143,7 @@ public class LibFormularioPorFichas extends LibFormularioExtensible implements A
     // End of variables declaration//GEN-END:variables
     
     /**
-     * metodos de la Interface IComunicable
+     * metodos de la Interface Comunicable
      */
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {

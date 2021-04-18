@@ -10,7 +10,7 @@ package LibGuiReusables;
  * Definee el patron de los metodos que se deben implementar
  * @author Javi
  */
-public interface IComunicable {
+public interface Comunicable {
     
     /**
      *  cambiar valor a un componente

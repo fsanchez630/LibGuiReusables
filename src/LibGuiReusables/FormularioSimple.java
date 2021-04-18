@@ -18,7 +18,7 @@ import javax.swing.event.ChangeListener;
  *
  * @author Javi
  */
-public class LibFormularioSimple extends LibFormularioExtensible implements ActionListener, ChangeListener, IComunicable, IValidable {
+public class FormularioSimple extends FormularioExtensible implements ActionListener, ChangeListener, Comunicable, Validable {
 
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
@@ -26,7 +26,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     /**
      * Constructor por defecto crea el panel principal
      */
-    public LibFormularioSimple() {
+    public FormularioSimple() {
         initComponents();
         panelPrincipal = new JPanel();
         this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
@@ -60,9 +60,9 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
      * Formulario Simple
      */
     @Override
-    public void addHijoExtensible(LibFormularioExtensible hijo, String titulo) throws Exception {
+    public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
 
-        if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
+        if ((getHijosExtensibles().size() + 1) > FormularioSimple.MAXHIJOS) {
             Exception err = new Exception("maximos de hijos alcanzado");
             throw err;
         }
@@ -70,12 +70,12 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
         hijo.setnombreContenedor(titulo);
 
         // System.out.println(hijo);
-        getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+        getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
         JPanel panelHijo = (JPanel) hijo.getContentPane();
         // panelHijo.setLayout(null);
 
-        //    LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+        //    FormularioSimple padreSimple = (FormularioSimple) this;
         //      JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
         //  panelPrincipal.setLayout(new GridLayout(0, 1));
         panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
@@ -92,26 +92,26 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
      * Formulario Simple
      */
     @Override
-    public void addListaHijosExtensibles(ArrayList<LibFormularioExtensible> listaHijos, String titulo) throws Exception {
+    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(getnombreContenedor())) {
         } else {
             setnombreContenedor(titulo);
         }
 
-        for (LibFormularioExtensible hijo : listaHijos) {
+        for (FormularioExtensible hijo : listaHijos) {
 
-            if ((getHijosExtensibles().size() + 1) > LibFormularioSimple.MAXHIJOS) {
+            if ((getHijosExtensibles().size() + 1) > FormularioSimple.MAXHIJOS) {
                 Exception err = new Exception("maximos de hijos alcanzado");
 
                 throw err;
             }
 
-            getHijosExtensibles().add((LibFormularioExtensible) hijo.clone());
+            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
             // panelHijo.setLayout(null);
 
-            //LibFormularioSimple padreSimple = (LibFormularioSimple) this;
+            //LibFormularioSimple padreSimple = (FormularioSimple) this;
 
           //  JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
 
@@ -137,7 +137,7 @@ public class LibFormularioSimple extends LibFormularioExtensible implements Acti
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     /**
-     * metodos de la Interface IComunicable
+     * metodos de la Interface Comunicable
      */
     @Override
     public void cambiarValor(String nombreComponente, Object valor) {

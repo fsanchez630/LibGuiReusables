@@ -10,7 +10,7 @@ package LibGuiReusables;
  * define el patron los metodos que se deben implementar
  * @author Javi
  */
-public interface IValidable {
+public interface Validable {
     
     /**
      *  aceptar datos formulario

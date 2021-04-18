@@ -5,7 +5,7 @@
  */
 package LibGuiReusables;
 
-import LibGuiReusables.LibFormularioExtensible.TipoContenedor;
+import LibGuiReusables.FormularioExtensible.TipoContenedor;
 import javax.swing.JFrame;
 
 /**
@@ -13,18 +13,18 @@ import javax.swing.JFrame;
  * 
  * @author Javi
  */
-public class LibFactoriaFormularios {
+public class FactoriaFormularios {
 
     /**
      * crea una nueva instancia del tipoContenedor 
      * @param tipo
      * @param extension
      * @param nombre
-     * @return LibFormularioExtensible
+     * @return FormularioExtensible
      */
-    public LibFormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
+    public FormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
 
-        LibFormularioExtensible formulario = crearFormulario(tipo);
+        FormularioExtensible formulario = crearFormulario(tipo);
 
                 
         formulario.setExtension(extension);
@@ -39,9 +39,9 @@ public class LibFactoriaFormularios {
      * @param nombre
      * @return
      */
-    public LibFormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
+    public FormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
 
-        LibFormularioExtensible formulario = crearFormulario(tipo);          
+        FormularioExtensible formulario = crearFormulario(tipo);          
         formulario.setnombreContenedor(nombre);
 
         return formulario;
@@ -51,22 +51,22 @@ public class LibFactoriaFormularios {
      * @param tipo
      * @return
      */
-    public LibFormularioExtensible crearFormulario(TipoContenedor tipo) {
+    public FormularioExtensible crearFormulario(TipoContenedor tipo) {
 
-        LibFormularioExtensible formulario ;
+        FormularioExtensible formulario ;
 
         switch (tipo) {
             case SIMPLE:
-             formulario = new LibFormularioSimple();
+             formulario = new FormularioSimple();
              break;
             case PORFICHAS:
-                formulario = new LibFormularioPorFichas();
+                formulario = new FormularioPorFichas();
                 break;
             case ARBOL:
-                formulario = new LibFormularioArbol();
+                formulario = new FormularioArbol();
                 break;
             default:
-                formulario = new LibFormularioSimple();
+                formulario = new FormularioSimple();
                 break;
                             
         }
