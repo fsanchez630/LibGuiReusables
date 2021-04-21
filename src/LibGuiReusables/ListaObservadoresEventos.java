@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.EventListenerList;
 
 /**
@@ -44,6 +46,14 @@ public class ListaObservadoresEventos {
         listeners.add(ActionListener.class, listener);
     }
 
+     /**
+     * incluye un nuevo observador de selecion de arbol en la lista
+     * @param listener
+     */
+    public void nuevoTreeSelectionListener(TreeSelectionListener listener) {
+        listeners.add(TreeSelectionListener.class, listener);
+    }
+    
     /**
      * notifica el evento cambio a los observaores de la lista
      * @param evt
@@ -64,6 +74,19 @@ public class ListaObservadoresEventos {
         ActionListener[] listenerLista = listeners.getListeners(ActionListener.class);
         for (int i = listenerLista.length - 1; i >= 0; --i) {
             listenerLista[i].actionPerformed(evt);
+        }
+
+    }
+    
+    
+    /**
+     * notifica el evento  selecion de arbo a los observadores  de la lista
+     * @param evt
+     */
+    public void disparaTreeSelectionEvent(TreeSelectionEvent evt) {
+        TreeSelectionListener[] listenerLista = listeners.getListeners(TreeSelectionListener.class);
+        for (int i = listenerLista.length - 1; i >= 0; --i) {
+            listenerLista[i].valueChanged(evt);            
         }
 
     }
