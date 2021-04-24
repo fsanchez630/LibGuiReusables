@@ -191,8 +191,8 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         if (this.validarCampos()) {
             // recorrer los hijos
             for (int x = 0; x < getHijosExtensibles().size(); x++) {
-                FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
-                if (!prueba.validar()) {
+                FormularioExtensible hijo = (FormularioExtensible) getHijosExtensibles().get(x);
+                if (!hijo.validar()) {
                     return (Boolean.FALSE);
                 }
             }
@@ -214,8 +214,8 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
         // recorrer los hijos
         for (int x = 0; x < getHijosExtensibles().size(); x++) {
-            FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
-            prueba.guardar();
+            FormularioExtensible hijo = (FormularioExtensible) getHijosExtensibles().get(x);
+            hijo.guardar();
 
         }
 
@@ -227,8 +227,8 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
         // recorrer los hijos
         for (int x = 0; x < getHijosExtensibles().size(); x++) {
-            FormularioExtensible prueba = (FormularioExtensible) getHijosExtensibles().get(x);
-            prueba.limpiar();
+            FormularioExtensible hijo = (FormularioExtensible) getHijosExtensibles().get(x);
+            hijo.limpiar();
 
         }
     }
