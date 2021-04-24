@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * 
  * @author Javi
  */
-public class FactoriaFormularios {
+public abstract class FactoriaFormularios {
 
     /**
      * crea una nueva instancia del tipoContenedor 
@@ -22,7 +22,7 @@ public class FactoriaFormularios {
      * @param nombre
      * @return FormularioExtensible
      */
-    public FormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
+    public static FormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
 
         FormularioExtensible formulario = crearFormulario(tipo);
 
@@ -39,7 +39,7 @@ public class FactoriaFormularios {
      * @param nombre
      * @return
      */
-    public FormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
+    public static FormularioExtensible crearFormulario(TipoContenedor tipo,  String nombre) {
 
         FormularioExtensible formulario = crearFormulario(tipo);          
         formulario.setnombreContenedor(nombre);
@@ -51,7 +51,7 @@ public class FactoriaFormularios {
      * @param tipo
      * @return
      */
-    public FormularioExtensible crearFormulario(TipoContenedor tipo) {
+    public static FormularioExtensible crearFormulario(TipoContenedor tipo) {
 
         FormularioExtensible formulario ;
 
