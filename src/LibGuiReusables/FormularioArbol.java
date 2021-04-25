@@ -85,8 +85,8 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
                 this.setNombreArbol("Dialogos");
                 panelScroll.setBorder(BorderFactory.createTitledBorder(this.getNombreArbol()));
-                panelScroll.setMinimumSize(new Dimension(200, 322));
-                panelScroll.setPreferredSize(new Dimension(200, 322));
+                panelScroll.setMinimumSize(new Dimension(250, 322));
+                panelScroll.setPreferredSize(new Dimension(250, 322));
                 this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
                 panelScroll.setViewportView(arbol);
 
