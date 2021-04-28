@@ -7,6 +7,7 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -67,19 +68,24 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
             throw err;
         }
 
+        hijo.setMinAltura(hijo.getHeight());
+        hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
 
-        // System.out.println(hijo);
+        
         getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
         JPanel panelHijo = (JPanel) hijo.getContentPane();
-        // panelHijo.setLayout(null);
 
-        //    FormularioSimple padreSimple = (FormularioSimple) this;
-        //      JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
-        //  panelPrincipal.setLayout(new GridLayout(0, 1));
-        panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        
+        panelPrincipal.setLayout(new GridLayout(0, 1));        
         panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+
+        if (this.getMinAnchura() < hijo.getMinAnchura()) {
+            this.setMinAnchura(hijo.getMinAnchura());
+        }
+
+        this.setMinAltura(this.getMinAltura() + hijo.getMinAltura());
 
     }
 
@@ -105,20 +111,23 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
 
                 throw err;
             }
+            hijo.setMinAltura(hijo.getHeight());
+            hijo.setMinAnchura(hijo.getWidth());
 
             getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
-            // panelHijo.setLayout(null);
-
-            //LibFormularioSimple padreSimple = (FormularioSimple) this;
-
-          //  JPanel panelPrincipal = (JPanel) padreSimple.obtenerValor("panelPrincipal");
-
-            //panelPrincipal.setLayout((new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS)));
-            //panelPrincipal.setLayout(new GridLayout(0, 1));
-            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+           
+          
+            panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+
+            if (this.getMinAnchura() < hijo.getMinAnchura()) {
+                this.setMinAnchura(hijo.getMinAnchura());
+            }
+
+            this.setMinAltura(this.getMinAltura() + hijo.getMinAltura());
+
         }
 
     }

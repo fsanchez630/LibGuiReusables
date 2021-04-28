@@ -7,7 +7,7 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     private JScrollPane panelScroll;
     private JTree arbol;
     private DefaultMutableTreeNode nodoRaiz;
-
     private String nombreArbol;
+    static final Integer ANCHURA_ARBOL = 250;
 
     /**
      * @return the nombreArbol
@@ -74,37 +74,28 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         if (super.configurarFormulario()) {
 
-            if (nodoRaiz == null) {
-                return false;
-            } else {
+            arbol = new JTree(nodoRaiz);
+            arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+            arbol.setRootVisible(false);
+            arbol.addTreeSelectionListener(this);
 
-                arbol = new JTree(nodoRaiz);
-                arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-                arbol.setRootVisible(false);
-                arbol.addTreeSelectionListener(this);
+            this.setNombreArbol("Dialogos");
+            panelScroll.setBorder(BorderFactory.createTitledBorder(this.getNombreArbol()));
+            panelScroll.setMinimumSize(new Dimension(ANCHURA_ARBOL, this.getMinAltura()));
+            panelScroll.setPreferredSize(new Dimension(ANCHURA_ARBOL, this.getMinAltura()));
 
-                this.setNombreArbol("Dialogos");
-                panelScroll.setBorder(BorderFactory.createTitledBorder(this.getNombreArbol()));
-                panelScroll.setMinimumSize(new Dimension(250, 322));
-                panelScroll.setPreferredSize(new Dimension(250, 322));
-                this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
-                panelScroll.setViewportView(arbol);
+            this.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 
-                this.getContentPane().add(panelScroll, java.awt.BorderLayout.WEST);
+            panelScroll.setViewportView(arbol);
 
-                InfoNodo infoNodoRaiz;
-                infoNodoRaiz = (InfoNodo) nodoRaiz.getUserObject();
+            this.getContentPane().add(panelScroll, java.awt.BorderLayout.WEST);
 
-                if (infoNodoRaiz.formularioNodo != null) {
+            Dimension minimumSize = new Dimension();
+            minimumSize.setSize(getMinAnchura() + ANCHURA_ARBOL, getMinAltura());
+            this.setMinimumSize(minimumSize);
+            this.setPreferredSize(minimumSize);
 
-                    panelPrincipal.removeAll();
-                    JPanel panelHijo = (JPanel) infoNodoRaiz.formularioNodo.getContentPane();
-                    panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-                    panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-
-                }
-
-            }
+            this.setSize(getMinAnchura() + ANCHURA_ARBOL, getMinAltura());
 
             pack();
 
@@ -149,6 +140,15 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         InfoNodo infoNodo;
 
         hijo.setnombreContenedor(titulo);
+
+        if (this.getMinAnchura() < hijo.getMinAnchura()) {
+            this.setMinAnchura(hijo.getMinAnchura());
+        }
+
+        if (this.getMinAltura() < hijo.getMinAltura()) {
+            this.setMinAltura(hijo.getMinAltura());
+        }
+
         getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
         infoNodo = new InfoNodo(titulo, hijo);
@@ -180,6 +180,14 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         InfoNodo infoNodoHijo;
 
         for (FormularioExtensible hijo : listaHijos) {
+
+            if (this.getMinAnchura() < hijo.getMinAnchura()) {
+                this.setMinAnchura(hijo.getMinAnchura());
+            }
+
+            if (this.getMinAltura() < hijo.getMinAltura()) {
+                this.setMinAltura(hijo.getMinAltura());
+            }
 
             getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
@@ -213,11 +221,12 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             // recorrer los hijos
             for (int x = 0; x < infoNodoPadre.formularioNodo.getHijosExtensibles().size(); x++) {
                 FormularioExtensible hijo = (FormularioExtensible) infoNodoPadre.formularioNodo.getHijosExtensibles().get(x);
-
+                // if (hijo.getHijosExtensibles().size() > 0) {
                 infoNodoHijo = new InfoNodo(hijo.getnombreContenedor(), hijo);
                 nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
                 nodoPadre.add(nodoHijo);  // agregar nodo hijo
                 crearArbol(nodoHijo); // crear arbol del hijo
+                //}
 
             }
 
@@ -269,6 +278,8 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
     /**
      * metodos de gestion de eventos
+     *
+     * @param evt
      */
     @Override
     public void actionPerformed(ActionEvent evt) {
@@ -288,15 +299,19 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
 
-        InfoNodo nodosel;
-        nodosel = (InfoNodo) node.getUserObject();
+        InfoNodo infoNodosel;
+        infoNodosel = (InfoNodo) node.getUserObject();
 
-        if (nodosel.formularioNodo != null) {
+        if (infoNodosel.formularioNodo != null) {
 
+            // if (1 == 0) {
             panelPrincipal.removeAll();
-            JPanel panelHijo = (JPanel) nodosel.formularioNodo.getContentPane();
-            panelPrincipal.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+            JPanel panelHijo = (JPanel) infoNodosel.formularioNodo.getContentPane();
+
+            panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+            //}
+
             revalidate();
             repaint();
 

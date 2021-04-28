@@ -22,6 +22,10 @@ import javax.swing.JOptionPane;
  */
 public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, Comunicable, Validable, Cloneable {
 
+   
+
+    
+
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -89,16 +93,50 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         this.listaObservadores = listaObservadores;
     }
 
-    int minAltura = 500;
-    int minAnchura = 600;
+    private int minAltura;
+    
+    /**
+     * @return the minAltura
+     */
+    public int getMinAltura() {
+        return minAltura;
+    }
+
+    /**
+     * @param minAltura the minAltura to set
+     */
+    public void setMinAltura(int minAltura) {
+        this.minAltura = minAltura;
+    }
+    
+    private int minAnchura;
+    
+     /**
+     * @return the minAnchura
+     */
+    public int getMinAnchura() {
+        return minAnchura;
+    }
+
+    /**
+     * @param minAnchura the minAnchura to set
+     */
+    public void setMinAnchura(int minAnchura) {
+        this.minAnchura = minAnchura;
+    }
+    
+    
 
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
      */
     public FormularioExtensible() {
+        this.minAnchura = 0;
+        this.minAltura = 0;
         initComponents();
         this.panelBotones = new PanelBotones();
         panelBotones.nuevoActionListener(this);
+        
     }
 
     @Override
@@ -125,11 +163,11 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         addPanelBotones();
         // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
-        minimumSize.setSize(minAnchura, minAltura);
-        //this.setMinimumSize(minimumSize);
+        minimumSize.setSize(getMinAnchura(), getMinAltura() + 50);
+        this.setMinimumSize(minimumSize);
         this.setPreferredSize(minimumSize);
 
-        this.setSize(minAnchura, minAltura);
+        this.setSize(getMinAnchura(), getMinAltura() + 50);
         this.setLocation(500, 0);
         return true;
     }

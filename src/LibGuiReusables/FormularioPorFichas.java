@@ -6,7 +6,7 @@
 package LibGuiReusables;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -50,17 +50,15 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
             pack();
             //Set up the content pane.
 
-           // this.setSize(500, 400);
+            // this.setSize(500, 400);
             //this.setResizable(false);
-
             //this.setExtendedState(MAXIMIZED_BOTH);
             return true;
         } else {
             return false;
         }
     }
-    
-    
+
     /**
      * incluye un nuevo hijo
      *
@@ -72,22 +70,22 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
     @Override
     public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
 
-       
-        if (this instanceof FormularioPorFichas) {
-            hijo.setnombreContenedor(titulo);
-            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        hijo.setMinAltura(hijo.getHeight());
+        hijo.setMinAnchura(hijo.getWidth());
+        hijo.setnombreContenedor(titulo);
+        getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
-            JPanel panelHijo = (JPanel) hijo.getContentPane();
-            // panelHijo.setLayout(null);
+        JPanel panelHijo = (JPanel) hijo.getContentPane();
 
-          //  FormularioPorFichas padrePorFichas = (FormularioPorFichas) this;
+        panelPorFichas.addTab(titulo, panelHijo);
 
-          //  JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
-            panelPorFichas.addTab(titulo, panelHijo);
-
+        if (this.getMinAnchura() < hijo.getMinAnchura()) {
+            this.setMinAnchura(hijo.getMinAnchura());
         }
 
-       
+        if (this.getMinAltura() < hijo.getMinAltura()) {
+            this.setMinAltura(hijo.getMinAltura());
+        }
 
     }
 
@@ -103,28 +101,31 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
     public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
         if (titulo.isEmpty() || titulo.equals(getnombreContenedor())) {
         } else {
-            setnombreContenedor (titulo) ;
+            setnombreContenedor(titulo);
         }
 
-             
-          //  FormularioPorFichas padrePorFichas = (FormularioPorFichas) this;
-            JPanel panelCombinado = new JPanel();
-            //panelCombinado.setLayout((new BoxLayout(panelCombinado, BoxLayout.Y_AXIS)));
-            //panelCombinado.setLayout((new GridLayout(0, 1)));
-            panelCombinado.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-            for (FormularioExtensible hijo : listaHijos) {
-                getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        JPanel panelCombinado = new JPanel();
 
-                JPanel panelHijo = (JPanel) hijo.getContentPane();
-                // panelHijo.setLayout(null);
+        panelCombinado.setLayout((new GridLayout(0, 1)));
 
-                panelCombinado.add(panelHijo);
+        for (FormularioExtensible hijo : listaHijos) {
+            hijo.setMinAltura(hijo.getHeight());
+            hijo.setMinAnchura(hijo.getWidth());
+            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
+            JPanel panelHijo = (JPanel) hijo.getContentPane();
+
+            panelCombinado.add(panelHijo);
+
+            if (this.getMinAnchura() < hijo.getMinAnchura()) {
+                this.setMinAnchura(hijo.getMinAnchura());
             }
-       //     JTabbedPane panelPorFichas = (JTabbedPane) padrePorFichas.obtenerValor("panelPorFichas");
-            panelPorFichas.addTab(titulo, panelCombinado);
 
-            
+            this.setMinAltura(this.getMinAltura() + hijo.getMinAltura());
+
+        }
+
+        panelPorFichas.addTab(titulo, panelCombinado);
 
     }
 
@@ -141,7 +142,6 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    
     /**
      * metodos de la Interface Comunicable
      */
