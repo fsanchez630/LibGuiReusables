@@ -50,6 +50,20 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     }
 
     /**
+     * @return the nodoRaiz
+     */
+    public DefaultMutableTreeNode getNodoRaiz() {
+        return nodoRaiz;
+    }
+
+    /**
+     * @param nodoRaiz the nodoRaiz to set
+     */
+    public void setNodoRaiz(DefaultMutableTreeNode nodoRaiz) {
+        this.nodoRaiz = nodoRaiz;
+    }
+
+    /**
      * Constructor por defecto crea el panel principal
      */
     public FormularioArbol() {
@@ -74,7 +88,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         if (super.configurarFormulario()) {
 
-            arbol = new JTree(nodoRaiz);
+            arbol = new JTree(getNodoRaiz());
             arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
             arbol.setRootVisible(false);
             arbol.addTreeSelectionListener(this);
@@ -113,18 +127,51 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
      */
     private class InfoNodo {
 
-        public String nombreNodo;
-        public FormularioExtensible formularioNodo;
+       
+
+      
+
+        private String nombreNodo;
+        private FormularioExtensible formularioNodo;
+        
 
         public InfoNodo(String nombre, FormularioExtensible formulario) {
             nombreNodo = nombre;
             formularioNodo = formulario;
 
         }
+        
+          /**
+         * @return the nombreNodo
+         */
+        public String getNombreNodo() {
+            return nombreNodo;
+        }
+
+        /**
+         * @param nombreNodo the nombreNodo to set
+         */
+        public void setNombreNodo(String nombreNodo) {
+            this.nombreNodo = nombreNodo;
+        }
+        
+         /**
+         * @return the formularioNodo
+         */
+        public FormularioExtensible getFormularioNodo() {
+            return formularioNodo;
+        }
+
+        /**
+         * @param formularioNodo the formularioNodo to set
+         */
+        public void setFormularioNodo(FormularioExtensible formularioNodo) {
+            this.formularioNodo = formularioNodo;
+        }
 
         @Override
         public String toString() {
-            return nombreNodo;
+            return getNombreNodo();
         }
     }
 
@@ -151,13 +198,20 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
-        infoNodo = new InfoNodo(titulo, hijo);
-        nodo = new DefaultMutableTreeNode(infoNodo);
+        if (hijo instanceof FormularioArbol) {
+            FormularioArbol hijoArbol = (FormularioArbol) hijo;
+
+            nodo = hijoArbol.getNodoRaiz();
+            InfoNodo infonodo = (InfoNodo) nodo.getUserObject();
+            infonodo.setNombreNodo(titulo);
+            this.getNodoRaiz().add(nodo);
+        } else {
+            infoNodo = new InfoNodo(titulo, hijo);
+            nodo = new DefaultMutableTreeNode(infoNodo);
+            this.getNodoRaiz().add(nodo);
+        }
 
         //crearArbol(nodo);
-
-        nodoRaiz.add(nodo);
-
     }
 
     /**
@@ -196,12 +250,11 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
 
             //crearArbol(nodoHijo);
-
             nodoPadre.add(nodoHijo);
 
         }
 
-        nodoRaiz.add(nodoPadre);
+        getNodoRaiz().add(nodoPadre);
 
     }
 
@@ -216,11 +269,11 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         InfoNodo infoNodoHijo;
         DefaultMutableTreeNode nodoHijo;
 
-        if (infoNodoPadre.formularioNodo != null) {
+        if (infoNodoPadre.getFormularioNodo() != null) {
 
             // recorrer los hijos
-            for (int x = 0; x < infoNodoPadre.formularioNodo.getHijosExtensibles().size(); x++) {
-                FormularioExtensible hijo = (FormularioExtensible) infoNodoPadre.formularioNodo.getHijosExtensibles().get(x);
+            for (int x = 0; x < infoNodoPadre.getFormularioNodo().getHijosExtensibles().size(); x++) {
+                FormularioExtensible hijo = (FormularioExtensible) infoNodoPadre.getFormularioNodo().getHijosExtensibles().get(x);
                 // if (hijo.getHijosExtensibles().size() > 0) {
                 infoNodoHijo = new InfoNodo(hijo.getnombreContenedor(), hijo);
                 nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
@@ -302,11 +355,11 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         InfoNodo infoNodosel;
         infoNodosel = (InfoNodo) node.getUserObject();
 
-        if (infoNodosel.formularioNodo != null) {
+        if (infoNodosel.getFormularioNodo() != null) {
 
             // if (1 == 0) {
             panelPrincipal.removeAll();
-            JPanel panelHijo = (JPanel) infoNodosel.formularioNodo.getContentPane();
+            JPanel panelHijo = (JPanel) infoNodosel.getFormularioNodo().getContentPane();
 
             panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
