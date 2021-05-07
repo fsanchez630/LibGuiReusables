@@ -154,7 +154,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         infoNodo = new InfoNodo(titulo, hijo);
         nodo = new DefaultMutableTreeNode(infoNodo);
 
-        crearArbol(nodo);
+        //crearArbol(nodo);
 
         nodoRaiz.add(nodo);
 
@@ -195,7 +195,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
             nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
 
-            crearArbol(nodoHijo);
+            //crearArbol(nodoHijo);
 
             nodoPadre.add(nodoHijo);
 
