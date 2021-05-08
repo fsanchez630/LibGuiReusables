@@ -191,8 +191,6 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.setMinAltura(hijo.getMinAltura());
         }
 
-        
-
         if (hijo instanceof FormularioArbol) {
             FormularioArbol hijoArbol = (FormularioArbol) hijo;
 
@@ -208,16 +206,12 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         if (this.getHijosExtensibles().isEmpty()) {
             this.setNodoRaiz(nodo);
-        }
-        else{
+        } else {
             this.getNodoRaiz().add(nodo);
         }
-        
-        
-        
-        
+
         this.getHijosExtensibles().add((FormularioExtensible) hijo.clone());
-        //crearArbol(nodo);
+
     }
 
     /**
@@ -230,16 +224,16 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     @Override
     public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) {
 
-        DefaultMutableTreeNode nodoPadre;
-        InfoNodo infoNodoPadre;
+        DefaultMutableTreeNode nodo;
+        InfoNodo infoNodo;
 
-        infoNodoPadre = new InfoNodo(titulo, null);
-        nodoPadre = new DefaultMutableTreeNode(infoNodoPadre);
+        // recorrer lista de hijos
+        for (int x = 0; x < listaHijos.size(); x++) {
+            FormularioExtensible hijo = (FormularioExtensible) listaHijos.get(x);
 
-        DefaultMutableTreeNode nodoHijo;
-        InfoNodo infoNodoHijo;
-
-        for (FormularioExtensible hijo : listaHijos) {
+            if (x == 0) { // primer elemento
+                hijo.setnombreContenedor(titulo);
+            }
 
             if (this.getMinAnchura() < hijo.getMinAnchura()) {
                 this.setMinAnchura(hijo.getMinAnchura());
@@ -249,18 +243,28 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
                 this.setMinAltura(hijo.getMinAltura());
             }
 
-            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+            if (hijo instanceof FormularioArbol) {
+                FormularioArbol hijoArbol = (FormularioArbol) hijo;
 
-            infoNodoHijo = new InfoNodo(hijo.getnombreContenedor(), hijo);
+                nodo = hijoArbol.getNodoRaiz();
+                infoNodo = (InfoNodo) nodo.getUserObject();
+                infoNodo.setNombreNodo(hijo.getnombreContenedor());
 
-            nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
+            } else {
+                infoNodo = new InfoNodo(hijo.getnombreContenedor(), hijo);
+                nodo = new DefaultMutableTreeNode(infoNodo);
 
-            //crearArbol(nodoHijo);
-            nodoPadre.add(nodoHijo);
+            }
+
+            if (this.getHijosExtensibles().isEmpty()) {
+                this.setNodoRaiz(nodo);
+            } else {
+                this.getNodoRaiz().add(nodo);
+            }
+
+            this.getHijosExtensibles().add((FormularioExtensible) hijo.clone());
 
         }
-
-        getNodoRaiz().add(nodoPadre);
 
     }
 
@@ -358,22 +362,28 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
         node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
 
-        InfoNodo infoNodosel;
-        infoNodosel = (InfoNodo) node.getUserObject();
+        if (node != null) {
 
-        if (infoNodosel.getFormularioNodo() != null) {
+            InfoNodo infoNodosel;
+            infoNodosel = (InfoNodo) node.getUserObject();
 
-            // if (1 == 0) {
-            panelPrincipal.removeAll();
-            JPanel panelHijo = (JPanel) infoNodosel.getFormularioNodo().getContentPane();
+            if (infoNodosel != null) {
 
-            panelPrincipal.setLayout(new GridLayout(0, 1));
-            panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-            //}
+                if (infoNodosel.getFormularioNodo() != null) {
 
-            revalidate();
-            repaint();
+                    // if (1 == 0) {
+                    panelPrincipal.removeAll();
+                    JPanel panelHijo = (JPanel) infoNodosel.getFormularioNodo().getContentPane();
 
+                    panelPrincipal.setLayout(new GridLayout(0, 1));
+                    panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+                    //}
+
+                    revalidate();
+                    repaint();
+
+                }
+            }
         }
 
         //  VISULIZAR NODO SELECCIONADO
