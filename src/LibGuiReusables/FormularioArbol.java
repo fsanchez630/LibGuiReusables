@@ -90,7 +90,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
             arbol = new JTree(getNodoRaiz());
             arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-            arbol.setRootVisible(false);
+            // arbol.setRootVisible(false);
             arbol.addTreeSelectionListener(this);
 
             this.setNombreArbol("Dialogos");
@@ -127,21 +127,16 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
      */
     private class InfoNodo {
 
-       
-
-      
-
         private String nombreNodo;
         private FormularioExtensible formularioNodo;
-        
 
         public InfoNodo(String nombre, FormularioExtensible formulario) {
             nombreNodo = nombre;
             formularioNodo = formulario;
 
         }
-        
-          /**
+
+        /**
          * @return the nombreNodo
          */
         public String getNombreNodo() {
@@ -154,8 +149,8 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         public void setNombreNodo(String nombreNodo) {
             this.nombreNodo = nombreNodo;
         }
-        
-         /**
+
+        /**
          * @return the formularioNodo
          */
         public FormularioExtensible getFormularioNodo() {
@@ -196,21 +191,32 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.setMinAltura(hijo.getMinAltura());
         }
 
-        getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        
 
         if (hijo instanceof FormularioArbol) {
             FormularioArbol hijoArbol = (FormularioArbol) hijo;
 
             nodo = hijoArbol.getNodoRaiz();
-            InfoNodo infonodo = (InfoNodo) nodo.getUserObject();
-            infonodo.setNombreNodo(titulo);
-            this.getNodoRaiz().add(nodo);
+            infoNodo = (InfoNodo) nodo.getUserObject();
+            infoNodo.setNombreNodo(titulo);
+
         } else {
             infoNodo = new InfoNodo(titulo, hijo);
             nodo = new DefaultMutableTreeNode(infoNodo);
-            this.getNodoRaiz().add(nodo);
+
         }
 
+        if (this.getHijosExtensibles().isEmpty()) {
+            this.setNodoRaiz(nodo);
+        }
+        else{
+            this.getNodoRaiz().add(nodo);
+        }
+        
+        
+        
+        
+        this.getHijosExtensibles().add((FormularioExtensible) hijo.clone());
         //crearArbol(nodo);
     }
 
