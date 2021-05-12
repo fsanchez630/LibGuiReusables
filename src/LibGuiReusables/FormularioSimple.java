@@ -36,9 +36,9 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
     }
 
     @Override
-    public Boolean configurarFormulario() {
+    public Boolean configurarFormulario(Boolean botones) {
 
-        if (super.configurarFormulario()) {
+        if (super.configurarFormulario(botones)) {
 
             pack();
             //Set up the content pane.

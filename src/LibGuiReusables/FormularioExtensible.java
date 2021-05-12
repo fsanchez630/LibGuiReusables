@@ -14,17 +14,13 @@ import javax.swing.JOptionPane;
 
 /**
  * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
- derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
- eventos implementa interface Validable para validacion de datos implementa
- interface Comunicable para comunicion entre componentes
+ * derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
+ * eventos implementa interface Validable para validacion de datos implementa
+ * interface Comunicable para comunicion entre componentes
  *
  * @author Javi
  */
 public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, Comunicable, Validable, Cloneable {
-
-   
-
-    
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -94,7 +90,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     }
 
     private int minAltura;
-    
+
     /**
      * @return the minAltura
      */
@@ -108,10 +104,10 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     public void setMinAltura(int minAltura) {
         this.minAltura = minAltura;
     }
-    
+
     private int minAnchura;
-    
-     /**
+
+    /**
      * @return the minAnchura
      */
     public int getMinAnchura() {
@@ -124,8 +120,6 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     public void setMinAnchura(int minAnchura) {
         this.minAnchura = minAnchura;
     }
-    
-    
 
     /**
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
@@ -136,7 +130,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         initComponents();
         this.panelBotones = new PanelBotones();
         panelBotones.nuevoActionListener(this);
-        
+
     }
 
     @Override
@@ -156,11 +150,14 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     /**
      * configurar el formulario
      *
+     * @param botones
      * @return Boolean
      */
-    public Boolean configurarFormulario() {
+    public Boolean configurarFormulario(Boolean botones) {
 
-        addPanelBotones();
+        if (botones) {
+            addPanelBotones();
+        }
         // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
         minimumSize.setSize(getMinAnchura(), getMinAltura() + 50);

@@ -84,9 +84,9 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     }
 
     @Override
-    public Boolean configurarFormulario() {
+    public Boolean configurarFormulario(Boolean botones) {
 
-        if (super.configurarFormulario()) {
+        if (super.configurarFormulario(botones)) {
 
             arbol = new JTree(getNodoRaiz());
             arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -110,6 +110,30 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.setPreferredSize(minimumSize);
 
             this.setSize(getMinAnchura() + ANCHURA_ARBOL, getMinAltura());
+
+            if (nodoRaiz != null) {
+
+                InfoNodo infoNodosel;
+                infoNodosel = (InfoNodo) nodoRaiz.getUserObject();
+
+                if (infoNodosel != null) {
+
+                    if (infoNodosel.getFormularioNodo() != null) {
+
+                        // if (1 == 0) {
+                        panelPrincipal.removeAll();
+                        JPanel panelHijo = (JPanel) infoNodosel.getFormularioNodo().getContentPane();
+
+                        panelPrincipal.setLayout(new GridLayout(0, 1));
+                        panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+                        //}
+
+                        revalidate();
+                        repaint();
+
+                    }
+                }
+            }
 
             pack();
 
