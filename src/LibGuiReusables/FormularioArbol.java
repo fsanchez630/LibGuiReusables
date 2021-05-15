@@ -8,14 +8,12 @@ package LibGuiReusables;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -368,16 +366,6 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
      *
      * @param evt
      */
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        System.out.println("Botón pulsado: " + evt.getActionCommand());
-
-    }
-
-    @Override
-    public void stateChanged(ChangeEvent evt) {
-        System.out.println("evento cambio");
-    }
 
     @Override
     public void valueChanged(TreeSelectionEvent e) {

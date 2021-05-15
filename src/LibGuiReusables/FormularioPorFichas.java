@@ -14,13 +14,14 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.TreeSelectionListener;
 
 /**
  * clase derivada Formulario por Fichas
  *
  * @author Javi
  */
-public class FormularioPorFichas extends FormularioExtensible implements ActionListener, ChangeListener, Comunicable, Validable {
+public class FormularioPorFichas extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable {
 
     // panel primcipal 
     private JPanel panelPrincipal;
@@ -178,17 +179,6 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
         return retorno;
     }
 
-    /**
-     * metodos de gestion de eventos
-     */
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        System.out.println("Botón pulsado: " + evt.getActionCommand());
-    }
-
-    @Override
-    public void stateChanged(ChangeEvent evt) {
-        System.out.println("evento cambio");
-    }
+    
 
 }

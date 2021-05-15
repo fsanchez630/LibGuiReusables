@@ -6,20 +6,18 @@
 package LibGuiReusables;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.TreeSelectionListener;
 
 /**
  *
  * @author Javi
  */
-public class FormularioSimple extends FormularioExtensible implements ActionListener, ChangeListener, Comunicable, Validable {
+public class FormularioSimple extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener ,Comunicable, Validable {
 
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
@@ -174,18 +172,6 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
         System.out.println("recuperar valor");
     }
 
-    /**
-     * metodos de gestion de eventos
-     */
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        System.out.println("Botón pulsado: " + evt.getActionCommand());
-
-    }
-
-    @Override
-    public void stateChanged(ChangeEvent evt) {
-        System.out.println("evento cambio");
-    }
+        
 
 }

@@ -7,10 +7,14 @@ package LibGuiReusables;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 
 /**
  * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
@@ -20,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, Comunicable, Validable, Cloneable {
+public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable, Cloneable {
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -150,12 +154,12 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     /**
      * configurar el formulario
      *
-     * @param botones
+     * @param hayBotones     
      * @return Boolean
      */
-    public Boolean configurarFormulario(Boolean botones) {
+    public Boolean configurarFormulario(Boolean hayBotones) {
 
-        if (botones) {
+        if (hayBotones) {
             addPanelBotones();
         }
         // this.setLocationRelativeTo(null);
@@ -311,4 +315,36 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
+    /**
+     * metodos de gestion de eventos
+     * @param evt
+     */
+
+    
+    
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        System.out.println("Botón pulsado: " + evt.getActionCommand());
+        if (evt.getActionCommand().equals("Aceptar")) {
+            aceptar();
+        } else if (evt.getActionCommand().equals("Cancelar")) {
+            cancelar();
+        }
+    }
+    
+    
+    @Override
+    public void stateChanged(ChangeEvent evt) {
+        System.out.println("evento cambio");
+    }
+    
+    
+    
+    @Override
+    public void valueChanged(TreeSelectionEvent e) {
+        System.out.println("selecion nodo");
+    
+    }
+
+    
 }
