@@ -32,6 +32,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     private DefaultMutableTreeNode nodoRaiz;
     private String nombreArbol;
     static final Integer ANCHURA_ARBOL = 250;
+    static final Boolean INTEGRAR_ARBOL = false;
 
     /**
      * @return the nombreArbol
@@ -213,7 +214,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.setMinAltura(hijo.getMinAltura());
         }
 
-        if (hijo instanceof FormularioArbol) {
+        if ((hijo instanceof FormularioArbol) && (INTEGRAR_ARBOL)) {
             FormularioArbol hijoArbol = (FormularioArbol) hijo;
 
             nodo = hijoArbol.getNodoRaiz();
@@ -265,7 +266,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
                 this.setMinAltura(hijo.getMinAltura());
             }
 
-            if (hijo instanceof FormularioArbol) {
+            if ((hijo instanceof FormularioArbol) && (INTEGRAR_ARBOL)) {
                 FormularioArbol hijoArbol = (FormularioArbol) hijo;
 
                 nodo = hijoArbol.getNodoRaiz();
@@ -366,10 +367,16 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
      *
      * @param evt
      */
-
     @Override
-    public void valueChanged(TreeSelectionEvent e) {
+    public void valueChanged(TreeSelectionEvent evt) {
         System.out.println("selecion nodo");
+
+        System.out.println(evt.toString());
+
+        System.out.println(evt.getSource().getClass());
+
+        System.out.println(evt.getSource().toString());
+
         DefaultMutableTreeNode node;
 
         node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
@@ -385,14 +392,20 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
                     // if (1 == 0) {
                     panelPrincipal.removeAll();
-                    JPanel panelHijo = (JPanel) infoNodosel.getFormularioNodo().getContentPane();
+                    FormularioExtensible FormularioHijo = infoNodosel.getFormularioNodo();
+                    FormularioHijo.configurarFormulario(false); // configurar sin botones
+                    JPanel panelHijo = (JPanel) FormularioHijo.getContentPane();
 
                     panelPrincipal.setLayout(new GridLayout(0, 1));
                     panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+                    
+                    panelPrincipal.revalidate();
+                    panelPrincipal.repaint();
+                    
                     //}
 
-                    revalidate();
-                    repaint();
+                   // revalidate();
+                   // repaint();
 
                 }
             }
