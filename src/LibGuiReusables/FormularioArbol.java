@@ -104,12 +104,12 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.getContentPane().add(panelScroll, java.awt.BorderLayout.WEST);
 
             Dimension minimumSize = new Dimension();
-            minimumSize.setSize(getMinAnchura() + ANCHURA_ARBOL, getMinAltura());
+            minimumSize.setSize(this.getMinAnchura() + ANCHURA_ARBOL, this.getMinAltura() + 50);
             this.setMinimumSize(minimumSize);
             this.setPreferredSize(minimumSize);
 
-            this.setSize(getMinAnchura() + ANCHURA_ARBOL, getMinAltura());
-
+            this.setSize(this.getMinAnchura() + ANCHURA_ARBOL, this.getMinAltura() + 50);
+            this.setLocation(500, 0);
             if (nodoRaiz != null) {
 
                 InfoNodo infoNodosel;
@@ -204,6 +204,8 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         DefaultMutableTreeNode nodo;
         InfoNodo infoNodo;
 
+        hijo.setMinAltura(hijo.getHeight());
+        hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
 
         if (this.getMinAnchura() < hijo.getMinAnchura()) {
@@ -213,6 +215,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
         if (this.getMinAltura() < hijo.getMinAltura()) {
             this.setMinAltura(hijo.getMinAltura());
         }
+       
 
         if ((hijo instanceof FormularioArbol) && (INTEGRAR_ARBOL)) {
             FormularioArbol hijoArbol = (FormularioArbol) hijo;
@@ -257,6 +260,9 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             if (x == 0) { // primer elemento
                 hijo.setnombreContenedor(titulo);
             }
+
+            hijo.setMinAltura(hijo.getHeight());
+            hijo.setMinAnchura(hijo.getWidth());
 
             if (this.getMinAnchura() < hijo.getMinAnchura()) {
                 this.setMinAnchura(hijo.getMinAnchura());
@@ -371,12 +377,6 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
     public void valueChanged(TreeSelectionEvent evt) {
         System.out.println("selecion nodo");
 
-        System.out.println(evt.toString());
-
-        System.out.println(evt.getSource().getClass());
-
-        System.out.println(evt.getSource().toString());
-
         DefaultMutableTreeNode node;
 
         node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
@@ -398,15 +398,13 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
                     panelPrincipal.setLayout(new GridLayout(0, 1));
                     panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-                    
+
                     panelPrincipal.revalidate();
                     panelPrincipal.repaint();
-                    
+
                     //}
-
-                   // revalidate();
-                   // repaint();
-
+                    // revalidate();
+                    // repaint();
                 }
             }
         }
