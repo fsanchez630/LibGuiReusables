@@ -345,11 +345,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         
         System.out.println("selecion nodo");
 
-        System.out.println(evt.toString());
         
-        System.out.println(evt.getSource().getClass());
-        
-        System.out.println(evt.getSource().toString());
         
     }
 

@@ -375,7 +375,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
      */
     @Override
     public void valueChanged(TreeSelectionEvent evt) {
-        System.out.println("selecion nodo");
+        //System.out.println("selecion nodo");
 
         DefaultMutableTreeNode node;
 
