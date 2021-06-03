@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import LibGuiReusables.*;
 
 import java.awt.event.ActionEvent;
@@ -44,15 +43,14 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
      *
      * @return
      */
-    
-     public FormularioExtensible CrearFactoriaArbolLista() {
+    public FormularioExtensible CrearFactoriaArbolLista() {
         initComponents();
 
         FormularioExtensible retorno;
         retorno = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.ARBOL);
         return retorno;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,20 +82,19 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
         // crear lista observadores de eventos e incluir el formulario
         listaObs = new ListaObservadoresEventos();
         listaHijos = new ArrayList<FormularioExtensible>();
-        
+
         formularioExtensibleArbol = new CrearFactoriaArbolLista();
         formularioExtensibleArbol.setnombreContenedor("Factoria Arbol con Lista");
-        
+
         listaObs.nuevoActionListener(formularioExtensibleArbol);
         listaObs.nuevoChangeListener(formularioExtensibleArbol);
 
         formularioExtensibleArbol.setListaObservadores(listaObs);
 
-              agregarFormularios();
+        agregarFormularios();
         // agregarFormPorFichas();
         //agregarFormPorFichas();
-        
-        
+
         try {
             formularioExtensibleArbol.addListaHijosExtensibles(listaHijos, "Arbol Principal");
         } catch (Exception e) {
@@ -242,9 +239,8 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
 
     }
 
-    
-     private static void agregarFormularios() {
-         // CREAR FOMULARIO 1
+    private static void agregarFormularios() {
+        // CREAR FOMULARIO 1
         formularioExtensibleSimple = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.SIMPLE);
 
         formularioExtensibleSimple.setnombreContenedor("Formulario Simple 1");
@@ -288,7 +284,6 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
             JOptionPane.showMessageDialog(formularioExtensibleFichas, e.getMessage());
         }
 
-        
         // CREAR FOMULARIO ARBOL 2
         formularioExtensibleArbol2 = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.ARBOL);
 
@@ -297,7 +292,7 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
         listaObs.nuevoActionListener(formularioExtensibleArbol2);
         listaObs.nuevoChangeListener(formularioExtensibleArbol2);
         formularioExtensibleArbol2.setListaObservadores(listaObs);
-        
+
         // CREAR FOMULARIO 3
         formularioExtensibleSimple2 = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.SIMPLE);
 
@@ -310,15 +305,12 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
         formularioSimpleD4 = new FormSimpleDis4();
         formularioSimpleD4.setListaObservadores(listaObs);
 
-        
         try {
             formularioExtensibleSimple2.addHijoExtensible(formularioSimpleD4, "Formulario 5");
-         
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(formularioExtensibleSimple2, e.getMessage());
         }
-
-        
 
         try {
             formularioExtensibleArbol2.addHijoExtensible(formularioExtensibleSimple2, formularioExtensibleSimple2.getnombreContenedor());
@@ -326,9 +318,8 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
         } catch (Exception e) {
             JOptionPane.showMessageDialog(formularioExtensibleArbol2, e.getMessage());
         }
-        
-        
-         // CREAR FOMULARIO 3
+
+        // CREAR FOMULARIO 3
         formularioExtensibleSimple2 = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.SIMPLE);
 
         formularioExtensibleSimple2.setnombreContenedor("Formulario Simple 2");
@@ -337,36 +328,35 @@ public class CrearFactoriaArbolLista extends FormularioArbol implements ActionLi
         listaObs.nuevoChangeListener(formularioExtensibleSimple2);
         formularioExtensibleSimple2.setListaObservadores(listaObs);
 
-        
         formularioSimpleD5 = new FormSimpleDis5();
         formularioSimpleD5.setListaObservadores(listaObs);
 
         try {
-            formularioExtensibleSimple2.addHijoExtensible(formularioSimpleD5, "Formulario 6");        
+            formularioExtensibleSimple2.addHijoExtensible(formularioSimpleD5, "Formulario 6");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(formularioExtensibleSimple2, e.getMessage());
         }
 
-        
         try {
             formularioExtensibleArbol2.addHijoExtensible(formularioExtensibleSimple2, formularioExtensibleSimple2.getnombreContenedor());
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(formularioExtensibleArbol2, e.getMessage());
         }
-        
-         // AGREGAR HIJOS A lista de hijos del FOMULARIO PRINCIPAL
-         
-          listaHijos.add(formularioExtensibleFichas);
-          listaHijos.add(formularioExtensibleArbol2);
-          listaHijos.add(formularioExtensibleSimple);
-        
-         
-     }
+
+        // AGREGAR HIJOS A lista de hijos del FOMULARIO PRINCIPAL
+        formularioExtensibleFichas.configurarFormulario(false);
+        formularioExtensibleArbol2.configurarFormulario(false);
+        formularioExtensibleSimple.configurarFormulario(false);
+
+        listaHijos.add(formularioExtensibleFichas);
+        listaHijos.add(formularioExtensibleArbol2);
+        listaHijos.add(formularioExtensibleSimple);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    
     @Override
     public void stateChanged(ChangeEvent evt) {
         JSpinner s = (JSpinner) evt.getSource();

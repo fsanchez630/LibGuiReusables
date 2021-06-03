@@ -97,6 +97,7 @@ public class CrearFactoriaArbol extends FormularioArbol implements ActionListene
             JOptionPane.showMessageDialog(formularioExtensibleSimple, e.getMessage());
         }
 
+        formularioExtensibleSimple.configurarFormulario(false);
         // CREAR FORMULARIO 2
         formularioExtensibleFichas = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.PORFICHAS);
 
@@ -119,6 +120,7 @@ public class CrearFactoriaArbol extends FormularioArbol implements ActionListene
             JOptionPane.showMessageDialog(formularioExtensibleFichas, e.getMessage());
         }
 
+        formularioExtensibleFichas.configurarFormulario(false);
         // CREAR FOMULARIO ARBOL 2
         formularioExtensibleArbol2 = FactoriaFormularios.crearFormulario(FormularioExtensible.TipoContenedor.ARBOL);
 
@@ -178,6 +180,8 @@ public class CrearFactoriaArbol extends FormularioArbol implements ActionListene
         } catch (Exception e) {
             JOptionPane.showMessageDialog(formularioExtensibleArbol2, e.getMessage());
         }
+        
+        formularioExtensibleArbol2.configurarFormulario(false);
 
         // FORMULARIO PRINCIPAL
         formularioExtensibleArbol = new CrearFactoriaArbol();
