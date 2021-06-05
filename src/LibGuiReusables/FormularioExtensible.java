@@ -154,7 +154,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     /**
      * configurar el formulario
      *
-     * @param hayBotones     
+     * @param hayBotones
      * @return Boolean
      */
     public Boolean configurarFormulario(Boolean hayBotones) {
@@ -207,8 +207,9 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
         if (this.validar()) {
             this.guardar();
-            this.limpiar();
             JOptionPane.showMessageDialog(this, "Operacion Realizada");
+            this.limpiar();
+
         } else {
             JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
         }
@@ -219,8 +220,8 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     public void cancelar() {
         System.out.println("cancelar " + this.getClass() + " " + this.getName());
 
-        this.limpiar();
         JOptionPane.showMessageDialog(this, "Operacion Cancelada");
+        this.limpiar();
     }
 
     @Override
@@ -270,6 +271,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
             hijo.limpiar();
 
         }
+        this.dispose();
     }
 
     /**
@@ -317,11 +319,9 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
     /**
      * metodos de gestion de eventos
+     *
      * @param evt
      */
-
-    
-    
     @Override
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Botón pulsado: " + evt.getActionCommand());
@@ -331,23 +331,17 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
             cancelar();
         }
     }
-    
-    
+
     @Override
     public void stateChanged(ChangeEvent evt) {
         System.out.println("evento cambio");
     }
-    
-    
-    
+
     @Override
     public void valueChanged(TreeSelectionEvent evt) {
-        
+
         System.out.println("selecion nodo");
 
-        
-        
     }
 
-    
 }
