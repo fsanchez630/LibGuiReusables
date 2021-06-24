@@ -1,0 +1,649 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabla}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\let\sv@endpart\@endpart
+\def\@endpart{\thispagestyle{empty}\sv@endpart}
+\makeatother
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introducción general y objetivos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este capitulo tiene como cometido explicar de una forma general la motivación
+ y objetivos del proyecto.
+ Se pretende dar una idea global del proceso de creación de la Librería
+ que detalla esta memoria.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hará una breve introducción que sirva de contexto.
+ En ella se comenta como funciona normalmente la tarea del desarrollo de
+ Software y la importancia que tienen las GUI (interfaces graficas de Usuario)
+ en muchos de los proyectos de desarrollo.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de esta corta introducción se pasa a explicar la motivación principal
+ de este proyecto: las Interfaces graficas Reusables, la herramienta que
+ debe ayudar tanto a programadores y diseñadores de GUI a hacer su tarea
+ mas sencilla.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una vez que se ha presentado la motivación del proyecto, seguidamente se
+ pasa a explicar los objetivos básicos que pretende cumplir la librería.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se comenta la estructura general de la memoria con la lista de
+ capítulos y anexos, con una descripción corta de cada uno.
+ Se pretende que sirva como una pequeña síntesis de los contenidos que aborda
+ este documento.
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El desarrollo de software ha sido siempre una tarea tediosa y difícil que
+ ha requerido al menos de un editor de texto, donde escribir el programa,
+ y de un compilador o intérprete que diera los pasos necesarios con el conjunto
+ de ficheros del programa para que éste se pudiera ejecutar.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Además, la práctica totalidad de los programas hoy en día disponen de un
+ interfaz de gráfico, que consiste en un conjunto de ventanas y menús que
+ permiten al usuario interactuar con el software y proporcionarle una experienci
+a lo más satisfactoria posible.
+ Dadas las crecientes exigencias de los usuarios por disponer de interfaces
+ de usuario amigables surgieron hace unos años distintos programas, conocidos
+ como entornos de desarrollo (siglas IDEs en inglés), orientados a facilitar
+ el trabajo al programador que debía desarrollar dicho software.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En todos ellos se suelen distinguir dos vistas o perspectivas desde las
+ cuales explorar y/o editar el código fuente del programa: 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Vista de codificación: En la que el programador accede directamente al código
+ fuente del programa, que es al fin y al cabo el código que el compilador
+ o intérprete procesará para que se pueda ejecutar el programa.
+ La típica presentación de esta vista es un documento de texto, con la sintaxis
+ del lenguaje coloreada.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Vista de diseño: En la que el programador puede construir de manera gráfica
+ las distintas ventanas y menús que le aparecerán en el programa, en la
+ que añadirá botones, cajas de texto, marcos con borde, etc., o sea, todo
+ tipo de componentes gráficas que quiere que se muestren en algún momento
+ en el programa.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La introducción de la posibilidad de disponer de la vista de diseño en los
+ IDEs fue un gran avance para los programadores y les permitió desarrollar
+ las aplicaciones de forma más rápida, con menos esfuerzo, y ofrecer programas
+ de mayor calidad.
+ Guarda una estrecha relación con el estilo de arquitectura de software
+ denominado Modelo Vista Controlador (MVC), que separa los datos de usuario
+ de una aplicación, la interfaz de usuario, y la lógica de control en tres
+ componentes diferentes.
+\end_layout
+
+\begin_layout Enumerate
+La Vista, que será la interfaz de usuario, compuesta por las diferentes
+ pantallas y ventanas.
+ 
+\end_layout
+
+\begin_layout Enumerate
+El Modelo, los datos e información que manejar y representa la aplicación.
+ 
+\end_layout
+
+\begin_layout Enumerate
+El Controlador, que contiene la lógica que comunique la vista con el controlador.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El diseñador de GUI va a trabajar sobre la parte vista según el paradigma
+ MVC, con lo que se encarga del desarrollo de toda la parte de la GUI.
+ El desarrollador de aplicaciones se centra en las partes Modelo y Controlador
+ según el esquema MVC.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Las GUI son un parte fundamental de la mayoria de proyectos de Software,
+ crear alguna herramienta que facilite su reusabilidad puede hacer que la
+ tarea de Desarrollo ocupe menos tiempo y no sea tan tediosa y difícil.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/ide.jpg
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 1.1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+IDE
+\end_layout
+
+\end_inset
+
+IDE
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/vista cod.jpg
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 1.2"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vista codificación
+\end_layout
+
+\end_inset
+
+Vista codificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/vista dis.jpg
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 1.3"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vista diseño
+\end_layout
+
+\end_inset
+
+Vista diseño
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Motivación del proyecto
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de alguna fase del desarrollo de un Proyecto de Software se llegó
+ a la conclusión de que era necesario alguna herramienta que permitiera
+ la reusabilidad de las interfaces gráficas (GUIs) para facilitar estas
+ tareas.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta necesidad surgió en dos escenarios distintos, que pueden aparecer mezclados
+: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Crear una jerarquía de interfaces gráficas, generalmente diseñados con un
+ diseñador gráfico, para editar una jerarquía de clases de manera que no
+ se duplicara código ni componentes gráficos (widgets).
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Integrar interfaces gráficas de objetos asociados en una GUI general, pero
+ conservando la posibilidad de mostrar cada cuadro individual cuando fuera
+ necesario, de nuevo sin duplicación de código ni de componentes gráficos.
+ Además el proceso debería ser transparente para usuarios y programadores,
+ tanto los que diseñan las GUIs como los que las usan al programar aplicaciones.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta necesidad con los escenarios comentados ha dado lugar a la motivación
+ del proyecto, las Interfaces graficas Reusables.
+ Para ello, se plantea la construcción de una librería que permita la reutilizac
+ión, por parte del programador, de interfaces gráficas de usuario que hayan
+ sido creadas por el diseñador.
+\end_layout
+
+\begin_layout Section
+Objetivos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El objetivo principal del proyecto es crear una librería con la jerarquía
+ de interfaces graficas que integre interfaces graficas de objetos asociados,
+ resolviéndolo en Java/Swing con el IDE Netbeans.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Desde el punto de vista del desarrollador de aplicaciones, éste pedirá diálogos
+ vacíos a la librería, inicializará los diálogos que le proporcione la librería,
+ y añadirá un diálogo hijo a un diálogo padre.
+ Además, pedirá diálogos creados por el diseñador de aplicaciones.
+ Todas estas tareas las realizará en la vista de codificación del IDE.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Desde el punto de vista del diseñador de GUIs, la librería debe permitir
+ que sus distintos tipos de diálogos puedan ser usados en la vista de diseño
+ del IDE.
+ De esta forma, el diseñador de GUIs arrastrará uno de esos diálogos a la
+ hoja al tapiz de diseño del IDE y podrá trabajar sobre él añadiendo componentes
+ y dándole el aspecto que desee.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Ademas la Libreria debe proporcionar un sistema de comunicacion de mensajes
+ entre dialogos.
+ Dado que se van a añadir diálogos hijos a un padre, y a su vez los hijos
+ pueden tener hijos, al final podemos imaginar que va a haber como una especie
+ de árbol donde la raíz es el diálogo principal.
+ Es importante señalar que en el árbol que abarca a toda la estructura de
+ diálogos del diálogo principal puede haber paso de mensajes entre cada
+ par de diálogos del árbol, y además ese paso de mensajes ha de ser posible
+ realizarlo en las dos direcciones.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/Objetivos.jpg
+	lyxscale 50
+	width 75col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 1.4"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Objetivos
+\end_layout
+
+\end_inset
+
+Objetivos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estructura de la memoria
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Estructura-de-la-memoria"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La memoria de esta proyecto se estructura en los siguientes capítulos:
+\end_layout
+
+\begin_layout Enumerate
+Introducción general y objetivos
+\end_layout
+
+\begin_layout Enumerate
+Fundamentos teóricos
+\end_layout
+
+\begin_layout Enumerate
+Análisis y diseño del Sistema
+\end_layout
+
+\begin_layout Enumerate
+Implementación
+\end_layout
+
+\begin_layout Enumerate
+Experimentación
+\end_layout
+
+\begin_layout Enumerate
+Conclusiones y trabajos futuros
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El capitulo 1 hace una introducción general de proyecto, se comentan las
+ especificaciones y los requisitos que se deben cumplir.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El capitulo 2 explica el contexto del proyecto de una forma sencilla.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los capítulos 3 y 4 son las fases típicas de análisis, diseño e implementación
+ de ingeniería del software.
+ En el capitulo 3 se incluye varios diagramas UML (casos de uso, clases,
+ interacción) 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En el capitulo 5 se comenta el programa de prueba de la librería.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La parte de Conclusiones del proyecto se ubica en el capitulo 6, detalla
+ el cumplimiento de los objetivos y también se incluyen ideas de ampliación
+ del proyecto.
+\end_layout
+
+\end_body
+\end_document

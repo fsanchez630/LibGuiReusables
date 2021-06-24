@@ -1,0 +1,353 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabla}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\let\sv@endpart\@endpart
+\def\@endpart{\thispagestyle{empty}\sv@endpart}
+\makeatother
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Implementación
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este capitulo aborda la fase de implementación y construcción de la Librería
+ de GUI reusables.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hace una descripción general del código fuente de la librería
+ explicando algunos detalles generales de la implementación.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Seguidamente se comentaran las Clases que forman parte de la Librería, que
+ son:
+\end_layout
+
+\begin_layout Enumerate
+Comunicable
+\end_layout
+
+\begin_layout Enumerate
+Validable
+\end_layout
+
+\begin_layout Enumerate
+Formulario
+\end_layout
+
+\begin_layout Enumerate
+FormularioExtensible
+\end_layout
+
+\begin_layout Enumerate
+FormularioSimple
+\end_layout
+
+\begin_layout Enumerate
+FormularioPorFichas
+\end_layout
+
+\begin_layout Enumerate
+FormularioArbol
+\end_layout
+
+\begin_layout Enumerate
+FactoriaFormularios
+\end_layout
+
+\begin_layout Enumerate
+ListaObservadoresEventos
+\end_layout
+
+\begin_layout Enumerate
+PanelBotones
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se explicara detalladamente la función de cada una de estas Clases junto
+ con los métodos principales que contienen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Descripción general del código fuente de la librería 
+\end_layout
+
+\begin_layout Section
+Comunicable
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase es una interfaz que es implementada por la clase abstracta Formulario
+Extensible que es padre de los 3 tipos de Formularios (Simple, Por Fichas
+ y Árbol) los cuales heredaran las propiedades y métodos de esta interfaz.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Define los métodos que deben declaran los formularios que quieran usar las
+ comunicación por mensajes de la librería,
+\end_layout
+
+\begin_layout Subsection
+recuperarValorExterno
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este metodo permite cambiar valor a un componente de un Formulario Extensible
+ desde otro Formulario Externo, toma como parámetros un String que es el
+ identificador y un campo genérico Object.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsection
+cambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este metodo permite cambiar el valor a un componente de un Formulario Extensible
+, toma como parámetros un String que es el identificador y un campo genérico
+ Object.
+ No devuelve ningún valor.
+ 
+\end_layout
+
+\begin_layout Subsection
+obtenerValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este metodo permite recuperar el valor de un componente de un Formulario
+ Extensible, toma como parámetros un String que es el identificador.
+ Devuelve un campo genérico Object.
+\end_layout
+
+\begin_layout Section
+Validable
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase es una interfaz que es implementada por la clase abstracta Formulario
+Extensible que es padre de los 3 tipos de Formularios (Simple, Por Fichas
+ y Árbol) los cuales heredaran las propiedades y métodos de esta interfaz.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Define los métodos recursivos de validación, guardado y limpieza de datos
+ que deben declaran los formularios reusables.
+ Estos métodos se ejecutan cuando se pulsan los botones Aceptar o Cancelar.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Graphics
+	filename M:/proyecto fin grado/Trabajo Fin de Grado/uml/Botones.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+aceptar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este metodo esta asociado al Boton Aceptar.
+\end_layout
+
+\begin_layout Subsection
+cancelar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este metodo esta asociado al Boton Cancelar.
+\end_layout
+
+\begin_layout Subsection
+validar
+\end_layout
+
+\begin_layout Subsection
+validar campos
+\end_layout
+
+\begin_layout Subsection
+guardar
+\end_layout
+
+\begin_layout Subsection
+limpiar
+\end_layout
+
+\begin_layout Section
+Formulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta es una clase abstracta que es la clase base de la librería de formularios
+ extensibles.
+ Hereda de JFrame con lo que obtiene sus propiedades y métodos.
+\end_layout
+
+\begin_layout Section
+FormularioExtensible
+\end_layout
+
+\begin_layout Section
+FormularioSimple
+\end_layout
+
+\begin_layout Section
+FormularioPorFichas
+\end_layout
+
+\begin_layout Section
+FormularioArbol
+\end_layout
+
+\begin_layout Section
+FactoriaFormularios
+\end_layout
+
+\begin_layout Section
+ListaObservadoresEventos
+\end_layout
+
+\begin_layout Section
+PanelBotones
+\end_layout
+
+\end_body
+\end_document

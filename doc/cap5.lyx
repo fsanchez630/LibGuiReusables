@@ -1,0 +1,212 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabla}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\let\sv@endpart\@endpart
+\def\@endpart{\thispagestyle{empty}\sv@endpart}
+\makeatother
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Experimentación
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este capitulo aborda la fase de implementación y construcción de la Librería
+ de GUI reusables.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hace una descripción general del código fuente de la librería
+ explicando algunos detalles generales de la implementación.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Seguidamente se comentaran las Clases que forman parte de la Librería, que
+ son:
+\end_layout
+
+\begin_layout Enumerate
+Comunicable
+\end_layout
+
+\begin_layout Enumerate
+Validable
+\end_layout
+
+\begin_layout Enumerate
+Formulario
+\end_layout
+
+\begin_layout Enumerate
+FormularioExtensible
+\end_layout
+
+\begin_layout Enumerate
+FormularioSimple
+\end_layout
+
+\begin_layout Enumerate
+FormularioPorFichas
+\end_layout
+
+\begin_layout Enumerate
+FormularioArbol
+\end_layout
+
+\begin_layout Enumerate
+FactoriaFormularios
+\end_layout
+
+\begin_layout Enumerate
+ListaObservadoresEventos
+\end_layout
+
+\begin_layout Enumerate
+PanelBotones
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se explicara detalladamente la función de cada una de estas Clases junto
+ con los métodos principales que contienen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Descripción del código fuente de la aplicación de prueba
+\end_layout
+
+\begin_layout Section
+Funcionamiento de la aplicación de prueba
+\end_layout
+
+\begin_layout Standard
+La memoria de esta proyecto se estructura en los siguientes capítulos:
+\end_layout
+
+\begin_layout Enumerate
+Introducción general y objetivos
+\end_layout
+
+\begin_layout Enumerate
+<añadir los demás capítulos>
+\end_layout
+
+\begin_layout Enumerate
+Conclusiones y trabajos futuros
+\end_layout
+
+\begin_layout Standard
+<Comentar los capítulos>
+\end_layout
+
+\end_body
+\end_document

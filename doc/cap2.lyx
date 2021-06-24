@@ -1,0 +1,687 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabla}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\let\sv@endpart\@endpart
+\def\@endpart{\thispagestyle{empty}\sv@endpart}
+\makeatother
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Fundamentos teoricos
+\end_layout
+
+\begin_layout Standard
+<Intro ...
+ >
+\end_layout
+
+\begin_layout Section
+Introducción y contexto
+\end_layout
+
+\begin_layout Standard
+Descripción del contexto
+\end_layout
+
+\begin_layout Section
+Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La Programación Orientada a es un paradigma de programación que usa objetos
+ y sus interacciones para diseñar aplicaciones y programas.
+ Está basado en varias técnicas, incluyendo herencia, modularidad, polimorfismo,
+ y encapsulamiento.
+ Su uso se popularizó a principios de la década de 1990.
+ Actualmente son muchos los lenguajes de programación que soportan la orientació
+n a objetos.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El término de Programación Orientada a Objetos indica más una forma de diseño
+ y una metodología de desarrollo de software que un lenguaje de programación,
+ ya que en realidad se puede aplicar el Diseño Orientado a Objetos, a cualquier
+ tipo de lenguaje de programación.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se puede hablar de Programación Orientada a Objetos cuando se reúnen las
+ características de: abstracción, encapsulación, herencia y polimorfismo;
+ y los conceptos básicos que las forman: objetos, mensajes, clases, instancias
+ y métodos.
+\end_layout
+
+\begin_layout Subsection
+Conceptos Básicos de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+objeto
+\series default
+ es una encapsulación abstracta de información, junto con los métodos o
+ procedimientos para manipularla.
+ Un objeto contiene operaciones que definen su comportamiento y variables
+ que definen su estado entre las llamadas a las operaciones.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+clase
+\series default
+ equivale a la generalización o abstracción de un tipo específico de objetos.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+mensaje
+\series default
+ representa una acción a tomar por un determinado objeto.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+instancia
+\series default
+ es la concrección de una clase.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+método
+\series default
+ consiste en la implementación en una clase de un protocolo de respuesta
+ a los mensajes dirigidos a los objetos de la misma.
+ La respuesta a tales mensajes puede incluir el envío por el método de mensajes
+ al propio objeto y aun a otros, también como el cambio del estado interno
+ del objeto.
+ 
+\end_layout
+
+\begin_layout Subsection
+Caracteristicas de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Subsubsection
+Abstracción
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Son las características especificas de un objeto, aquellas que lo distinguen
+ de los demás tipos de objetos y que logran definir límites conceptuales
+ respecto a quien está haciendo dicha abstracción del objeto.
+ Se enfoca en la visión externa de un objeto, separa el comportamiento específic
+o de un objeto, a esta división que realiza se le conoce como la barrera
+ de abstracción, la cuál se consigue aplicando el principio de mínimo compromiso
+; que se refiere al proceso por el cuál la interfaz de un objeto muestra
+ su comportamiento específico y nada más, absolutamente nada más.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una interfaz de objeto permite crear código con el cuál se específica que
+ métodos serán implementados por una clase sin necesidad de definir que
+ harán estos métodos, dichos métodos deben ser públicos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Las clases abstractas, como su nombre lo indica, son algo abstracto, no
+ representan algo específico y las podemos usar para crear otras clases.
+ No pueden ser instanciadas, por lo que no podemos crear nuevos objetos
+ con ellas.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Encapsulación
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se refiere a la capacidad de agrupar y condensar en un entorno con límites
+ bien definidos distintos elementos.
+ La encapsulación se encarga de mantener ocultos los procesos internos que
+ necesita para hacer lo que sea que haga, dándole al programador acceso
+ sólo a lo que necesita.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Típicamente, el encapsulamiento es utilizado para esconder detalles de la
+ puesta en práctica no importantes de otros objetos.
+ Entonces, los detalles de la puesta en práctica pueden cambiar en cualquier
+ tiempo sin afectar otras partes del programa.
+\end_layout
+
+\begin_layout Subsubsection
+Herencia
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se aplica sobre las clases.
+ O sea, de alguna forma las clases pueden tener descendencia, y ésta heredará
+ algunas características de las clases “padres”.
+ Si disponemos las clases con un formato de árbol genealógico, tenderemos
+ lo que se denomina una estructura jerarquizada de clases.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La POO promueve en gran medida que las relaciones entre objetos se basen
+ en construcciones jerárquicas.
+ Esto es, las clases pueden heredar diferencialmente de otras clases (denominada
+s “superclases”) determinadas características, mientras que, a la vez, pueden
+ definir las suyas propias.
+ Tales clases pasan, así, a denominarse “subclases” de aquéllas.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La herencia se implementa mediante un mecanismo que se denomina derivación
+ de clases: las superclases pasan a llamarse clases base, mientras que las
+ subclases se constituyen en clases derivadas.
+ El mecanismo de herencia está fuertemente relacionado con la 
+\series default
+reutilización del código
+\series medium
+ en POO.
+ Una clase derivada posibilita, el fácil uso de código ya creado en cualquiera
+ de las clases base ya existentes.
+
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/JERARQUIA.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 2.1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Ejemplo Herencia
+\end_layout
+
+\end_inset
+
+Ejemplo Herencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Polimorfismo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta propiedad, como su mismo nombre sugiere múltiples formas, se refiere
+ a la posibilidad de acceder a un variado rango de funciones distintas a
+ través del mismo interfaz.
+ O sea, que, en la práctica, un mismo identificador puede tener distintas
+ formas (distintos cuerpos de función, distintos comportamientos) dependiendo,
+ en general, del contexto en el que se halle inserto.
+ El polimorfismo se puede establecer mediante la 
+\series default
+sobrecarga
+\series medium
+ de identificadores y operadores, la ligadura dinámica y las funciones virtuales.
+ El término sobrecarga se refiere al uso del mismo identificador u operador
+ en distintos contextos y con distintos significados.
+ 
+\end_layout
+
+\begin_layout Subsection
+Beneficios de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Enumerate
+Reutilización del código.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Convierte cosas complejas en estructuras simples reproducibles.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Evita la duplicación de código.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Permite trabajar en equipo gracias al encapsulamiento ya que minimiza la
+ posibilidad de duplicar funciones cuando varias personas trabajan sobre
+ un mismo objeto al mismo tiempo.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Al estar la clase bien estructurada permite la corrección de errores en
+ varios lugares del código.
+\end_layout
+
+\begin_layout Enumerate
+Protege la información a través de la encapsulación, ya que solo se puede
+ acceder a los datos del objeto a través de propiedades y métodos privados.
+ 
+\end_layout
+
+\begin_layout Enumerate
+La abstracción nos permite construir sistemas más complejos y de una forma
+ más sencilla y organizada.
+ 
+\end_layout
+
+\begin_layout Section
+Patrones de diseño
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Es una solución general y reutilizable aplicable a diferentes problemas
+ de diseño de software.
+ Se trata de plantillas que identifican problemas en el sistema y proporcionan
+ soluciones apropiadas a problemas generales a los que se han enfrentado
+ los desarrolladores durante un largo periodo de tiempo, a través de prueba
+ y error.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John
+ Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado
+ Design Patterns, elementos de software orientado a objetos reutilizables.
+ Con este trabajo se inició el concepto de patrón de diseño en el desarrollo
+ de software y recoge 23 patrones de diseño comunes.
+ Cada uno de ellos define la solución para resolver un determinado problema,
+ facilitando además la reutilización del código fuente.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones de diseño ayudan a estar seguro de la validez de tu código,
+ ya que son soluciones que funcionan y han sido probados por muchísimos
+ desarrolladores siendo menos propensos a errores.
+ 
+\end_layout
+
+\begin_layout Subsection
+Tipos de patrones de diseño
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Existen diversas maneras de agrupar los patrones de diseño.
+ Quizá la más extendida es agruparlos según su propósito.
+ En este caso tendríamos las siguientes categorías:
+\end_layout
+
+\begin_layout Subsubsection
+Patrones Creacionales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Como su nombre indica, estos patrones vienen a solucionar o facilitar las
+ tareas de creación o instanciación de objetos.
+ Estos patrones hacen hincapié en la encapsulación de la lógica de la instanciac
+ión, ocultando los detalles concretos de cada objeto y permitiéndonos trabajar
+ con abstracciones.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Algunos de los patrones creacionales más conocidos son: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Factory
+\series default
+: Desacoplar la lógica de creación de la lógica de negocio, evitando al
+ cliente conocer detalles de la instanciación de los objetos de los que
+ depende.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abstract Factory
+\series default
+: Nos provee una interfaz que delega la creación de una serie de objetos
+ relacionados sin necesidad de especificar cuáles son las implementaciones
+ concretas.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Factory Method
+\series default
+: Expone un método de creación, delegando en las subclases la implementación
+ de este método.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Builder
+\series default
+: Separa la creación de un objeto complejo de su estructura, de tal forma
+ que el mismo proceso de construcción nos puede servir para crear representacion
+es diferentes.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Patrones estructurales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones estructurales nos ayudan a definir la forma en la que los objetos
+ se componen.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones estructurales más habituales son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Adapter
+\series default
+: Nos ayuda a definir una clase intermedia que sirve para que dos clases
+ con diferentes interfaces puedan comunicarse.
+ Esta clase actúa como mediador, haciendo que la clase A pueda ejecutar
+ métodos de la clase B sin conocer detalles de su implementación.
+ También se conoce como Wrapper.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Decorator
+\series default
+: Permite añadir funcionalidad extra a un objeto (decora el objeto) sin
+ modificar el comportamiento del resto de instancias.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Facade
+\series default
+: Una fachada es un objeto que crea una interfaz simplificada para tratar
+ con otra parte del código más compleja.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Composite
+\series default
+: Permite componer objetos en estructuras de árbol y trabajar con esas estructur
+as como si fueran objetos individuales.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Patrones comportamentales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones comportamentales nos ayudan a definir la forma en la que los
+ objetos interactúan entre ellos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Algunos de los más conocidos (por citar unos pocos) son: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Command
+\series default
+: Son objetos que encapsulan una acción y los parámetros que necesitan para
+ ejecutarse.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Observer
+\series default
+: Los objetos son capaces de suscribirse a una serie de eventos que otro
+ objeto va a emitir, y serán avisados cuando esto ocurra.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Strategy
+\series default
+: Permite la selección del algoritmo que ejecuta cierta acción en tiempo
+ de ejecución.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Template Method
+\series default
+: Especifica el esqueleto de un algoritmo, permitiendo a las subclases definir
+ cómo implementan el comportamiento real.
+ 
+\end_layout
+
+\begin_layout Subsection
+Patrón Factory
+\end_layout
+
+\begin_layout Subsection
+Patrón Composite
+\end_layout
+
+\begin_layout Subsection
+Patrón Observer
+\end_layout
+
+\begin_layout Section
+Interfaces graficas de Usuario
+\end_layout
+
+\begin_layout Section
+Entorno de Desarrollo de la Librería (Java/Swing/Netbeans)
+\end_layout
+
+\end_body
+\end_document

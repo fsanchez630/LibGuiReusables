@@ -1,0 +1,178 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+\size larger
+Abstract
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\family sans
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Software development has never been a simple task.
+ At least a text editor has been required, where to write the program, and
+ a compiler or interpreter that would take the necessary steps with the
+ set of files of the program so that it could be executed.
+ In addition, almost all programs today have a Graphical Interface (GUI),
+ which consists of a set of windows and menus that allow the user to interact
+ with the software and provide the most satisfactory experience possible.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Currently the coding of programs and the creation of the graphical interfaces
+ can be created through the Integrated Development Environments (IDE) in
+ its Coding view and in the Design view, respectively.
+ This is closely related to the software architecture style called Model
+ View Controller (MVC), which separates an application's user data, user
+ interface, and control logic into three different components.
+ In this way, two main roles are distinguished: the GUI designer and the
+ application developer.
+ This project aims to make the task of both roles easier.
+\end_layout
+
+\begin_layout Paragraph
+The main objective of this project is to facilitate the development of Software
+ through a Library that allows the reuse of graphical user interfaces.
+
+\series medium
+ The library provides the functionality of a hierarchy of graphical interfaces
+ and the mechanisms for integrating graphical interfaces of associated objects
+ in a general GUI, but preserving the possibility of displaying individual
+ tables when necessary without duplicating code or graphical components.
+ The process is transparent to users and programmers, both those who design
+ the GUIs and those who use them when programming applications.
+ In addition, functionalities are also provided that allow the passage of
+ messages between the GUIs and the recursion of the validation operations
+ of the edition, data recording and completion.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+With the functionalities that the Library provides, it is hoped to make
+ the task of Software development a little easier.
+\end_layout
+
+\begin_layout Paragraph
+Keywords
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Library | Reusability | Graphical User Interfaces (GUI) | Java | Swing |
+ NetBeans 
+\end_layout
+
+\end_body
+\end_document
