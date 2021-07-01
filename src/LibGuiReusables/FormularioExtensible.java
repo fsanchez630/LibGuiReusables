@@ -5,6 +5,8 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.revision.Evento;
+import LibGuiReusables.revision.Observador;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -24,8 +26,9 @@ import javax.swing.event.TreeSelectionListener;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable, Cloneable {
+public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable , Observador{
 
+    
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -137,19 +140,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
     }
 
-    @Override
-    public Object clone() {
-        Object clone = null;
-        try {
-            clone = super.clone();
-        } catch (CloneNotSupportedException e) {
-            // No debería ocurrir
-        }
-        // Aqui viene la implementacion de la clonación "profunda" ('deep clone')
-        ((FormularioExtensible) clone).setExtension(this.getExtension());
-
-        return clone;
-    }
+   
 
     /**
      * configurar el formulario
@@ -343,5 +334,11 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         System.out.println("selecion nodo");
 
     }
+    
+    @Override
+    public void procesarEvento(Evento evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }

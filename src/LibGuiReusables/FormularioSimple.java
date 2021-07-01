@@ -71,7 +71,7 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
         hijo.setnombreContenedor(titulo);
 
         
-        getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        getHijosExtensibles().add((FormularioExtensible) hijo);
 
         JPanel panelHijo = (JPanel) hijo.getContentPane();
 
@@ -112,7 +112,7 @@ public class FormularioSimple extends FormularioExtensible implements ActionList
             hijo.setMinAltura(hijo.getHeight());
             hijo.setMinAnchura(hijo.getWidth());
 
-            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+            getHijosExtensibles().add((FormularioExtensible) hijo);
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
            

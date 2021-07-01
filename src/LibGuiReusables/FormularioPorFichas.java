@@ -74,7 +74,7 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
         hijo.setMinAltura(hijo.getHeight());
         hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
-        getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        getHijosExtensibles().add((FormularioExtensible) hijo);
 
         JPanel panelHijo = (JPanel) hijo.getContentPane();
 
@@ -112,7 +112,7 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
         for (FormularioExtensible hijo : listaHijos) {
             hijo.setMinAltura(hijo.getHeight());
             hijo.setMinAnchura(hijo.getWidth());
-            getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+            getHijosExtensibles().add((FormularioExtensible) hijo);
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
 

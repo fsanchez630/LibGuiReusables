@@ -7,8 +7,14 @@ package LibGuiReusables.revision;
 
 /**
  *
- * @author Javi
+ * @author User
  */
-public class Event {
+public interface Observador {
+    
+    /**
+     *  procesar Evento recuperardo
+     * @param evt Evento
+     */
+    public void procesarEvento(Evento evt);
     
 }

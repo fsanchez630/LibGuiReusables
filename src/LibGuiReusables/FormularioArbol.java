@@ -236,7 +236,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
             this.getNodoRaiz().add(nodo);
         }
 
-        this.getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+        this.getHijosExtensibles().add((FormularioExtensible) hijo);
 
     }
 
@@ -291,7 +291,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
                 this.getNodoRaiz().add(nodo);
             }
 
-            this.getHijosExtensibles().add((FormularioExtensible) hijo.clone());
+            this.getHijosExtensibles().add((FormularioExtensible) hijo);
 
         }
 
