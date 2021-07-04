@@ -44,9 +44,9 @@ public class FormularioPorFichas extends FormularioExtensible implements ActionL
     }
 
     @Override
-    public Boolean configurarFormulario(Boolean botones) {
+    public Boolean configurarFormulario() {
 
-        if (super.configurarFormulario(botones)) {
+        if (super.configurarFormulario()) {
 
             pack();
             //Set up the content pane.

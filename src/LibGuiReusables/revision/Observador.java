@@ -14,7 +14,8 @@ public interface Observador {
     /**
      *  procesar Evento recuperardo
      * @param evt Evento
+     * @throws java.lang.Exception
      */
-    public void procesarEvento(Evento evt);
+    public void procesarEvento(Evento evt) ;
     
 }

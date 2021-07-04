@@ -5,6 +5,8 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.revision.EventoValidar;
+
 /**
  *interface para validacion de datos de los formularios
  * define el patron los metodos que se deben implementar
@@ -26,7 +28,7 @@ public interface Validable {
      *  validar datos formulario
      * @return verdadero cuando cumple correctamente tosdas las validaciones
      */
-   Boolean validar();
+   EventoValidar validar();
    
      /**
      *  validar datos formulario

@@ -6,6 +6,9 @@
 package LibGuiReusables;
 
 import LibGuiReusables.revision.Evento;
+import LibGuiReusables.revision.EventoPulsarBoton;
+import LibGuiReusables.revision.EventoValidar;
+import LibGuiReusables.revision.GestorEventos;
 import LibGuiReusables.revision.Observador;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -13,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.TreeSelectionEvent;
@@ -26,9 +30,10 @@ import javax.swing.event.TreeSelectionListener;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable , Observador{
+public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable, Observador {
 
-    
+   
+
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -57,6 +62,24 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         nombreContenedor = nombre;
         this.setTitle(nombreContenedor);
     }
+    
+    // indica si tiene botones
+    private Boolean hayBotones;
+    
+    
+     /**
+     * @return the hayBotones
+     */
+    public Boolean getHayBotones() {
+        return hayBotones;
+    }
+
+    /**
+     * @param hayBotones the hayBotones to set
+     */
+    public void setHayBotones(Boolean hayBotones) {
+        this.hayBotones = hayBotones;
+    }
 
     // lista de hijos
     private ArrayList<FormularioExtensible> hijosExtensibles = new ArrayList<FormularioExtensible>();
@@ -73,6 +96,23 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
      */
     public void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
         this.hijosExtensibles = hijosExtensibles;
+    }
+
+    // gestor de Eventos
+    private GestorEventos gestorEventos;
+
+    /**
+     * @return the gestorEventos
+     */
+    public GestorEventos getGestorEventos() {
+        return gestorEventos;
+    }
+
+    /**
+     * @param aGestorEventos the gestorEventos to set
+     */
+    public void setGestorEventos(GestorEventos aGestorEventos) {
+        gestorEventos = aGestorEventos;
     }
 
     // lista de observadores de eventos
@@ -140,17 +180,15 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
     }
 
-   
-
     /**
      * configurar el formulario
      *
      * @param hayBotones
      * @return Boolean
      */
-    public Boolean configurarFormulario(Boolean hayBotones) {
+    public Boolean configurarFormulario() {
 
-        if (hayBotones) {
+        if (getHayBotones()) {
             addPanelBotones();
         }
         // this.setLocationRelativeTo(null);
@@ -196,14 +234,8 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     @Override
     public void aceptar() {
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
-        if (this.validar()) {
-            this.guardar();
-            JOptionPane.showMessageDialog(this, "Operacion Realizada");
-            this.limpiar();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
-        }
+        EventoValidar evtVal = this.validar();
+        this.gestorEventos.notificarEvento(evtVal);
 
     }
 
@@ -216,20 +248,27 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     }
 
     @Override
-    public Boolean validar() {
+    public EventoValidar validar() {
         System.out.println("validar " + this.getClass() + " " + this.getName());
+
+        EventoValidar evtVal;
 
         if (this.validarCampos()) {
             // recorrer los hijos
             for (int x = 0; x < getHijosExtensibles().size(); x++) {
                 FormularioExtensible hijo = (FormularioExtensible) getHijosExtensibles().get(x);
-                if (!hijo.validar()) {
-                    return (Boolean.FALSE);
+                evtVal = hijo.validar();
+                if (!evtVal.esCorrecto()) {
+                    return (evtVal);
                 }
             }
-            return (Boolean.TRUE);
+            evtVal = new EventoValidar(this);
+            evtVal.setEsCorrecto(true);
+            return (evtVal);
         } else {
-            return (Boolean.FALSE);
+            evtVal = new EventoValidar(this);
+            evtVal.setEsCorrecto(false);
+            return (evtVal);
         }
     }
 
@@ -334,11 +373,36 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         System.out.println("selecion nodo");
 
     }
-    
+
     @Override
     public void procesarEvento(Evento evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
+        if (evt instanceof EventoValidar) {
+            EventoValidar evtVal;
+            evtVal = (EventoValidar) evt;
+            if (evtVal.esCorrecto()) {
+                this.guardar();
+                JOptionPane.showMessageDialog(this, "Operacion Realizada");
+                this.limpiar();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
+            }
+
+        } else if (evt instanceof EventoPulsarBoton) {
+            JButton boton = (JButton) evt.getOrigen();
+
+            if (boton.getActionCommand().equals("Aceptar")) {
+                aceptar();
+            } else if (boton.getActionCommand().equals("Cancelar")) {
+                cancelar();
+            }
+
+        } else {
+            throw new UnsupportedOperationException("Not supported yet.");
+
+        }
+
+    }
 
 }
