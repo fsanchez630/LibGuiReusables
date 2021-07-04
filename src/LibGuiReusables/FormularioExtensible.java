@@ -10,6 +10,7 @@ import LibGuiReusables.revision.EventoPulsarBoton;
 import LibGuiReusables.revision.EventoValidar;
 import LibGuiReusables.revision.GestorEventos;
 import LibGuiReusables.revision.Observador;
+import LibGuiReusables.revision.PanelBotonesEventos;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -175,8 +176,9 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         this.minAnchura = 0;
         this.minAltura = 0;
         initComponents();
-        this.panelBotones = new PanelBotones();
-        panelBotones.nuevoActionListener(this);
+        this.gestorEventos = new GestorEventos();
+        this.panelBotones = new PanelBotonesEventos();        
+        panelBotones.addObservador(this);
 
     }
 
@@ -340,7 +342,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    private PanelBotones panelBotones;
+    private PanelBotonesEventos panelBotones;
 
     private void addPanelBotones() {
 

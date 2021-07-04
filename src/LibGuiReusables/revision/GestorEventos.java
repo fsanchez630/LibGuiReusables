@@ -13,10 +13,13 @@ import java.util.ArrayList;
  */
 public class GestorEventos {
 
-    private ArrayList<Observador> Observadores;
+    private ArrayList<Observador> Observadores = new ArrayList<Observador>();
 
-    public void GestorEventos() {
-        this.Observadores = new ArrayList<Observador>();
+    /**
+     * constructor
+     */
+    public GestorEventos() {
+        Observadores.clear();
     }
 
     /**
@@ -25,8 +28,8 @@ public class GestorEventos {
      * @param obs observador que se agrega
      */
     public void addObservador(Observador obs) {
-        if (!this.Observadores.contains(obs)) {
-            this.Observadores.add(obs);
+        if (!Observadores.contains((Observador) obs)) {
+            Observadores.add((Observador) obs);
 
         }
     }
@@ -37,8 +40,8 @@ public class GestorEventos {
      * @param obs observador que se quita
      */
     public void removeObservador(Observador obs) {
-        if (this.Observadores.contains(obs)) {
-            this.Observadores.remove(obs);
+        if (this.Observadores.contains((Observador) obs)) {
+            this.Observadores.remove((Observador) obs);
 
         }
     }

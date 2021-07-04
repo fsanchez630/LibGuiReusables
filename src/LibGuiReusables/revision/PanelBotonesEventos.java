@@ -8,14 +8,14 @@ package LibGuiReusables.revision;
 public class PanelBotonesEventos extends javax.swing.JPanel {
 
     // lista de observadores de eventos
-    private final GestorEventos gestorEventos;
+    private  GestorEventos gestorEventosPanelBotones;
 
     /**
      * crear un nuevo PanelBotones y la lista de Observadores de eventos
      */
     public PanelBotonesEventos() {
         initComponents();
-        gestorEventos = new GestorEventos();
+        gestorEventosPanelBotones = new GestorEventos();
     }
 
     /**
@@ -75,7 +75,7 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
      * @param ActionEvent
      */
     private void lanzarEventoPulsarBoton(EventoPulsarBoton evt) {
-        gestorEventos.notificarEvento(evt);
+        gestorEventosPanelBotones.notificarEvento(evt);
 
     }
 
@@ -84,8 +84,8 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
      *
      * @param obs onservador
      */
-    public void nuevoObservador(Observador obs) {
-        gestorEventos.addObservador(obs);
+    public void addObservador(Observador obs) {
+        gestorEventosPanelBotones.addObservador(obs);
     }
 
 }
