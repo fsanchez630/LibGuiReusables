@@ -5,12 +5,6 @@
  */
 package LibGuiReusables;
 
-import LibGuiReusables.revision.EventoCambiarValor;
-import LibGuiReusables.revision.EventoPulsarBoton;
-import LibGuiReusables.revision.EventoValidar;
-import LibGuiReusables.revision.GestorEventos;
-import LibGuiReusables.revision.Observador;
-import LibGuiReusables.revision.PanelBotonesEventos;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;

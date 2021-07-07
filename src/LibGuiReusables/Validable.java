@@ -5,8 +5,6 @@
  */
 package LibGuiReusables;
 
-import LibGuiReusables.revision.EventoValidar;
-
 /**
  *interface para validacion de datos de los formularios
  * define el patron los metodos que se deben implementar

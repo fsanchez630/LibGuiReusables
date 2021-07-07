@@ -1,4 +1,4 @@
-package LibGuiReusables.revision;
+package LibGuiReusables;
 
 /**
  * Panel Botones Acpetar y Cancelar
