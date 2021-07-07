@@ -75,7 +75,7 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
      * @param ActionEvent
      */
     private void lanzarEventoPulsarBoton(EventoPulsarBoton evt) {
-        gestorEventosPanelBotones.notificarEvento(evt);
+        gestorEventosPanelBotones.notificarEvento("PulsarBoton",evt);
 
     }
 
@@ -85,7 +85,7 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
      * @param obs onservador
      */
     public void addObservador(Observador obs) {
-        gestorEventosPanelBotones.addObservador(obs);
+        gestorEventosPanelBotones.addObservador("PulsarBoton",obs);
     }
 
 }

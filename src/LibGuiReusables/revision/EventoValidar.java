@@ -5,8 +5,21 @@
  */
 package LibGuiReusables.revision;
 
-
 public class EventoValidar extends Evento {
+
+    /**
+     *
+     */
+    private boolean correcto;
+
+    /**
+     *
+     * @param ori
+     */
+    public EventoValidar(Object ori) {
+        super(ori);
+        this.tipoEvento = "Validar";
+    }
 
     /**
      * @return the esCorrecto
@@ -21,21 +34,5 @@ public class EventoValidar extends Evento {
     public void setEsCorrecto(boolean correc) {
         this.correcto = correc;
     }
-    
-    /**
-     *
-     */
-    private   boolean correcto;
 
-    /**
-     *
-     * @param ori
-     */
-    public EventoValidar(Object ori) {
-        super(ori);
-    }
-    
-    
-    
-    
 }

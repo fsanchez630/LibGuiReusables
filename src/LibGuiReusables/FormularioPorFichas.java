@@ -5,15 +5,12 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.revision.Observador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionListener;
 
 /**
@@ -21,7 +18,7 @@ import javax.swing.event.TreeSelectionListener;
  *
  * @author Javi
  */
-public class FormularioPorFichas extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable {
+public class FormularioPorFichas extends FormularioExtensible implements   TreeSelectionListener, Comunicable, Validable, Observador  {
 
     // panel primcipal 
     private JPanel panelPrincipal;

@@ -9,12 +9,27 @@ package LibGuiReusables.revision;
  *
  * @author Javi
  */
-public class Evento {
+public abstract class Evento {
 
+/**
+     * tipo del Evento
+     */    
+    protected String tipoEvento;
+    
+    
+    
     /**
      * origen del Evento
      */
     private Object origen;
+    
+    /**
+     * @return the tipoEvento
+     */
+    public String getTipoEvento() {
+        return tipoEvento;
+    }
+    
 
     /**
      *
@@ -36,6 +51,7 @@ public class Evento {
     public void setOrigen(Object origen) {
         this.origen = origen;
     }
+
     
     
     

@@ -5,7 +5,7 @@
  */
 package LibGuiReusables;
 
-import LibGuiReusables.revision.Evento;
+import LibGuiReusables.revision.EventoCambiarValor;
 import LibGuiReusables.revision.EventoPulsarBoton;
 import LibGuiReusables.revision.EventoValidar;
 import LibGuiReusables.revision.GestorEventos;
@@ -13,13 +13,9 @@ import LibGuiReusables.revision.Observador;
 import LibGuiReusables.revision.PanelBotonesEventos;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
@@ -31,9 +27,7 @@ import javax.swing.event.TreeSelectionListener;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable, Observador {
-
-   
+public abstract class FormularioExtensible extends Formulario implements TreeSelectionListener, Comunicable, Validable, Observador {
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -63,12 +57,11 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         nombreContenedor = nombre;
         this.setTitle(nombreContenedor);
     }
-    
+
     // indica si tiene botones
     private Boolean hayBotones;
-    
-    
-     /**
+
+    /**
      * @return the hayBotones
      */
     public Boolean getHayBotones() {
@@ -100,41 +93,13 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     }
 
     // gestor de Eventos
-    private GestorEventos gestorEventos;
+    private final static GestorEventos gestorEventos = new GestorEventos();
 
     /**
      * @return the gestorEventos
      */
-    public GestorEventos getGestorEventos() {
+    public static GestorEventos getGestorEventos() {
         return gestorEventos;
-    }
-
-    /**
-     * @param aGestorEventos the gestorEventos to set
-     */
-    public void setGestorEventos(GestorEventos aGestorEventos) {
-        gestorEventos = aGestorEventos;
-    }
-
-    // lista de observadores de eventos
-    private ListaObservadoresEventos listaObservadores;
-
-    /**
-     * obtener la lista de observadores
-     *
-     * @return listaObservadores
-     */
-    public ListaObservadoresEventos getListaObservadores() {
-        return listaObservadores;
-    }
-
-    /**
-     * poner la lista de observadores
-     *
-     * @param listaObservadores the listaObservadores to set
-     */
-    public void setListaObservadores(ListaObservadoresEventos listaObservadores) {
-        this.listaObservadores = listaObservadores;
     }
 
     private int minAltura;
@@ -175,23 +140,23 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     public FormularioExtensible() {
         this.minAnchura = 0;
         this.minAltura = 0;
+        this.hayBotones = false;
         initComponents();
-        this.gestorEventos = new GestorEventos();
-        this.panelBotones = new PanelBotonesEventos();        
-        panelBotones.addObservador(this);
 
     }
 
     /**
      * configurar el formulario
      *
-     * @param hayBotones
      * @return Boolean
      */
     public Boolean configurarFormulario() {
 
         if (getHayBotones()) {
+            this.panelBotones = new PanelBotonesEventos();
+            panelBotones.addObservador(this);
             addPanelBotones();
+            FormularioExtensible.getGestorEventos().addObservador("Validar", this);
         }
         // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
@@ -237,7 +202,7 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     public void aceptar() {
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
         EventoValidar evtVal = this.validar();
-        this.gestorEventos.notificarEvento(evtVal);
+        FormularioExtensible.getGestorEventos().notificarEvento("Validar", evtVal);
 
     }
 
@@ -349,26 +314,6 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
         this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
-    /**
-     * metodos de gestion de eventos
-     *
-     * @param evt
-     */
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        System.out.println("Botón pulsado: " + evt.getActionCommand());
-        if (evt.getActionCommand().equals("Aceptar")) {
-            aceptar();
-        } else if (evt.getActionCommand().equals("Cancelar")) {
-            cancelar();
-        }
-    }
-
-    @Override
-    public void stateChanged(ChangeEvent evt) {
-        System.out.println("evento cambio");
-    }
-
     @Override
     public void valueChanged(TreeSelectionEvent evt) {
 
@@ -377,33 +322,32 @@ public abstract class FormularioExtensible extends Formulario implements ActionL
     }
 
     @Override
-    public void procesarEvento(Evento evt) {
-
-        if (evt instanceof EventoValidar) {
-            EventoValidar evtVal;
-            evtVal = (EventoValidar) evt;
-            if (evtVal.esCorrecto()) {
-                this.guardar();
-                JOptionPane.showMessageDialog(this, "Operacion Realizada");
-                this.limpiar();
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
-            }
-
-        } else if (evt instanceof EventoPulsarBoton) {
-            JButton boton = (JButton) evt.getOrigen();
-
-            if (boton.getActionCommand().equals("Aceptar")) {
-                aceptar();
-            } else if (boton.getActionCommand().equals("Cancelar")) {
-                cancelar();
-            }
+    public void procesarEventoValidar(EventoValidar evt) {
+        EventoValidar evtVal;
+        evtVal = (EventoValidar) evt;
+        if (evtVal.esCorrecto()) {
+            this.guardar();
+            JOptionPane.showMessageDialog(this, "Operacion Realizada");
+            this.limpiar();
 
         } else {
-            throw new UnsupportedOperationException("Not supported yet.");
-
+            JOptionPane.showMessageDialog(this, "Validacion Incorrecta");
         }
+    }
+
+    @Override
+    public void procesarEventoPulsarBoton(EventoPulsarBoton evt) {
+        JButton boton = (JButton) evt.getOrigen();
+
+        if (boton.getActionCommand().equals("Aceptar")) {
+            aceptar();
+        } else if (boton.getActionCommand().equals("Cancelar")) {
+            cancelar();
+        }
+    }
+
+    @Override
+    public void procesarEventoCambiarValor(EventoCambiarValor evt) {
 
     }
 

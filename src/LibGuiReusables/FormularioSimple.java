@@ -5,19 +5,18 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.revision.Observador;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionListener;
 
 /**
  *
  * @author Javi
  */
-public class FormularioSimple extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener ,Comunicable, Validable {
+public class FormularioSimple extends FormularioExtensible implements   TreeSelectionListener ,Comunicable, Validable, Observador  {
 
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;

@@ -5,16 +5,15 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.revision.Observador;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -24,7 +23,7 @@ import javax.swing.tree.TreeSelectionModel;
  *
  * @author Javi
  */
-public class FormularioArbol extends FormularioExtensible implements ActionListener, ChangeListener, TreeSelectionListener, Comunicable, Validable {
+public class FormularioArbol extends FormularioExtensible implements   TreeSelectionListener, Comunicable, Validable, Observador  {
 
     private JPanel panelPrincipal;
     private JScrollPane panelScroll;
@@ -297,34 +296,7 @@ public class FormularioArbol extends FormularioExtensible implements ActionListe
 
     }
 
-    /**
-     *
-     * @param nodoPadre crea la estrucutura de arbol para un nodo
-     */
-    public void crearArbol(DefaultMutableTreeNode nodoPadre) {
-
-        InfoNodo infoNodoPadre;
-        infoNodoPadre = (InfoNodo) nodoPadre.getUserObject();
-        InfoNodo infoNodoHijo;
-        DefaultMutableTreeNode nodoHijo;
-
-        if (infoNodoPadre.getFormularioNodo() != null) {
-
-            // recorrer los hijos
-            for (int x = 0; x < infoNodoPadre.getFormularioNodo().getHijosExtensibles().size(); x++) {
-                FormularioExtensible hijo = (FormularioExtensible) infoNodoPadre.getFormularioNodo().getHijosExtensibles().get(x);
-                // if (hijo.getHijosExtensibles().size() > 0) {
-                infoNodoHijo = new InfoNodo(hijo.getnombreContenedor(), hijo);
-                nodoHijo = new DefaultMutableTreeNode(infoNodoHijo);
-                nodoPadre.add(nodoHijo);  // agregar nodo hijo
-                crearArbol(nodoHijo); // crear arbol del hijo
-                //}
-
-            }
-
-        }
-
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

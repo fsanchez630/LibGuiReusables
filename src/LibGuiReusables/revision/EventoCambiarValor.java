@@ -5,21 +5,26 @@
  */
 package LibGuiReusables.revision;
 
-
-public class EventoPulsarBoton extends Evento {
-
+public class EventoCambiarValor extends Evento {
     
+    /**
+     * valor del objeto
+     */
+    private Object valor;
 
     /**
      *
      * @param ori
      */
-    public EventoPulsarBoton(Object ori) {
+    public EventoCambiarValor(Object ori) {
         super(ori);
-        this.tipoEvento = "PulsarBoton";
+        this.tipoEvento = "CambiarValor";
     }
+
+   
+
     
-    
-    
-    
+
+   
+
 }
