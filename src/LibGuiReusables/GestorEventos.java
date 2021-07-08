@@ -25,6 +25,7 @@ public class GestorEventos {
         this.Observadores.put("Validar", new ArrayList<>());
         this.Observadores.put("PulsarBoton", new ArrayList<>());
         this.Observadores.put("CambiarValor", new ArrayList<>());
+        this.Observadores.put("SelNodo", new ArrayList<>());
 
     }
 
@@ -76,6 +77,9 @@ public class GestorEventos {
                     break;
                 case "CambiarValor":
                     obs.procesarEventoCambiarValor((EventoCambiarValor) evt);
+                    break;
+                case "SelNodo":
+                    obs.procesarEventoSelNodo((EventoSelNodo) evt);
                     break;
                 default:
                     throw new UnsupportedOperationException("Not supported yet.");

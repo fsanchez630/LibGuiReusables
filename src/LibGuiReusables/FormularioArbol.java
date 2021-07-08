@@ -22,7 +22,7 @@ import javax.swing.tree.TreeSelectionModel;
  *
  * @author Javi
  */
-public class FormularioArbol extends FormularioExtensible implements   TreeSelectionListener, Comunicable, Validable, Observador  {
+public class FormularioArbol extends FormularioExtensible implements Comunicable, Validable, Observador {
 
     private JPanel panelPrincipal;
     private JScrollPane panelScroll;
@@ -77,7 +77,18 @@ public class FormularioArbol extends FormularioExtensible implements   TreeSelec
         nodoRaiz = new DefaultMutableTreeNode("Raiz");
         arbol = new JTree(nodoRaiz);
         arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        
          */
+        arbol = new JTree();
+        arbol.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+
+                EventoSelNodo evtSelNod = new EventoSelNodo(e.getSource());
+                FormularioExtensible.getGestorEventos().notificarEvento("SelNod", evtSelNod);
+
+            }
+        });
     }
 
     @Override
@@ -86,9 +97,17 @@ public class FormularioArbol extends FormularioExtensible implements   TreeSelec
         if (super.configurarFormulario()) {
 
             arbol = new JTree(getNodoRaiz());
+            arbol.addTreeSelectionListener(new TreeSelectionListener() {
+                @Override
+                public void valueChanged(TreeSelectionEvent e) {
+
+                    EventoSelNodo evtSelNod = new EventoSelNodo(arbol);
+                    FormularioExtensible.getGestorEventos().notificarEvento("SelNodo", evtSelNod);
+
+                }
+            });
             arbol.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
             // arbol.setRootVisible(false);
-            arbol.addTreeSelectionListener(this);
 
             this.setNombreArbol("Dialogos");
             panelScroll.setBorder(BorderFactory.createTitledBorder(this.getNombreArbol()));
@@ -213,7 +232,6 @@ public class FormularioArbol extends FormularioExtensible implements   TreeSelec
         if (this.getMinAltura() < hijo.getMinAltura()) {
             this.setMinAltura(hijo.getMinAltura());
         }
-       
 
         if ((hijo instanceof FormularioArbol) && (INTEGRAR_ARBOL)) {
             FormularioArbol hijoArbol = (FormularioArbol) hijo;
@@ -295,8 +313,6 @@ public class FormularioArbol extends FormularioExtensible implements   TreeSelec
 
     }
 
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -345,42 +361,43 @@ public class FormularioArbol extends FormularioExtensible implements   TreeSelec
      * @param evt
      */
     @Override
-    public void valueChanged(TreeSelectionEvent evt) {
+    public void procesarEventoSelNodo(EventoSelNodo evt) {
         //System.out.println("selecion nodo");
+        if (evt.getOrigen() == arbol) {
 
-        DefaultMutableTreeNode node;
+            DefaultMutableTreeNode node;
 
-        node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
+            node = (DefaultMutableTreeNode) arbol.getLastSelectedPathComponent();
 
-        if (node != null) {
+            if (node != null) {
 
-            InfoNodo infoNodosel;
-            infoNodosel = (InfoNodo) node.getUserObject();
+                InfoNodo infoNodosel;
+                infoNodosel = (InfoNodo) node.getUserObject();
 
-            if (infoNodosel != null) {
+                if (infoNodosel != null) {
 
-                if (infoNodosel.getFormularioNodo() != null) {
+                    if (infoNodosel.getFormularioNodo() != null) {
 
-                    // if (1 == 0) {
-                    panelPrincipal.removeAll();
-                    FormularioExtensible FormularioHijo = infoNodosel.getFormularioNodo();
-                    FormularioHijo.setHayBotones(false); // sin botones
-                    FormularioHijo.configurarFormulario(); 
-                    JPanel panelHijo = (JPanel) FormularioHijo.getContentPane();
+                        // if (1 == 0) {
+                        panelPrincipal.removeAll();
+                        FormularioExtensible FormularioHijo = infoNodosel.getFormularioNodo();
+                        FormularioHijo.setHayBotones(false); // sin botones
+                        FormularioHijo.configurarFormulario();
+                        JPanel panelHijo = (JPanel) FormularioHijo.getContentPane();
 
-                    panelPrincipal.setLayout(new GridLayout(0, 1));
-                    panelPrincipal.add(panelHijo, BorderLayout.CENTER);
+                        panelPrincipal.setLayout(new GridLayout(0, 1));
+                        panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
-                    panelPrincipal.revalidate();
-                    panelPrincipal.repaint();
+                        panelPrincipal.revalidate();
+                        panelPrincipal.repaint();
 
-                    //}
-                    // revalidate();
-                    // repaint();
+                        //}
+                        // revalidate();
+                        // repaint();
+                    }
                 }
             }
         }
-
         //  VISULIZAR NODO SELECCIONADO
     }
 

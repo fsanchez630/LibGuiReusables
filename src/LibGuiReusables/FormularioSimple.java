@@ -9,13 +9,13 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.event.TreeSelectionListener;
+
 
 /**
  *
  * @author Javi
  */
-public class FormularioSimple extends FormularioExtensible implements   TreeSelectionListener ,Comunicable, Validable, Observador  {
+public class FormularioSimple extends FormularioExtensible implements Comunicable, Validable, Observador {
 
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
@@ -68,13 +68,11 @@ public class FormularioSimple extends FormularioExtensible implements   TreeSele
         hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
 
-        
         getHijosExtensibles().add((FormularioExtensible) hijo);
 
         JPanel panelHijo = (JPanel) hijo.getContentPane();
 
-        
-        panelPrincipal.setLayout(new GridLayout(0, 1));        
+        panelPrincipal.setLayout(new GridLayout(0, 1));
         panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
         if (this.getMinAnchura() < hijo.getMinAnchura()) {
@@ -113,8 +111,7 @@ public class FormularioSimple extends FormularioExtensible implements   TreeSele
             getHijosExtensibles().add((FormularioExtensible) hijo);
 
             JPanel panelHijo = (JPanel) hijo.getContentPane();
-           
-          
+
             panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
 
@@ -169,7 +166,5 @@ public class FormularioSimple extends FormularioExtensible implements   TreeSele
     public void recuperarValorExterno(String nombreComponente, Object valor) {
         System.out.println("recuperar valor");
     }
-
-        
 
 }

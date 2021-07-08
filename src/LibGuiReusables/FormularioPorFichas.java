@@ -10,14 +10,13 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.event.TreeSelectionListener;
 
 /**
  * clase derivada Formulario por Fichas
  *
  * @author Javi
  */
-public class FormularioPorFichas extends FormularioExtensible implements   TreeSelectionListener, Comunicable, Validable, Observador  {
+public class FormularioPorFichas extends FormularioExtensible implements    Comunicable, Validable, Observador  {
 
     // panel primcipal 
     private JPanel panelPrincipal;

@@ -20,5 +20,6 @@ public interface Observador {
     public void procesarEventoValidar(EventoValidar evt) ;
     public void procesarEventoPulsarBoton(EventoPulsarBoton evt) ;
     public void procesarEventoCambiarValor(EventoCambiarValor evt) ;
+    public void procesarEventoSelNodo(EventoSelNodo evt) ;
     
 }

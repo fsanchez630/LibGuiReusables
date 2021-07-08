@@ -10,8 +10,6 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 
 /**
  * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
@@ -21,8 +19,9 @@ import javax.swing.event.TreeSelectionListener;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements TreeSelectionListener, Comunicable, Validable, Observador {
+public abstract class FormularioExtensible extends Formulario implements  Comunicable, Validable, Observador {
 
+    
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -308,12 +307,7 @@ public abstract class FormularioExtensible extends Formulario implements TreeSel
         this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
-    @Override
-    public void valueChanged(TreeSelectionEvent evt) {
-
-        System.out.println("selecion nodo");
-
-    }
+   
 
     @Override
     public void procesarEventoValidar(EventoValidar evt) {
@@ -344,5 +338,11 @@ public abstract class FormularioExtensible extends Formulario implements TreeSel
     public void procesarEventoCambiarValor(EventoCambiarValor evt) {
 
     }
+    
+    @Override
+    public void procesarEventoSelNodo(EventoSelNodo evt) {
+        
+    }
+
 
 }
