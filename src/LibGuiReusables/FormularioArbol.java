@@ -85,7 +85,7 @@ public class FormularioArbol extends FormularioExtensible implements Comunicable
             public void valueChanged(TreeSelectionEvent e) {
 
                 EventoSelNodo evtSelNod = new EventoSelNodo(e.getSource());
-                FormularioExtensible.getGestorEventos().notificarEvento("SelNod", evtSelNod);
+                getGestorEventos().notificarEvento("SelNod", evtSelNod);
 
             }
         });
@@ -102,7 +102,7 @@ public class FormularioArbol extends FormularioExtensible implements Comunicable
                 public void valueChanged(TreeSelectionEvent e) {
 
                     EventoSelNodo evtSelNod = new EventoSelNodo(arbol);
-                    FormularioExtensible.getGestorEventos().notificarEvento("SelNodo", evtSelNod);
+                    getGestorEventos().notificarEvento("SelNodo", evtSelNod);
 
                 }
             });

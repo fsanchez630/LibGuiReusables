@@ -19,9 +19,8 @@ import javax.swing.JOptionPane;
  *
  * @author Javi
  */
-public abstract class FormularioExtensible extends Formulario implements  Comunicable, Validable, Observador {
+public abstract class FormularioExtensible extends Formulario implements Comunicable, Validable, Observador {
 
-    
     /**
      * enumeracion con los tipos de Contenedor
      */
@@ -86,13 +85,17 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
     }
 
     // gestor de Eventos
-    private final static GestorEventos gestorEventos = new GestorEventos();
+    private GestorEventos gestorEventos;
 
     /**
      * @return the gestorEventos
      */
-    public static GestorEventos getGestorEventos() {
+    public GestorEventos getGestorEventos() {
         return gestorEventos;
+    }
+
+    public void setGestorEventos(GestorEventos gE) {
+        gestorEventos = gE;
     }
 
     private int minAltura;
@@ -149,7 +152,7 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
             this.panelBotones = new PanelBotonesEventos();
             panelBotones.addObservador(this);
             addPanelBotones();
-            FormularioExtensible.getGestorEventos().addObservador("Validar", this);
+            getGestorEventos().addObservador("Validar", this);
         }
         // this.setLocationRelativeTo(null);
         Dimension minimumSize = new Dimension();
@@ -195,7 +198,7 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
     public void aceptar() {
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
         EventoValidar evtVal = this.validar();
-        FormularioExtensible.getGestorEventos().notificarEvento("Validar", evtVal);
+        getGestorEventos().notificarEvento("Validar", evtVal);
 
     }
 
@@ -261,6 +264,7 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
             hijo.limpiar();
 
         }
+        getGestorEventos().removeObservador(this);
         this.dispose();
     }
 
@@ -307,8 +311,6 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
         this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
-   
-
     @Override
     public void procesarEventoValidar(EventoValidar evt) {
         EventoValidar evtVal;
@@ -338,11 +340,10 @@ public abstract class FormularioExtensible extends Formulario implements  Comuni
     public void procesarEventoCambiarValor(EventoCambiarValor evt) {
 
     }
-    
+
     @Override
     public void procesarEventoSelNodo(EventoSelNodo evt) {
-        
-    }
 
+    }
 
 }

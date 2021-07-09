@@ -59,6 +59,33 @@ public class GestorEventos {
     }
 
     /**
+     * quitar observador a la lista de Observadores
+     *
+     * @param obs observador que se quita
+     */
+    public void removeObservador(Observador obs) {
+        ArrayList<Observador> listaObs = Observadores.get("Validar");
+        if (listaObs.contains(obs)) {
+            listaObs.remove(obs);
+        }
+
+        listaObs = Observadores.get("PulsarBoton");
+        if (listaObs.contains(obs)) {
+            listaObs.remove(obs);
+        }
+
+        listaObs = Observadores.get("CambiarValor");
+        if (listaObs.contains(obs)) {
+            listaObs.remove(obs);
+        }
+
+        listaObs = Observadores.get("SelNodo");
+        if (listaObs.contains(obs)) {
+            listaObs.remove(obs);
+        }
+    }
+
+    /**
      * notificar evento a los observadores de la lista
      *
      * @param TipoEvento ei tipo de evento
