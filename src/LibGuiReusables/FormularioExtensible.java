@@ -134,6 +134,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
      */
     public FormularioExtensible() {
+        this.formularioPadre = null;
         this.minAnchura = 0;
         this.minAltura = 0;
         this.hayBotones = false;
@@ -264,7 +265,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
             hijo.limpiar();
 
         }
-        getGestorEventos().removeObservador(this);
+     //   getGestorEventos().removeObservador(this);
         this.dispose();
     }
 

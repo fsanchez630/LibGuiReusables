@@ -13,24 +13,24 @@ import javax.swing.JFrame;
 
 public abstract class Formulario extends JFrame  {
 
-    private JFrame extension;
+    protected JFrame formularioPadre;
        
     /**
-     * establece la extension (Jframe)
+     * establece Formulario padre (Jframe)
      * @param frame
      */
-    public void setExtension (JFrame frame){
+    protected void setFormularioPadre (JFrame frame){
     
-        extension = frame;
+        formularioPadre = frame;
     }
     
     /**
      * recupera la extension (Jframe)
      * @return extension
      */
-    public  JFrame getExtension (){
+    protected  JFrame getFormularioPadre (){
     
-        return extension ;
+        return formularioPadre ;
     }
 
 

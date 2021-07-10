@@ -6,7 +6,6 @@
 package LibGuiReusables;
 
 import LibGuiReusables.FormularioExtensible.TipoContenedor;
-import javax.swing.JFrame;
 
 /**
  * Clase Factoria de los Formularios extensibles
@@ -15,23 +14,7 @@ import javax.swing.JFrame;
  */
 public abstract class FactoriaFormularios {
 
-    /**
-     * crea una nueva instancia del tipoContenedor 
-     * @param tipo
-     * @param extension
-     * @param nombre
-     * @return FormularioExtensible
-     */
-    public static FormularioExtensible crearFormulario(TipoContenedor tipo, JFrame extension, String nombre) {
-
-        FormularioExtensible formulario = crearFormulario(tipo);
-
-                
-        formulario.setExtension(extension);
-        formulario.setnombreContenedor(nombre);
-
-        return formulario;
-    }
+   
 
     /**
      * crea una nueva instancia del tipoContenedor 

@@ -16,7 +16,7 @@ import javax.swing.JTabbedPane;
  *
  * @author Javi
  */
-public class FormularioPorFichas extends FormularioExtensible implements    Comunicable, Validable, Observador  {
+public class FormularioPorFichas extends FormularioExtensible implements Comunicable, Validable, Observador {
 
     // panel primcipal 
     private JPanel panelPrincipal;
@@ -65,7 +65,7 @@ public class FormularioPorFichas extends FormularioExtensible implements    Comu
      */
     @Override
     public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
-
+        hijo.setFormularioPadre(this);
         hijo.setMinAltura(hijo.getHeight());
         hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
@@ -105,6 +105,7 @@ public class FormularioPorFichas extends FormularioExtensible implements    Comu
         panelCombinado.setLayout((new GridLayout(0, 1)));
 
         for (FormularioExtensible hijo : listaHijos) {
+            hijo.setFormularioPadre(this);
             hijo.setMinAltura(hijo.getHeight());
             hijo.setMinAnchura(hijo.getWidth());
             getHijosExtensibles().add((FormularioExtensible) hijo);
@@ -173,7 +174,5 @@ public class FormularioPorFichas extends FormularioExtensible implements    Comu
 
         return retorno;
     }
-
-    
 
 }

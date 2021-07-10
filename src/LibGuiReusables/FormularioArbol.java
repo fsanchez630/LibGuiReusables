@@ -221,6 +221,7 @@ public class FormularioArbol extends FormularioExtensible implements Comunicable
         DefaultMutableTreeNode nodo;
         InfoNodo infoNodo;
 
+        hijo.setFormularioPadre(this);
         hijo.setMinAltura(hijo.getHeight());
         hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
@@ -276,7 +277,7 @@ public class FormularioArbol extends FormularioExtensible implements Comunicable
             if (x == 0) { // primer elemento
                 hijo.setnombreContenedor(titulo);
             }
-
+            hijo.setFormularioPadre(this);
             hijo.setMinAltura(hijo.getHeight());
             hijo.setMinAnchura(hijo.getWidth());
 

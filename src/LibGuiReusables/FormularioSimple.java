@@ -10,13 +10,12 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-
 /**
  *
  * @author Javi
  */
 public class FormularioSimple extends FormularioExtensible implements Comunicable, Validable, Observador {
-
+    
     private JPanel panelPrincipal;
     static final Integer MAXHIJOS = 2;
 
@@ -30,12 +29,12 @@ public class FormularioSimple extends FormularioExtensible implements Comunicabl
         // this.setContentPane(panelPrincipal);
 
     }
-
+    
     @Override
     public Boolean configurarFormulario() {
-
+        
         if (super.configurarFormulario()) {
-
+            
             pack();
             //Set up the content pane.
 
@@ -58,29 +57,29 @@ public class FormularioSimple extends FormularioExtensible implements Comunicabl
      */
     @Override
     public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
-
+        
         if ((getHijosExtensibles().size() + 1) > FormularioSimple.MAXHIJOS) {
             Exception err = new Exception("maximos de hijos alcanzado");
             throw err;
         }
-
+        hijo.setFormularioPadre(this);
         hijo.setMinAltura(hijo.getHeight());
         hijo.setMinAnchura(hijo.getWidth());
         hijo.setnombreContenedor(titulo);
-
+        
         getHijosExtensibles().add((FormularioExtensible) hijo);
-
+        
         JPanel panelHijo = (JPanel) hijo.getContentPane();
-
+        
         panelPrincipal.setLayout(new GridLayout(0, 1));
         panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-
+        
         if (this.getMinAnchura() < hijo.getMinAnchura()) {
             this.setMinAnchura(hijo.getMinAnchura());
         }
-
+        
         this.setMinAltura(this.getMinAltura() + hijo.getMinAltura());
-
+        
     }
 
     /**
@@ -97,32 +96,33 @@ public class FormularioSimple extends FormularioExtensible implements Comunicabl
         } else {
             setnombreContenedor(titulo);
         }
-
+        
         for (FormularioExtensible hijo : listaHijos) {
-
+            
             if ((getHijosExtensibles().size() + 1) > FormularioSimple.MAXHIJOS) {
                 Exception err = new Exception("maximos de hijos alcanzado");
-
+                
                 throw err;
             }
+            hijo.setFormularioPadre(this);
             hijo.setMinAltura(hijo.getHeight());
             hijo.setMinAnchura(hijo.getWidth());
-
+            
             getHijosExtensibles().add((FormularioExtensible) hijo);
-
+            
             JPanel panelHijo = (JPanel) hijo.getContentPane();
-
+            
             panelPrincipal.setLayout(new GridLayout(0, 1));
             panelPrincipal.add(panelHijo, BorderLayout.CENTER);
-
+            
             if (this.getMinAnchura() < hijo.getMinAnchura()) {
                 this.setMinAnchura(hijo.getMinAnchura());
             }
-
+            
             this.setMinAltura(this.getMinAltura() + hijo.getMinAltura());
-
+            
         }
-
+        
     }
 
     /**
@@ -148,9 +148,9 @@ public class FormularioSimple extends FormularioExtensible implements Comunicabl
             panelPrincipal = (JPanel) valor;
             //this.setContentPane(panelPrincipal);
         }
-
+        
     }
-
+    
     @Override
     public Object obtenerValor(String nombreComponente) {
         System.out.println("obtener valor");
@@ -158,13 +158,13 @@ public class FormularioSimple extends FormularioExtensible implements Comunicabl
         if ("panelPrincipal".equals(nombreComponente)) {
             retorno = panelPrincipal;
         }
-
+        
         return retorno;
     }
-
+    
     @Override
     public void recuperarValorExterno(String nombreComponente, Object valor) {
         System.out.println("recuperar valor");
     }
-
+    
 }
