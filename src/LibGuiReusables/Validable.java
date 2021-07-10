@@ -6,42 +6,46 @@
 package LibGuiReusables;
 
 /**
- *interface para validacion de datos de los formularios
- * define el patron los metodos que se deben implementar
+ * interface para validacion de datos de los formularios define el patron los
+ * metodos que se deben implementar
+ *
  * @author Javi
  */
 public interface Validable {
-    
+
     /**
-     *  aceptar datos formulario
+     * aceptar datos formulario
      */
     public void aceptar();
 
     /**
-     *  cancelar datos formulario
+     * cancelar datos formulario
      */
     public void cancelar();
-    
+
     /**
-     *  validar datos formulario
-     * @return verdadero cuando cumple correctamente tosdas las validaciones
+     * validar datos de todos los formulario
+     *
+     * @return EventoValidar con valor verdadero cuando cumple correctamente tosdas las validaciones
      */
-   EventoValidar validar();
-   
-     /**
-     *  validar datos formulario
-     * @return verdadero cuando cumple correctamente las validaciones de los campso
-     */
-   Boolean validarCampos();
-    
+    public EventoValidar validar();
+
     /**
-     *  guardar datos formulario
+     * validar datos de un formulario
+     *
+     * @return verdadero cuando cumple correctamente las validaciones de los
+     * campso
+     */
+    public Boolean validarCampos();
+
+    /**
+     * guardar datos formulario
      */
     public void guardar();
-    
+
     /**
-     *  limpiar datos formulario
+     * limpiar datos formulario
      */
     public void limpiar();
-    
+
 }

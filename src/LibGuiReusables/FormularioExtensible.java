@@ -211,7 +211,6 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         this.limpiar();
     }
 
-    @Override
     public EventoValidar validar() {
         System.out.println("validar " + this.getClass() + " " + this.getName());
 
@@ -238,8 +237,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
 
     @Override
     public Boolean validarCampos() {
-        System.out.println("Validar Campos " + this.getClass() + " " + this.getName());
-        return (Boolean.TRUE);
+      return(true);
     }
 
     @Override
