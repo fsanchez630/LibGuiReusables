@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +25,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
     /**
      * enumeracion con los tipos de Contenedor
      */
-    public enum TipoContenedor {
+    public enum TipoFormulario {
         SIMPLE, PORFICHAS, ARBOL
     }
 
@@ -134,6 +135,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
      * constructor por defecto crea el panel de botones Aceptar y Cancelar
      */
     public FormularioExtensible() {
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.formularioPadre = null;
         this.minAnchura = 0;
         this.minAltura = 0;
