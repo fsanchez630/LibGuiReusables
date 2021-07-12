@@ -5,14 +5,15 @@
  */
 package LibGuiReusables;
 
-
-public class EventoPulsarBoton extends Evento {
-
-    
+/**
+ *  clase para el Evento de pulsar Boton 
+ * @author Francisco Javier Sánchez Lozano
+ */
+public class EventoPulsarBoton extends Evento { 
 
     /**
      *
-     * @param ori
+     * @param ori ojeto origen
      */
     public EventoPulsarBoton(Object ori) {
         super(ori);

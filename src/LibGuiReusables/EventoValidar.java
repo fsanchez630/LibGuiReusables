@@ -5,16 +5,20 @@
  */
 package LibGuiReusables;
 
+/**
+ *  clase para el Evento de validacion de Formulario
+ * @author Francisco Javier Sánchez Lozano
+ */
 public class EventoValidar extends Evento {
 
     /**
-     *
+     *  booleano que indica si es corecto o no
      */
-    private boolean correcto;
+    protected boolean correcto;
 
     /**
      *
-     * @param ori
+     * @param ori objeto origen
      */
     public EventoValidar(Object ori) {
         super(ori);
@@ -22,7 +26,7 @@ public class EventoValidar extends Evento {
     }
 
     /**
-     * @return the esCorrecto
+     * @return correcto
      */
     public boolean esCorrecto() {
         return correcto;

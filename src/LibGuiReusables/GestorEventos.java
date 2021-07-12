@@ -5,6 +5,7 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.interfaces.Observador;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LibGuiReusables;
+package LibGuiReusables.interfaces;
 
 /**
- *interface para counicar componentees de los formularios
- * Definee el patron de los metodos que se deben implementar
- * @author Javi
+ *interface para comunicar componentes de los formularios
+ * Definee los metodos que se deben implementar
+ * @author Francisco Javier Sánchez Lozano
  */
 public interface Comunicable {
     

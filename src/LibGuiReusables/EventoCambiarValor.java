@@ -5,16 +5,16 @@
  */
 package LibGuiReusables;
 
+/**
+ *  clase para el Evento de Cambio de valor 
+ * @author Francisco Javier Sánchez Lozano
+ */
 public class EventoCambiarValor extends Evento {
     
+   
     /**
-     * valor del objeto
-     */
-    private Object valor;
-
-    /**
-     *
-     * @param ori
+     *constructor
+     * @param ori ojeto origen
      */
     public EventoCambiarValor(Object ori) {
         super(ori);

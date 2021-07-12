@@ -6,8 +6,8 @@
 package LibGuiReusables;
 
 /**
- *
- * @author Javi
+ * clase abstracta que defien la propiedades basicas  de un evento
+ * @author Francisco Javier Sánchez Lozano
  */
 public abstract class Evento {
 
@@ -21,10 +21,13 @@ public abstract class Evento {
     /**
      * origen del Evento
      */
-    private Object origen;
+    protected Object origen;
+    
+    
+    
     
     /**
-     * @return the tipoEvento
+     * @return  tipoEvento
      */
     public String getTipoEvento() {
         return tipoEvento;
@@ -32,21 +35,21 @@ public abstract class Evento {
     
 
     /**
-     *
-     * @param ori
+     * constructor
+     * @param ori objeto origen
      */
     public Evento(Object ori){
         this.origen = ori;
     }
     /**
-     * @return the origen
+     * @return objeto origen
      */
     public Object getOrigen() {
         return origen;
     }
 
     /**
-     * @param origen the origen to set
+     * @param origen objecto origen
      */
     public void setOrigen(Object origen) {
         this.origen = origen;

@@ -5,6 +5,9 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.interfaces.Comunicable;
+import LibGuiReusables.interfaces.Observador;
+import LibGuiReusables.interfaces.Validable;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -21,6 +24,21 @@ import javax.swing.JOptionPane;
  * @author Javi
  */
 public abstract class FormularioExtensible extends Formulario implements Comunicable, Validable, Observador {
+
+    @Override
+    public Boolean validarCampos() {
+        return (true);
+    }
+
+    @Override
+    public void guardarFormulario() {
+       
+    }
+
+    @Override
+    public void limpiarFormulario() {
+        
+    }
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -194,26 +212,21 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
     }
 
-    /**
-     * metodos de la Interface Ivalidable
-     */
-    @Override
-    public void aceptar() {
+    protected final void aceptar() {
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
         EventoValidar evtVal = this.validar();
         getGestorEventos().notificarEvento("Validar", evtVal);
 
     }
 
-    @Override
-    public void cancelar() {
+    protected final void cancelar() {
         System.out.println("cancelar " + this.getClass() + " " + this.getName());
 
         JOptionPane.showMessageDialog(this, "Operacion Cancelada");
         this.limpiar();
     }
 
-    public EventoValidar validar() {
+    protected final EventoValidar validar() {
         System.out.println("validar " + this.getClass() + " " + this.getName());
 
         EventoValidar evtVal;
@@ -237,13 +250,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         }
     }
 
-    @Override
-    public Boolean validarCampos() {
-      return(true);
-    }
-
-    @Override
-    public void guardar() {
+    protected final void guardar() {
         System.out.println("guardar " + this.getClass() + " " + this.getName());
 
         // recorrer los hijos
@@ -252,11 +259,10 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
             hijo.guardar();
 
         }
-
+        this.guardarFormulario();
     }
 
-    @Override
-    public void limpiar() {
+    protected final void limpiar() {
         System.out.println("limpiar " + this.getClass() + " " + this.getName());
 
         // recorrer los hijos
@@ -265,8 +271,8 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
             hijo.limpiar();
 
         }
-     //   getGestorEventos().removeObservador(this);
-        this.dispose();
+        //   getGestorEventos().removeObservador(this);
+        this.limpiarFormulario();
     }
 
     /**

@@ -5,6 +5,9 @@
  */
 package LibGuiReusables;
 
+import LibGuiReusables.interfaces.Comunicable;
+import LibGuiReusables.interfaces.Observador;
+import LibGuiReusables.interfaces.Validable;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;

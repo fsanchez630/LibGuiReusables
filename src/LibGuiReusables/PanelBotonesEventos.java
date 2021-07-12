@@ -1,5 +1,7 @@
 package LibGuiReusables;
 
+import LibGuiReusables.interfaces.Observador;
+
 /**
  * Panel Botones Acpetar y Cancelar
  *

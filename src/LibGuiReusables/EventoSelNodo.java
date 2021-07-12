@@ -5,16 +5,14 @@
  */
 package LibGuiReusables;
 
-public class EventoSelNodo extends Evento {
-    
-    /**
-     * valor del objeto
-     */
-    private Object valor;
-
-    /**
+/**
+ *  clase para el Evento de seleccion nodo arbol  
+ * @author Francisco Javier Sánchez Lozano
+ */
+public class EventoSelNodo extends Evento {   
+      /**
      *
-     * @param ori
+     * @param ori objeto origen
      */
     public EventoSelNodo(Object ori) {
         super(ori);
