@@ -12,7 +12,7 @@ public final class FactoriaFormularioExtensible {
      * @return el formulario creado, o null en caso de que no se haya creado
      * correctamente
      */
-    public final static  FormularioExtensible crearFormulario(TipoFormulario tipo) {
+    public final FormularioExtensible crearFormulario(TipoFormulario tipo) {
 
         final FormularioExtensible formulario;
 
@@ -53,20 +53,7 @@ public final class FactoriaFormularioExtensible {
         return FABRICA;
     }
 
-    /**
-     * Se sobreescribe el método clone() ,FactoriaFormularioExtensible no es
-     * clonable.
-     *
-     * @return nada
-     * @throws CloneNotSupportedException En el caso de que se intente clonar la
-     * instancia
-     */
-    @Override
-    @SuppressWarnings("CloneDoesntCallSuperClone")
-    public final FactoriaFormularioExtensible clone() throws CloneNotSupportedException {
-
-        throw new CloneNotSupportedException("La clase FactoriaFormularioExtensible no es clonable.");
-    }
+   
 
     /**
      * Instancia única de la clase (Singleton).
@@ -92,7 +79,5 @@ public final class FactoriaFormularioExtensible {
             }
         }
     }
-
-    
 
 }
