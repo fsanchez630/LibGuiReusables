@@ -27,17 +27,17 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
 
     @Override
     public Boolean validarCampos() {
-        return (true);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
     }
 
     @Override
     public void guardarFormulario() {
-       
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template    
     }
 
     @Override
     public void limpiarFormulario() {
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template     
     }
 
     /**

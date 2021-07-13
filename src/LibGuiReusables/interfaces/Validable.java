@@ -13,7 +13,10 @@ package LibGuiReusables.interfaces;
  */
 public interface Validable {
 
-    
+    /**
+     * validar campos del Formulario
+     * @return boolean 
+     */
     public Boolean validarCampos();
 
     /**
