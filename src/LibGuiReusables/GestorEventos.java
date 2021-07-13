@@ -10,19 +10,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/** Clase que gestiona una lista de Observadores para 
+ * notificarles eventos
  *
- * @author javi
+ * @author Francisco Javier Sánchez Lozano
  */
 public class GestorEventos {
 
+     /**
+     * lista de observadores
+     */
     private final Map<String, ArrayList<Observador>> Observadores = new HashMap<>();
 
     /**
      * constructor
      */
     public GestorEventos() {
-
+// incializar listas de observadores
         this.Observadores.put("Validar", new ArrayList<>());
         this.Observadores.put("PulsarBoton", new ArrayList<>());
         this.Observadores.put("CambiarValor", new ArrayList<>());
@@ -60,7 +64,7 @@ public class GestorEventos {
     }
 
     /**
-     * quitar observador a la lista de Observadores
+     * quitar observador de la lista de Observadores
      *
      * @param obs observador que se quita
      */

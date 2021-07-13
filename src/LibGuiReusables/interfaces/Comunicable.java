@@ -14,23 +14,23 @@ public interface Comunicable {
     
     /**
      *  cambiar valor a un componente
-     * @param nombreComponente
-     * @param valor
+     * @param nombreComponente cadena con el nomc=bre del componente
+     * @param valor valor a signar
      */
     public void cambiarValor(String nombreComponente , Object valor );
 
   
     /**
      *  obtiene valor de un componente externo
-     * @param nombreComponente
-     * @param valor
+     * @param nombreComponente cadena con el nomc=bre del componente
+     * @param valor vaor a asignar
      */
     public void recuperarValorExterno(String nombreComponente , Object valor);
     
     /**
      * obtiene el valor de un componente propio
-     * @param nombreComponente the value of nombreComponente
-          * @return the Object
+     * @param nombreComponente cadena con el nomc=bre del componente
+     * @return Object componente 
      */
     public Object obtenerValor(String nombreComponente);
 }

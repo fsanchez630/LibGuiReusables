@@ -17,28 +17,35 @@ import javax.swing.JOptionPane;
 
 /**
  * clase abstracta que contiene las mayoria de la funcionalidad de sus clases
- * derivadas simple, PorFichas y Arbol implementa interfaces para mahejo de
- * eventos implementa interface Validable para validacion de datos implementa
- * interface Comunicable para comunicion entre componentes
+ * derivadas simple, PorFichas y Arbol implementa interface Observador para
+ * manejar eventos implementa interface Validable para validacion de datos ,
+ * guardar y limpiar implementa interface Comunicable para comunicacion entre
+ * componentes
  *
- * @author Javi
+ * @author Francisco Javier Sánchez Lozano
  */
 public abstract class FormularioExtensible extends Formulario implements Comunicable, Validable, Observador {
 
-    @Override
-    public Boolean validarCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-    }
+    // nombre del contenedor
+    private String nombreContenedor;
 
-    @Override
-    public void guardarFormulario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template    
-    }
+    // indica si tiene botones
+    private Boolean hayBotones;
 
-    @Override
-    public void limpiarFormulario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template     
-    }
+    // lista de hijos
+    private ArrayList<FormularioExtensible> hijosExtensibles = new ArrayList<FormularioExtensible>();
+
+    // gestor de Eventos
+    private GestorEventos gestorEventos;
+
+    // panel con los botones 
+    private PanelBotonesEventos panelBotones;
+
+    // minima altura
+    private int minAltura;
+
+    // minima anchura
+    private int minAnchura;
 
     /**
      * enumeracion con los tipos de Contenedor
@@ -47,171 +54,15 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         SIMPLE, PORFICHAS, ARBOL
     }
 
-    // nombre del contenedor
-    private String nombreContenedor;
+    // agrega el panel botonoes con los botones aceptar y cancelar
+    private void addPanelBotones() {
 
-    /**
-     * obtener el nombre del contenedor
-     *
-     * @return nombreContenedor
-     */
-    public String getnombreContenedor() {
-        return nombreContenedor;
+        this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
     }
 
     /**
-     * poner el nobre del contenedor
-     *
-     * @param nombre
+     * procesar la accion para el boton aceptar
      */
-    public void setnombreContenedor(String nombre) {
-        nombreContenedor = nombre;
-        this.setTitle(nombreContenedor);
-    }
-
-    // indica si tiene botones
-    private Boolean hayBotones;
-
-    /**
-     * @return the hayBotones
-     */
-    public Boolean getHayBotones() {
-        return hayBotones;
-    }
-
-    /**
-     * @param hayBotones the hayBotones to set
-     */
-    public void setHayBotones(Boolean hayBotones) {
-        this.hayBotones = hayBotones;
-    }
-
-    // lista de hijos
-    private ArrayList<FormularioExtensible> hijosExtensibles = new ArrayList<FormularioExtensible>();
-
-    /**
-     * @return the hijosExtensibles
-     */
-    public ArrayList<FormularioExtensible> getHijosExtensibles() {
-        return hijosExtensibles;
-    }
-
-    /**
-     * @param hijosExtensibles the hijosExtensibles to set
-     */
-    public void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
-        this.hijosExtensibles = hijosExtensibles;
-    }
-
-    // gestor de Eventos
-    private GestorEventos gestorEventos;
-
-    /**
-     * @return the gestorEventos
-     */
-    public GestorEventos getGestorEventos() {
-        return gestorEventos;
-    }
-
-    public void setGestorEventos(GestorEventos gE) {
-        gestorEventos = gE;
-    }
-
-    private int minAltura;
-
-    /**
-     * @return the minAltura
-     */
-    public int getMinAltura() {
-        return minAltura;
-    }
-
-    /**
-     * @param minAltura the minAltura to set
-     */
-    public void setMinAltura(int minAltura) {
-        this.minAltura = minAltura;
-    }
-
-    private int minAnchura;
-
-    /**
-     * @return the minAnchura
-     */
-    public int getMinAnchura() {
-        return minAnchura;
-    }
-
-    /**
-     * @param minAnchura the minAnchura to set
-     */
-    public void setMinAnchura(int minAnchura) {
-        this.minAnchura = minAnchura;
-    }
-
-    /**
-     * constructor por defecto crea el panel de botones Aceptar y Cancelar
-     */
-    public FormularioExtensible() {
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.formularioPadre = null;
-        this.minAnchura = 0;
-        this.minAltura = 0;
-        this.hayBotones = false;
-        initComponents();
-
-    }
-
-    /**
-     * configurar el formulario
-     *
-     * @return Boolean
-     */
-    public Boolean configurarFormulario() {
-
-        if (getHayBotones()) {
-            this.panelBotones = new PanelBotonesEventos();
-            panelBotones.addObservador(this);
-            addPanelBotones();
-            getGestorEventos().addObservador("Validar", this);
-        }
-        // this.setLocationRelativeTo(null);
-        Dimension minimumSize = new Dimension();
-        minimumSize.setSize(getMinAnchura(), getMinAltura() + 50);
-        this.setMinimumSize(minimumSize);
-        this.setPreferredSize(minimumSize);
-
-        this.setSize(getMinAnchura(), getMinAltura() + 50);
-        this.setLocation(500, 0);
-        return true;
-    }
-
-    /**
-     * incluye un nuevo hijo
-     *
-     * @param hijo
-     * @param titulo
-     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
-     * Formulario Simple
-     */
-    public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-
-    }
-
-    /**
-     * inclye los hijos de una lista
-     *
-     * @param listaHijos
-     * @param titulo
-     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
-     * Formulario Simple
-     */
-    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-    }
-
     protected final void aceptar() {
         System.out.println("aceptar " + this.getClass() + " " + this.getName());
         EventoValidar evtVal = this.validar();
@@ -219,6 +70,9 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
 
     }
 
+    /**
+     * procesar la accion para el boton cancelar
+     */
     protected final void cancelar() {
         System.out.println("cancelar " + this.getClass() + " " + this.getName());
 
@@ -226,6 +80,11 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         this.limpiar();
     }
 
+    /**
+     * validacion recursiva de los formularios
+     *
+     * @return Evnto validar con valor verdadero o falso
+     */
     protected final EventoValidar validar() {
         System.out.println("validar " + this.getClass() + " " + this.getName());
 
@@ -250,6 +109,9 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         }
     }
 
+    /**
+     * guardado recursivo de los formularios
+     */
     protected final void guardar() {
         System.out.println("guardar " + this.getClass() + " " + this.getName());
 
@@ -262,6 +124,9 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         this.guardarFormulario();
     }
 
+    /**
+     * limpieza recursiba de los formularios
+     */
     protected final void limpiar() {
         System.out.println("limpiar " + this.getClass() + " " + this.getName());
 
@@ -271,8 +136,89 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
             hijo.limpiar();
 
         }
-        //   getGestorEventos().removeObservador(this);
+
         this.limpiarFormulario();
+    }
+
+    /**
+     * constructor por defecto
+     */
+    public FormularioExtensible() {
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.formularioPadre = null;
+        this.minAnchura = 0;
+        this.minAltura = 0;
+        this.hayBotones = false;
+        initComponents();
+
+    }
+
+    /**
+     * configurar el formulario
+     *
+     * @return Boolean
+     */
+    public Boolean configurarFormulario() {
+// crear el panel botones si el flag es verdadero
+        if (getHayBotones()) {
+            this.panelBotones = new PanelBotonesEventos();
+            panelBotones.addObservador(this);
+            addPanelBotones();
+            getGestorEventos().addObservador("Validar", this);
+        }
+        // this.setLocationRelativeTo(null);
+        Dimension minimumSize = new Dimension();
+        minimumSize.setSize(getMinAnchura(), getMinAltura() + 50);
+        this.setMinimumSize(minimumSize);
+        this.setPreferredSize(minimumSize);
+
+        this.setSize(getMinAnchura(), getMinAltura() + 50);
+        this.setLocation(500, 0);
+        return true;
+    }
+
+    /**
+     * incluye un nuevo hijo
+     *
+     * @param hijo Formulario Hijo a agregar
+     * @param titulo titulo del Formulario
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    public void addHijoExtensible(FormularioExtensible hijo, String titulo) throws Exception {
+
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+
+    }
+
+    /**
+     * inclye los hijos de una lista
+     *
+     * @param listaHijos Lista de Formularios Hijos a agregar 
+     * @param titulo titulo del Formulario
+     * @throws java.lang.Exception cuando se supera el maximo de hijos = 2 ,en
+     * Formulario Simple
+     */
+    public void addListaHijosExtensibles(ArrayList<FormularioExtensible> listaHijos, String titulo) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+    }
+
+    /**
+     * metodos de la Interface Validable
+     */
+    @Override
+    public Boolean validarCampos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+    }
+
+    @Override
+    public void guardarFormulario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template    
+    }
+
+    @Override
+    public void limpiarFormulario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template     
     }
 
     /**
@@ -288,38 +234,16 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     *
-     * @param nombreComponente the value of nombreComponente
-     * @return the Object
-     */
     @Override
     public Object obtenerValor(String nombreComponente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+     * metodos de la Interface Observador
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-    }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
-    private PanelBotonesEventos panelBotones;
-
-    private void addPanelBotones() {
-
-        this.getContentPane().add(panelBotones, BorderLayout.PAGE_END);
-    }
-
     @Override
-    public void procesarEventoValidar(EventoValidar evt) {
+    final public void procesarEventoValidar(EventoValidar evt) {
         EventoValidar evtVal;
         evtVal = (EventoValidar) evt;
         if (evtVal.esCorrecto()) {
@@ -333,7 +257,7 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
     }
 
     @Override
-    public void procesarEventoPulsarBoton(EventoPulsarBoton evt) {
+    final public void procesarEventoPulsarBoton(EventoPulsarBoton evt) {
         JButton boton = (JButton) evt.getOrigen();
 
         if (boton.getActionCommand().equals("Aceptar")) {
@@ -353,4 +277,107 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
 
     }
 
+    /**
+     * obtener el nombre del contenedor
+     *
+     * @return nombreContenedor
+     */
+    public String getnombreContenedor() {
+        return nombreContenedor;
+    }
+
+    /**
+     * poner el nobre del contenedor
+     *
+     * @param nombre nombre del Contenerdo a asignar
+     */
+    public void setnombreContenedor(String nombre) {
+        nombreContenedor = nombre;
+        this.setTitle(nombreContenedor);
+    }
+
+    /**
+     * @return the hayBotones
+     */
+    public Boolean getHayBotones() {
+        return hayBotones;
+    }
+
+    /**
+     * @param hayBotones asigna el valor booleano de HayBotones
+     */
+    public void setHayBotones(Boolean hayBotones) {
+        this.hayBotones = hayBotones;
+    }
+
+    /**
+     * @return the hijosExtensibles
+     */
+    protected ArrayList<FormularioExtensible> getHijosExtensibles() {
+        return hijosExtensibles;
+    }
+
+    /**
+     * @param hijosExtensibles asigna la Lista de Formularios Hijos
+     */
+    protected void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
+        this.hijosExtensibles = hijosExtensibles;
+    }
+
+    /**
+     * @return  gestorEventos
+     */
+    public GestorEventos getGestorEventos() {
+        return gestorEventos;
+    }
+
+    /**
+     *
+     * @param gE Gestor de Eventos a asignar
+     */
+    public void setGestorEventos(GestorEventos gE) {
+        gestorEventos = gE;
+    }
+
+    /**
+     * @return the minAltura
+     */
+    protected int getMinAltura() {
+        return minAltura;
+    }
+
+    /**
+     * @param minAltura minima altura a asignar
+     */
+    protected void setMinAltura(int minAltura) {
+        this.minAltura = minAltura;
+    }
+
+    /**
+     * @return minima altura
+     */
+    protected int getMinAnchura() {
+        return minAnchura;
+    }
+
+    /**
+     * @param minAnchura niminima anchura a asignar
+     */
+    protected void setMinAnchura(int minAnchura) {
+        this.minAnchura = minAnchura;
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }

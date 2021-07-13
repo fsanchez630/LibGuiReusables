@@ -2,7 +2,38 @@ package LibGuiReusables;
 
 import LibGuiReusables.FormularioExtensible.TipoFormulario;
 
+/**
+ * clase que define la Factoria de Formularios Extensible se usa el aptron
+ * Singleton
+ *
+ * @author Francisco Javier Sánchez Lozano
+ */
 public final class FactoriaFormularioExtensible {
+
+    /**
+     * Instancia única de la clase (Singleton).
+     */
+    private static FactoriaFormularioExtensible FABRICA = null;
+
+    /**
+     * Constructor privado, para evitar que se pueda instanciar.
+     */
+    private FactoriaFormularioExtensible() {
+    }
+
+    /**
+     * Si no existe una instancia de la Factoría, la crea. Se trata de un método
+     * con acceso interno sincronizado con el fin de evitar problemas en el caso
+     * de ejecución concurrente o multi-hilo.
+     */
+    private static void crearInstancia() {
+
+        synchronized (FactoriaFormularioExtensible.class) {
+            if (FABRICA == null) {
+                FABRICA = new FactoriaFormularioExtensible();
+            }
+        }
+    }
 
     /**
      * Crea y devuelve un Formulario del tipo indicado
@@ -51,33 +82,6 @@ public final class FactoriaFormularioExtensible {
         }
 
         return FABRICA;
-    }
-
-   
-
-    /**
-     * Instancia única de la clase (Singleton).
-     */
-    private static FactoriaFormularioExtensible FABRICA = null;
-
-    /**
-     * Constructor privado, para evitar que se pueda instanciar.
-     */
-    private FactoriaFormularioExtensible() {
-    }
-
-    /**
-     * Si no existe una instancia de la Factoría, la crea. Se trata de un método
-     * con acceso interno sincronizado con el fin de evitar problemas en el caso
-     * de ejecución concurrente o multi-hilo.
-     */
-    private static void crearInstancia() {
-
-        synchronized (FactoriaFormularioExtensible.class) {
-            if (FABRICA == null) {
-                FABRICA = new FactoriaFormularioExtensible();
-            }
-        }
     }
 
 }

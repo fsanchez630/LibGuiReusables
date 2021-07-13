@@ -33,7 +33,7 @@ public class EventoValidar extends Evento {
     }
 
     /**
-     * @param correc
+     * @param correc valor booleano
      */
     public void setEsCorrecto(boolean correc) {
         this.correcto = correc;

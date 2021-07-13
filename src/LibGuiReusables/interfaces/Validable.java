@@ -6,10 +6,11 @@
 package LibGuiReusables.interfaces;
 
 /**
- * interface para validacion de datos de los formularios define el patron los
+ * interface para validacion de datos de los formularios define el patron de los
  * metodos que se deben implementar
  *
- * @author Javi
+ * @author Francisco Javier Sánchez Lozano
+
  */
 public interface Validable {
 

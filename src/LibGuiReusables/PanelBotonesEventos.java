@@ -5,12 +5,22 @@ import LibGuiReusables.interfaces.Observador;
 /**
  * Panel Botones Acpetar y Cancelar
  *
- * @author Javi
+ * @author Francisco Javier Sánchez Lozano
  */
 public class PanelBotonesEventos extends javax.swing.JPanel {
 
     // lista de observadores de eventos
-    private  GestorEventos gestorEventosPanelBotones;
+    private GestorEventos gestorEventosPanelBotones;
+
+    /**
+     * notifica el evento Pulsar Boton a los observadores de la lista
+     *
+     * @param evt Evento pulsar Boton
+     */ 
+    private void lanzarEventoPulsarBoton(EventoPulsarBoton evt) {
+        gestorEventosPanelBotones.notificarEvento("PulsarBoton", evt);
+
+    }
 
     /**
      * crear un nuevo PanelBotones y la lista de Observadores de eventos
@@ -18,6 +28,15 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
     public PanelBotonesEventos() {
         initComponents();
         gestorEventosPanelBotones = new GestorEventos();
+    }
+
+    /**
+     * incluye un nuevo observador en la lista
+     *
+     * @param obs onservador
+     */
+    public void addObservador(Observador obs) {
+        gestorEventosPanelBotones.addObservador("PulsarBoton", obs);
     }
 
     /**
@@ -70,24 +89,5 @@ public class PanelBotonesEventos extends javax.swing.JPanel {
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonCancelar;
     // End of variables declaration//GEN-END:variables
-
-    /**
-     * notifica el evento a los observadores de la lista
-     *
-     * @param ActionEvent
-     */
-    private void lanzarEventoPulsarBoton(EventoPulsarBoton evt) {
-        gestorEventosPanelBotones.notificarEvento("PulsarBoton",evt);
-
-    }
-
-    /**
-     * incluye un nuevo observador en la lista
-     *
-     * @param obs onservador
-     */
-    public void addObservador(Observador obs) {
-        gestorEventosPanelBotones.addObservador("PulsarBoton",obs);
-    }
 
 }
