@@ -119,6 +119,266 @@ Aquí va la descripción del capitulo
 \end_layout
 
 \begin_layout Section
+Requisitos del proyecto
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuación se enumeran los requisitos del proyecto:
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+1.
+ Los tipos de GUIs serán los siguientes: 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+a) GUIs de una sola página, que denominaremos simples, en las que se integran
+ como máximo dos GUIs .
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+b) GUIs con navegación mediante pestañas.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+c) GUIs con navegación mediante vista de árbol.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+2.
+ Cualquier tipo de GUI se debe poder anidar cualquier otro, aunque ciertas
+ combinaciones no tengan mucho sentido.
+ El nivel de anidamiento de GUIs, salvo para la simple, debe ser teóricamente
+ ilimitado.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+3.
+ El proceso debe ser transparente para: 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+a) El usuario.
+ La edición de una GUI debe ser considerada como una transacción atómica,
+ por lo que lo editado en cada una de su páginas debe ser aceptado o rechazado
+ con una sola acción, una sola pulsación de botón del usuario al finalizar
+ la edición completa.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+b) El diseñador de GUIs.
+ Debe poder tratar estas GUIs como las normales de la librería gráfica que
+ se use, salvo, quizás, algunos pocos métodos añadidos para la reutilización
+ y teniendo en cuenta que si existe un mecanismo previo de extensión de
+ GUIs en la librería gráfica debería ser explícitamente anulado para que
+ no entre en conflicto el mecanismo de Reusabilidad aquí expuesto.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+c) El programador de aplicaciones.
+ Solo debe tener acceso a la interfaz pública de la jerarquía de GUIs reusables,
+ que, además de la propia de las GUIs normales de la librería gráfica, debe
+ constar de métodos para añadir GUIs, listas de GUIs relacionadas y para
+ la inicialización propia de los GUIs reusables, aparte de la que puedan
+ tener como GUIs normales.
+ Además debe contar un procedimiento sencillo para el ensamblado de basado
+ en métodos polimórficos, de manera que cada clase a editar pueda ensamblar
+ convenientemente su propio GUI reusable, ya sea por invocación del los
+ mismos métodos en las clases de niveles más básicos de su jerarquía y/o
+ por invocación de métodos con igual propósito en los objetos asociados.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+4.
+ Se debe mantener en lo posible la estética de las GUIs diseñadas.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+5.
+ Debe existir un mecanismo para crear GUIs de los tres tipos requeridos
+ en el punto 1, con la estructura mínima: botones para aceptar la edición
+ y rechazarla, contenedor apropiado con distribución y vista de árbol para
+ el último de los tipos requeridos.
+ Estas GUIs las usa el programador de aplicaciones para envolver GUIs sin
+ botones.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+6.
+ Comunicación entre GUIs integradas, hay que arbitrar un sistema de paso
+ de mensajes entre GUIs.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+7.
+ Deseamos proteger lo más posible el funcionamiento interno de las clases
+ de la biblioteca, nueva referencia a una interfaz pública reducida, y poder
+ forzar al diseñador de GUIs la implementación de ciertos métodos, imprescindibl
+es para el funcionamiento del proceso a implementar, de manera que su ausencia
+ sea detectada en tiempo de compilación.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+8.
+ Se usará polimorfismo en lugar de reflexión, introspección sobre clases,
+ siempre que sea posible.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+9.
+ Se debe poder diseñar las GUIs reusables en un editor gráfico de GUIs,
+ tal y como se diseñan los GUIs usuales.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+10.
+ La implementación del proyecto se estructurará un forma de biblioteca de
+ clases, usando el lenguaje de programación Java y la librería gráfica Swing.
+ La biblioteca se empaquetará en un archivo de tipo jar.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+11.
+ Se debe elaborar un programa de prueba, según el siguiente esquema mínimo:
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+a) Los campos (variable) en una clase no tendrán acceso público, sino a
+ través de métodos accesores, este es un requisito general para todo el
+ proyecto.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+b) Crear una clase, p.
+ ej.
+ A, con al menos cinco campos.
+ Derivar de A dos clases, A1 y A2.
+ A1 añade uno o dos campos más a la clase base.
+ A2 añade al menos cinco.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+c) Diseñar GUIs reusables para editar todos los campos de las clases A,
+ A1 y A2.
+ Diseñarlas sin botones, para que posteriormente sean envueltas en GUIs
+ reusables con estructura mínima, y darles una distribución adecuada.
+ Usar cierta variedad de componentes gráficos en las GUIs.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+d) Crear tres clases B, C, D con al menos cinco campos cada una y de manera
+ un objeto de clase A1, otro de clase A2 y otro de clase C estén agregados
+ en uno de clase B, y uno de clase D esté agregado en uno de clase C.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+e) Diseñar GUIs reusables para editar los campos de las clases B, C y D.
+ El de B debe contener vista de árbol y botones, los otros no, darles una
+ distribución adecuada.
+ Usar cierta variedad de componentes gráficos en las GUIs.
+ Mediante la comunicación de GUIs requerida en el punto 6, el cambio en
+ un determinado componente gráfico de la GUI de D debe provocar un cambio
+ en uno de B, p.
+ ej.
+ al deslizar un JSlider en la GUI de D que cambie un número en un JSpinner
+ en la de B.
+ 9
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+f) Crear un aplicación con interfaz gráfica en la que se vayan mostrando,
+ y se puedan editar, las GUIs completas de A1, en una sola página (simple),
+ de A2, con pestañas, y de B, con vista de árbol en la que se pueda acceder
+ a todos las GUIs de sus objetos agregados y los agregados a sus agregados.
+ Las GUIs deben ser ensambladas siguiendo el procedimiento a desarrollar
+ comentado en el requisito 3(c).
+ La edición debe ser real, o sea, con actualización de campos en los objetos
+ al aceptar la edición el usuario, previa validación de la coherencia de
+ los datos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+g) Las GUIs ensamblados deben tener un buen comportamiento frente a redimensiona
+mientos realizados por el usuario.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+12.
+ El proyecto debe estar debidamente documentado usando un sistema estándar
+ de documentación, como pueden ser Javadoc o Doxygen.
+ 13.
+ El software producido debe ser de código abierto, bajo la licencia GPL
+\end_layout
+
+\begin_layout Section
 Estimación de Costes y Tiempos
 \end_layout
 
@@ -479,266 +739,6 @@ Pruebas
 \end_layout
 
 \begin_layout Section
-Requisitos del proyecto
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-A continuación se enumeran los requisitos del proyecto:
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-1.
- Los tipos de GUIs serán los siguientes: 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-a) GUIs de una sola página, que denominaremos simples, en las que se integran
- como máximo dos GUIs .
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-b) GUIs con navegación mediante pestañas.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-c) GUIs con navegación mediante vista de árbol.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-2.
- Cualquier tipo de GUI se debe poder anidar cualquier otro, aunque ciertas
- combinaciones no tengan mucho sentido.
- El nivel de anidamiento de GUIs, salvo para la simple, debe ser teóricamente
- ilimitado.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-3.
- El proceso debe ser transparente para: 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-a) El usuario.
- La edición de una GUI debe ser considerada como una transacción atómica,
- por lo que lo editado en cada una de su páginas debe ser aceptado o rechazado
- con una sola acción, una sola pulsación de botón del usuario al finalizar
- la edición completa.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-b) El diseñador de GUIs.
- Debe poder tratar estas GUIs como las normales de la librería gráfica que
- se use, salvo, quizás, algunos pocos métodos añadidos para la reutilización
- y teniendo en cuenta que si existe un mecanismo previo de extensión de
- GUIs en la librería gráfica debería ser explícitamente anulado para que
- no entre en conflicto el mecanismo de Reusabilidad aquí expuesto.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-c) El programador de aplicaciones.
- Solo debe tener acceso a la interfaz pública de la jerarquía de GUIs reusables,
- que, además de la propia de las GUIs normales de la librería gráfica, debe
- constar de métodos para añadir GUIs, listas de GUIs relacionadas y para
- la inicialización propia de los GUIs reusables, aparte de la que puedan
- tener como GUIs normales.
- Además debe contar un procedimiento sencillo para el ensamblado de basado
- en métodos polimórficos, de manera que cada clase a editar pueda ensamblar
- convenientemente su propio GUI reusable, ya sea por invocación del los
- mismos métodos en las clases de niveles más básicos de su jerarquía y/o
- por invocación de métodos con igual propósito en los objetos asociados.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-4.
- Se debe mantener en lo posible la estética de las GUIs diseñadas.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-5.
- Debe existir un mecanismo para crear GUIs de los tres tipos requeridos
- en el punto 1, con la estructura mínima: botones para aceptar la edición
- y rechazarla, contenedor apropiado con distribución y vista de árbol para
- el último de los tipos requeridos.
- Estas GUIs las usa el programador de aplicaciones para envolver GUIs sin
- botones.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-6.
- Comunicación entre GUIs integradas, hay que arbitrar un sistema de paso
- de mensajes entre GUIs.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-7.
- Deseamos proteger lo más posible el funcionamiento interno de las clases
- de la biblioteca, nueva referencia a una interfaz pública reducida, y poder
- forzar al diseñador de GUIs la implementación de ciertos métodos, imprescindibl
-es para el funcionamiento del proceso a implementar, de manera que su ausencia
- sea detectada en tiempo de compilación.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-8.
- Se usará polimorfismo en lugar de reflexión, introspección sobre clases,
- siempre que sea posible.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-9.
- Se debe poder diseñar las GUIs reusables en un editor gráfico de GUIs,
- tal y como se diseñan los GUIs usuales.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-10.
- La implementación del proyecto se estructurará un forma de biblioteca de
- clases, usando el lenguaje de programación Java y la librería gráfica Swing.
- La biblioteca se empaquetará en un archivo de tipo jar.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-11.
- Se debe elaborar un programa de prueba, según el siguiente esquema mínimo:
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-a) Los campos (variable) en una clase no tendrán acceso público, sino a
- través de métodos accesores, este es un requisito general para todo el
- proyecto.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-b) Crear una clase, p.
- ej.
- A, con al menos cinco campos.
- Derivar de A dos clases, A1 y A2.
- A1 añade uno o dos campos más a la clase base.
- A2 añade al menos cinco.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-c) Diseñar GUIs reusables para editar todos los campos de las clases A,
- A1 y A2.
- Diseñarlas sin botones, para que posteriormente sean envueltas en GUIs
- reusables con estructura mínima, y darles una distribución adecuada.
- Usar cierta variedad de componentes gráficos en las GUIs.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-d) Crear tres clases B, C, D con al menos cinco campos cada una y de manera
- un objeto de clase A1, otro de clase A2 y otro de clase C estén agregados
- en uno de clase B, y uno de clase D esté agregado en uno de clase C.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-e) Diseñar GUIs reusables para editar los campos de las clases B, C y D.
- El de B debe contener vista de árbol y botones, los otros no, darles una
- distribución adecuada.
- Usar cierta variedad de componentes gráficos en las GUIs.
- Mediante la comunicación de GUIs requerida en el punto 6, el cambio en
- un determinado componente gráfico de la GUI de D debe provocar un cambio
- en uno de B, p.
- ej.
- al deslizar un JSlider en la GUI de D que cambie un número en un JSpinner
- en la de B.
- 9
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-f) Crear un aplicación con interfaz gráfica en la que se vayan mostrando,
- y se puedan editar, las GUIs completas de A1, en una sola página (simple),
- de A2, con pestañas, y de B, con vista de árbol en la que se pueda acceder
- a todos las GUIs de sus objetos agregados y los agregados a sus agregados.
- Las GUIs deben ser ensambladas siguiendo el procedimiento a desarrollar
- comentado en el requisito 3(c).
- La edición debe ser real, o sea, con actualización de campos en los objetos
- al aceptar la edición el usuario, previa validación de la coherencia de
- los datos.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-g) Las GUIs ensamblados deben tener un buen comportamiento frente a redimensiona
-mientos realizados por el usuario.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-12.
- El proyecto debe estar debidamente documentado usando un sistema estándar
- de documentación, como pueden ser Javadoc o Doxygen.
- 13.
- El software producido debe ser de código abierto, bajo la licencia GPL
-\end_layout
-
-\begin_layout Section
 Casos de Uso
 \end_layout
 
@@ -1043,15 +1043,16 @@ Diagramas de Secuencia
 \begin_layout Paragraph
 
 \series medium
-Se describe el diagrama de secuencia del metodo cancelar de la interface
+Se describe el diagrama de secuencia del metodo aceptar de la interface
  Validable.
 \end_layout
 
 \begin_layout Paragraph
 \begin_inset Graphics
-	filename recursos/uml/UseCase Diagram2.jpg
+	filename recursos/uml/Diagrama secuencia Aceptar.jpg
 	width 17cm
 	height 17cm
+	keepAspectRatio
 	rotateOrigin leftTop
 
 \end_inset

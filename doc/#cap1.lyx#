@@ -174,7 +174,15 @@ a lo más satisfactoria posible.
  como entornos de desarrollo (siglas IDEs en inglés), orientados a facilitar
  el trabajo al programador que debía desarrollar dicho software.
  
-\begin_inset Newline newline
+\series default
+Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Figura 1.1"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 
@@ -196,6 +204,18 @@ Vista de codificación: En la que el programador accede directamente al código
  La típica presentación de esta vista es un documento de texto, con la sintaxis
  del lenguaje coloreada.
  
+\series default
+Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Figura 1.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -206,6 +226,19 @@ Vista de diseño: En la que el programador puede construir de manera gráfica
  que añadirá botones, cajas de texto, marcos con borde, etc., o sea, todo
  tipo de componentes gráficas que quiere que se muestren en algún momento
  en el programa.
+
+\series default
+ Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Figura 1.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -258,7 +291,7 @@ Las GUI son un parte fundamental de la mayoria de proyectos de Software,
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -266,6 +299,8 @@ status open
 	filename recursos/imagenes/ide.jpg
 	lyxscale 50
 	width 100col%
+	height 40pheight%
+	keepAspectRatio
 
 \end_inset
 
@@ -311,10 +346,10 @@ IDE
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -322,6 +357,8 @@ status open
 	filename recursos/imagenes/vista cod.jpg
 	lyxscale 50
 	width 100col%
+	height 40pheight%
+	keepAspectRatio
 
 \end_inset
 
@@ -363,10 +400,10 @@ Vista codificación
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -374,6 +411,8 @@ status open
 	filename recursos/imagenes/vista dis.jpg
 	lyxscale 50
 	width 100col%
+	height 40pheight%
+	keepAspectRatio
 
 \end_inset
 
@@ -410,6 +449,10 @@ Vista diseño
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -512,64 +555,6 @@ Ademas la Libreria debe proporcionar un sistema de comunicacion de mensajes
  
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename recursos/imagenes/Objetivos.jpg
-	lyxscale 50
-	width 75col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Figura 1.4"
-
-\end_inset
-
-
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Objetivos
-\end_layout
-
-\end_inset
-
-Objetivos
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Estructura de la memoria
 \begin_inset CommandInset label
@@ -610,39 +595,79 @@ Conclusiones y trabajos futuros
 \end_layout
 
 \begin_layout Paragraph
-
+Introducción general y objetivos
 \series medium
-El capitulo 1 hace una introducción general de proyecto, se comentan las
- especificaciones y los requisitos que se deben cumplir.
+ 
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-El capitulo 2 explica el contexto del proyecto de una forma sencilla.
+Este es un capítulo introductorio, que se encarga de proporcionar una primera
+ toma de contacto al lector que se dispone a leer la memoria.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Fundamentos teóricos 
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Los capítulos 3 y 4 son las fases típicas de análisis, diseño e implementación
- de ingeniería del software.
- En el capitulo 3 se incluye varios diagramas UML (casos de uso, clases,
- interacción) 
+Se realizará una introducción que sitúe el contexto del proyecto, y ayude
+ al lector no experimentado en la materia, a ubicarse y poder entender con
+ mayor claridad, los temas tratados en el texto.
+\end_layout
+
+\begin_layout Paragraph
+Análisis y diseño del sistema 
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-En el capitulo 5 se comenta el programa de prueba de la librería.
+Se corresponde con dos fases típicas de todo desarrollo de software, como
+ son las fases de Análisis y Diseño del sistema bajo construcción.
+ Se usara el lenguaje de modelado UML, para representar algunos tipos de
+ diagramas.
+ (casos de uso, clases, interacción)
+\end_layout
+
+\begin_layout Paragraph
+Implementación 
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-La parte de Conclusiones del proyecto se ubica en el capitulo 6, detalla
- el cumplimiento de los objetivos y también se incluyen ideas de ampliación
- del proyecto.
+Aquí se tratará de realizar un esclarecimiento general sobre el código desarroll
+ado, dando aclaraciones lo más descriptivas posibles acerca de las clases
+ que componen el sistema.
+ Para ello, se comenzara mostrando un diagrama de clases minucioso del sistema,
+ donde se podrá apreciar la estructura organizativa general de la librería.
+ Asimismo, se comentarán los métodos que componen la interfaz pública de
+ las clases.
+ En el caso de los métodos ajenos a dicha interfaz pública, es decir, aquellos
+ que sean protegidos o privados, se explicarán en los casos donde sea relevante
+ hacerlo, debido a la transcendencia o repercusión que tengan dichos métodos
+ en el conjunto general del flujo de ejecución.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Experimentación y pruebas 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En este apartado se comentan los experimentos y pruebas a los que se ha
+ visto sometido la librería., como los módulos auxiliares.
+ Se describirá de forma somera, debido a que ya existe un manual propio,
+ el programa de pruebas pedido y realizado.
+ También se mostrará de forma clara la fiabilidad e integridad del conjunto,
+ así como de las partes que lo componen 
 \end_layout
 
 \end_body
