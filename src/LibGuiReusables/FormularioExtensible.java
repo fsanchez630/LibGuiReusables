@@ -277,7 +277,53 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
 
     }
 
+   
     /**
+     * @return the hijosExtensibles
+     */
+    protected ArrayList<FormularioExtensible> getHijosExtensibles() {
+        return hijosExtensibles;
+    }
+
+    /**
+     * @param hijosExtensibles asigna la Lista de Formularios Hijos
+     */
+    protected void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
+        this.hijosExtensibles = hijosExtensibles;
+    }
+
+    
+
+    /**
+     * @return the minAltura
+     */
+    protected int getMinAltura() {
+        return minAltura;
+    }
+
+    /**
+     * @param minAltura minima altura a asignar
+     */
+    protected void setMinAltura(int minAltura) {
+        this.minAltura = minAltura;
+    }
+
+    /**
+     * @return minima altura
+     */
+    protected int getMinAnchura() {
+        return minAnchura;
+    }
+
+    /**
+     * @param minAnchura niminima anchura a asignar
+     */
+    protected void setMinAnchura(int minAnchura) {
+        this.minAnchura = minAnchura;
+    }
+
+    
+     /**
      * obtener el nombre del contenedor
      *
      * @return nombreContenedor
@@ -311,20 +357,6 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
     }
 
     /**
-     * @return the hijosExtensibles
-     */
-    protected ArrayList<FormularioExtensible> getHijosExtensibles() {
-        return hijosExtensibles;
-    }
-
-    /**
-     * @param hijosExtensibles asigna la Lista de Formularios Hijos
-     */
-    protected void setHijosExtensibles(ArrayList<FormularioExtensible> hijosExtensibles) {
-        this.hijosExtensibles = hijosExtensibles;
-    }
-
-    /**
      * @return  gestorEventos
      */
     public GestorEventos getGestorEventos() {
@@ -338,35 +370,6 @@ public abstract class FormularioExtensible extends Formulario implements Comunic
     public void setGestorEventos(GestorEventos gE) {
         gestorEventos = gE;
     }
-
-    /**
-     * @return the minAltura
-     */
-    protected int getMinAltura() {
-        return minAltura;
-    }
-
-    /**
-     * @param minAltura minima altura a asignar
-     */
-    protected void setMinAltura(int minAltura) {
-        this.minAltura = minAltura;
-    }
-
-    /**
-     * @return minima altura
-     */
-    protected int getMinAnchura() {
-        return minAnchura;
-    }
-
-    /**
-     * @param minAnchura niminima anchura a asignar
-     */
-    protected void setMinAnchura(int minAnchura) {
-        this.minAnchura = minAnchura;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
