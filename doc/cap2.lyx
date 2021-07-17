@@ -318,16 +318,18 @@ reutilización del código
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename recursos/imagenes/JERARQUIA.png
 	lyxscale 50
-	width 50col%
+	width 50page%
+	height 20pheight%
 
 \end_inset
 

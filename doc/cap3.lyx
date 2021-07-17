@@ -773,24 +773,52 @@ El diseñador de GUIs interactuá con la vista diseño, la librería permite
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/UseCase Diagram2.jpg
+	lyxscale 50
+	width 60page%
+	height 60page%
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Plain Layout
+\begin_inset Caption Standard
 
-\series bold
-\bar under
-DIAGRAMA UML CASO DE USO GENERAL
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Esquema casos de Uso
 \end_layout
 
-\begin_layout Paragraph
-\begin_inset Graphics
-	filename recursos/uml/UseCase Diagram2.jpg
-	width 17cm
-	height 20cm
+\end_inset
+
+Esquema casos de Uso
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -799,6 +827,59 @@ DIAGRAMA UML CASO DE USO GENERAL
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/UseCase Diagram0.jpg
+	lyxscale 50
+	width 60page%
+	height 45pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.2"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Libreria Formulario Extensibles
+\end_layout
+
+\end_inset
+
+Libreria Formulario Extensibles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -847,28 +928,61 @@ Evolución típica de los acontecimientos
 r
 \end_layout
 
-\begin_layout Paragraph
-
-\series bold
-\bar under
-DIAGRAMA UML CASO DE USO PARA 
-\series default
-LIBRERÍA FORMULARIOS EXTENSIBLES
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset Graphics
-	filename recursos/uml/UseCase Diagram0.jpg
-	width 17cm
-	height 10cm
-
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/UseCase Diagram1.jpg
+	lyxscale 50
+	width 60pheight%
+	height 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.3"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diseño Gui
+\end_layout
+
+\end_inset
+
+Diseño Gui
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -907,18 +1021,65 @@ Evolución típica de los acontecimientos
  Extensibles en vista diseño
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
 
-\series bold
-\bar under
-DIAGRAMA UML CASO DE USO PARA DISEÑO DE LA GUI DE LA APLICACIÓN
+
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Section
+Diagramas UML del Sistema
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename recursos/uml/UseCase Diagram1.jpg
-	width 17cm
-	height 14cm
+	filename recursos/uml/Diagrama clases General.jpg
+	lyxscale 50
+	width 85page%
+	height 75pheight%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.4"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diagrama Clases
+\end_layout
+
+\end_inset
+
+Diagrama Clases
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -930,10 +1091,6 @@ DIAGRAMA UML CASO DE USO PARA DISEÑO DE LA GUI DE LA APLICACIÓN
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Diagramas de Clases
 \end_layout
 
 \begin_layout Subsection
@@ -945,24 +1102,6 @@ Diagramas de Clases
 \series medium
 La jerarquía de clases permite 3 tipos de Formulario: Simple, por Fichas
  y Árbol.
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset Graphics
-	filename recursos/uml/Class Diagram0.jpg
-	width 17cm
-	height 20cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
@@ -1037,7 +1176,15 @@ Comunicable: Interface que define los métodos para implementar la comunicación
 \end_layout
 
 \begin_layout Subsection
-Diagramas de Secuencia
+Diagramas de los metodos Recursivos para Validación, Guardado y Limpieza.
+\end_layout
+
+\begin_layout Subsubsection
+Metodo Validar
+\end_layout
+
+\begin_layout Subsubsection
+Metodo Aceptar
 \end_layout
 
 \begin_layout Paragraph
@@ -1065,6 +1212,10 @@ Se describe el diagrama de secuencia del metodo aceptar de la interface
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Metodo Cancelar
 \end_layout
 
 \begin_layout Paragraph

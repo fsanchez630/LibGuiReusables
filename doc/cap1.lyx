@@ -288,10 +288,10 @@ Las GUI son un parte fundamental de la mayoria de proyectos de Software,
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -299,8 +299,7 @@ status collapsed
 	filename recursos/imagenes/ide.jpg
 	lyxscale 50
 	width 100col%
-	height 40pheight%
-	keepAspectRatio
+	height 75pheight%
 
 \end_inset
 
@@ -328,10 +327,6 @@ IDE
 \end_inset
 
 IDE
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -346,10 +341,10 @@ IDE
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -357,8 +352,7 @@ status collapsed
 	filename recursos/imagenes/vista cod.jpg
 	lyxscale 50
 	width 100col%
-	height 40pheight%
-	keepAspectRatio
+	height 75pheight%
 
 \end_inset
 
@@ -400,10 +394,10 @@ Vista codificación
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -411,8 +405,7 @@ status collapsed
 	filename recursos/imagenes/vista dis.jpg
 	lyxscale 50
 	width 100col%
-	height 40pheight%
-	keepAspectRatio
+	height 75pheight%
 
 \end_inset
 
@@ -453,6 +446,9 @@ Vista diseño
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
 
 \end_layout
 
