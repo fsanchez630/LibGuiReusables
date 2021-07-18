@@ -986,7 +986,11 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software,
 \end_layout
 
 \begin_layout Paragraph
-Modelo 
+Modelo
+\end_layout
+
+\begin_layout Paragraph
+
 \series medium
 El modelo es un conjunto de clases que representan la información del mundo
  real que el sistema debe reflejar.
@@ -1000,7 +1004,11 @@ El modelo es un conjunto de clases que representan la información del mundo
 \end_layout
 
 \begin_layout Paragraph
-Vista 
+Vista
+\end_layout
+
+\begin_layout Paragraph
+
 \series medium
 Las vistas son las encargadas de la representación de los datos, contenidos
  en el modelo, al usuario.
@@ -1010,17 +1018,17 @@ Las vistas son las encargadas de la representación de los datos, contenidos
 \end_layout
 
 \begin_layout Paragraph
-Controlador 
+Controlador
+\end_layout
+
+\begin_layout Paragraph
+
 \series medium
 El controlador es el encargado de interpretar y dar sentido a las instrucciones
  que realiza el usuario, realizando actuaciones sobre el modelo.
  Si se realiza algún cambio, comienza a actuar, tanto si la modificación
  se produce en una vista o en el modelo.
  Interactúa con el Modelo a través de una referencia al propio Modelo.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Standard
@@ -1035,7 +1043,7 @@ status open
 \begin_inset Graphics
 	filename recursos/imagenes/mvc.jpg
 	lyxscale 25
-	width 80col%
+	width 20col%
 	height 20pheight%
 
 \end_inset
@@ -1063,7 +1071,7 @@ MVC
 
 \end_inset
 
-MVC
+IDE
 \end_layout
 
 \end_inset
