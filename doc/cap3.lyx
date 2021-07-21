@@ -837,7 +837,7 @@ Esquema casos de Uso
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -885,7 +885,7 @@ Libreria Formulario Extensibles
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsection
 
 \bar under
 Caso de Uso: LIBRERÍA FORMULARIOS EXTENSIBLES
@@ -940,7 +940,7 @@ r
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -988,7 +988,7 @@ Diseño Gui
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsection
 
 \series bold
 \bar under
@@ -1028,6 +1028,207 @@ Evolución típica de los acontecimientos
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/UseCase usuario.jpg
+	lyxscale 50
+	width 60pheight%
+	height 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.4"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Acciones del Usuario
+\end_layout
+
+\end_inset
+
+Acciones del Usuario
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/Botones.png
+	lyxscale 50
+	width 80page%
+	height 20pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.5"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Esquema Botones
+\end_layout
+
+\end_inset
+
+Esquema Botones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\bar under
+Caso de Uso: ACCIONES DEL USUARIO
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Desde el punto de vista del Usuario, la librería inicia las acciones recursiva
+ de validación , guardado o limpieza de los datos de los Formularios cuando
+ se ha pulsado el Boton Aceptar o Boton Cancelar.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Evolución típica de los acontecimientos Boton Aceptar con Validacion correcta
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+1)El usuario introduce cambios => 2)El usuario pulsa Boton Aceptar para
+ confirmar los cambios realizados
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+3)Se realizan las tareas recursivas de Validacion => 4)Se realizan las tareas
+ recursivas de Validacion
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+5)Se realizan las tareas recursivas de Guardado => 6)Se realizan las tareas
+ recursivas de Validacion
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+7)Se presenta mensaje de Operación Realizada.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Evolución típica de los acontecimientos Boton Aceptar con Validacion incorrecta
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+1)El usuario introduce cambios => 2)El usuario pulsa Boton Aceptar para
+ confirmar los cambios realizados
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+3)Se realizan las tareas recursivas de Validacion => 4)Se presenta mensaje
+ de Datos Incorrectos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Evolución típica de los acontecimientos Boton Cancelar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+1)El usuario introduce cambios => 2)El usuario pulsa Boton Cancelar para
+ rechazar los cambios realizados
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+3)Se realizan las tareas recursivas de Limpieza => 4)Se presenta mensaje
+ de Operación Cancelada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Diagramas UML del Sistema
 \end_layout
@@ -1037,7 +1238,7 @@ Diagramas UML del Sistema
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1059,7 +1260,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Figura 3.4"
+name "fig:Figura 3.6"
 
 \end_inset
 
@@ -1107,53 +1308,88 @@ La jerarquía de clases permite 3 tipos de Formulario: Simple, por Fichas
 \begin_layout Paragraph
 
 \bar under
-Lista de las clases e interfaces que se visualizan:
+Lista de las clases que se visualizan:
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
-Formulario: Clase abstracta que es la clase base de la jerarquía.
- 
-\end_layout
-
-\begin_layout Description
-\noindent
-\align left
-Formulario_Extensible: Clase abstracta que es padre de los tipos de formulario
+FormularioExtensible: Clase abstracta que es padre de los tipos de formulario
  de la jerarquía.
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
-Formulario_Simple: Formulario básico de la jerarquía.
+FormularioSimple: Formulario básico de la jerarquía.
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
-Formulario_Por_Fichas: Formulario con navegación por pestañas.
+FormularioPorFichas: Formulario con navegación por pestañas.
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
-Formulario_Árbol: Formulario con navegación con un esquema de árbol.
+FormularioArbol: Formulario con navegación con un esquema de árbol.
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
-Factoría_Formularios: Permite la creación de formularios por tipo.
+FactoriaFormulariosExtensible: Permite la creación de formularios por tipo.
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
+\noindent
+\align left
+PanelBotonesEventos: Clase que define un Panel que contiene los Botones
+ Aceptar y Cancelar.
+ 
+\end_layout
+
+\begin_layout Itemize
+\noindent
+\align left
+GestorEventos: Clase que notifica Eventos a un Objeto Observador.
+\end_layout
+
+\begin_layout Itemize
+Evento: Clase abstracta que es padre de los tipos de Evento de la jerarquía
+\end_layout
+
+\begin_layout Itemize
+EventoCambioValor: Clase para representar un evento de cambio de valor en
+ un Objeto.
+\end_layout
+
+\begin_layout Itemize
+EventoPulsarBoton: Clase para representar un evento de boton pulsado.
+\end_layout
+
+\begin_layout Itemize
+EventoSelNodo: Clase para representar un evento de seleccion de Nodo en
+ un Arbol.
+\end_layout
+
+\begin_layout Itemize
+EventoValidar: Clase para representar un evento de Validacion.
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Lista de las interfaces que se visualizan:
+\end_layout
+
+\begin_layout Itemize
 \noindent
 \align left
 Validable: Interface que define los métodos para implementar la validación
@@ -1161,11 +1397,16 @@ Validable: Interface que define los métodos para implementar la validación
  
 \end_layout
 
-\begin_layout Description
+\begin_layout Itemize
 \noindent
 \align left
 Comunicable: Interface que define los métodos para implementar la comunicación
  entre componentes de formularios.
+\end_layout
+
+\begin_layout Itemize
+Observador: Interface que define los métodos que debe implementar un Objeto
+ que observa eventos.
 \end_layout
 
 \begin_layout Standard
@@ -1180,64 +1421,244 @@ Diagramas de los metodos Recursivos para Validación, Guardado y Limpieza.
 \end_layout
 
 \begin_layout Subsubsection
-Metodo Validar
+Boton Aceptar
 \end_layout
 
-\begin_layout Subsubsection
-Metodo Aceptar
-\end_layout
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\begin_layout Paragraph
-
-\series medium
-Se describe el diagrama de secuencia del metodo aceptar de la interface
- Validable.
-\end_layout
-
-\begin_layout Paragraph
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename recursos/uml/Diagrama secuencia Aceptar.jpg
-	width 17cm
-	height 17cm
-	keepAspectRatio
-	rotateOrigin leftTop
+	lyxscale 50
+	width 90page%
+	height 65pheight%
+	rotateAngle 90
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.7"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diagrama Boton Aceptar
+\end_layout
+
+\end_inset
+
+Diagrama Boton Aceptar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Subsubsection
-Metodo Cancelar
+Evento Validar Correcto
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\series medium
-Se describe el diagrama de secuencia del metodo cancelar de la interface
- Validable.
-\end_layout
-
-\begin_layout Paragraph
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename recursos/uml/diagrama secuencia Cancelar.jpg
-	width 17cm
-	height 17cm
+	filename recursos/uml/diagrama secuencia evento Validar Correcto.jpg
+	lyxscale 50
+	width 80page%
+	height 75pheight%
+	rotateAngle 90
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.8"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Evento Validar Correcto
+\end_layout
+
+\end_inset
+
+
+\series medium
+Evento Validar Correcto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Evento Validar Incorrecto
+\end_layout
+
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/diagrama secuencia evento Validar Incorrecto.jpg
+	lyxscale 50
+	width 90page%
+	height 75pheight%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.9"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Evento Validar Incorrecto
+\end_layout
+
+\end_inset
+
+
+\series medium
+Evento Validar Incorrecto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Boton Cancelar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/diagrama secuencia Cancelar.jpg
+	lyxscale 50
+	width 80page%
+	height 75pheight%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.10"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Boton Cancelar
+\end_layout
+
+\end_inset
+
+
+\series medium
+Boton Cancelar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
