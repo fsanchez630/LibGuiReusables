@@ -116,56 +116,98 @@ Este capitulo aborda la fase de implementación y construcción de la Librería
 
 \series medium
 Primero se hace una descripción general del código fuente de la librería
- explicando algunos detalles generales de la implementación.
+ explicando algunos apectos generales de la implementación.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Seguidamente se comentaran las Clases que forman parte de la Librería, que
- son:
+Seguidamente se comentaran las diferentes Clases que forman parte de la
+ Librería, agrupadas por varios conceptos que son:
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
+1) Interfaces
+\end_layout
+
+\begin_deeper
+\begin_layout Description
 Comunicable
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 Validable
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
+Observador
+\end_layout
+
+\end_deeper
+\begin_layout Description
+2) Manejo de Eventos
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Evento
+\end_layout
+
+\begin_layout Description
+EventoPulsarBoton
+\end_layout
+
+\begin_layout Description
+EventoValidar
+\end_layout
+
+\begin_layout Description
+EventoCambiarValor
+\end_layout
+
+\begin_layout Description
+EventoSelNodo
+\end_layout
+
+\begin_layout Description
+GestorEventos
+\end_layout
+
+\end_deeper
+\begin_layout Description
+3) Formularios Extensibles
+\end_layout
+
+\begin_deeper
+\begin_layout Description
 Formulario
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 FormularioExtensible
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 FormularioSimple
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 FormularioPorFichas
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Description
 FormularioArbol
 \end_layout
 
-\begin_layout Enumerate
-FactoriaFormularios
+\begin_layout Description
+FactoriaFormularioExtensible
 \end_layout
 
-\begin_layout Enumerate
-ListaObservadoresEventos
+\begin_layout Description
+PanelBotonesEventos
 \end_layout
 
-\begin_layout Enumerate
-PanelBotones
-\end_layout
-
+\end_deeper
 \begin_layout Paragraph
 
 \series medium
@@ -181,10 +223,14 @@ Se explicara detalladamente la función de cada una de estas Clases junto
 \end_layout
 
 \begin_layout Section
-Descripción general del código fuente de la librería 
+Aspectos generales del código fuente de la librería 
 \end_layout
 
 \begin_layout Section
+Interfaces de la Libreria
+\end_layout
+
+\begin_layout Subsection
 Comunicable
 \end_layout
 
@@ -201,49 +247,49 @@ Extensible que es padre de los 3 tipos de Formularios (Simple, Por Fichas
 
 \series medium
 Define los métodos que deben declaran los formularios que quieran usar las
- comunicación por mensajes de la librería,
+ comunicación por mensajes de la librería.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 recuperarValorExterno
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este metodo permite cambiar valor a un componente de un Formulario Extensible
+Este método permite cambiar valor a un componente de un Formulario Extensible
  desde otro Formulario Externo, toma como parámetros un String que es el
  identificador y un campo genérico Object.
  No devuelve ningún valor.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 cambiarValor
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este metodo permite cambiar el valor a un componente de un Formulario Extensible
+Este método permite cambiar el valor a un componente de un Formulario Extensible
 , toma como parámetros un String que es el identificador y un campo genérico
  Object.
  No devuelve ningún valor.
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 obtenerValor
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este metodo permite recuperar el valor de un componente de un Formulario
+Este método permite recuperar el valor de un componente de un Formulario
  Extensible, toma como parámetros un String que es el identificador.
  Devuelve un campo genérico Object.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Validable
 \end_layout
 
@@ -266,87 +312,144 @@ Define los métodos recursivos de validación, guardado y limpieza de datos
 
 \begin_layout Paragraph
 \begin_inset Graphics
-	filename M:/proyecto fin grado/Trabajo Fin de Grado/uml/Botones.png
+	filename recursos/imagenes/Botones.png
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
-aceptar
+\begin_layout Subsubsection
+validarCampos
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este metodo esta asociado al Boton Aceptar.
+Este método permite hacer las validaciones de un Formulario Extensible debe
+ ser implementado obligaoriamente aunque su implementación puede ser trivial,
+ no toma ningun valor como parámetro.
+ Debe devolver un booleano con valor cierto en caso de validación correcta.
+ 
 \end_layout
 
-\begin_layout Subsection
-cancelar
+\begin_layout Subsubsection
+guardarFormulario
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este metodo esta asociado al Boton Cancelar.
+Este método permite hacer las tareas de guardado de un Formulario Extensible,
+ debe ser implementado obligatoriamente aunque su implementación puede ser
+ trivial, no toma ningun valor como parámetro.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+limpiarFormulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite hacer las tareas de limpieza de un Formulario Extensible,
+ debe ser implementado obligatoriamente aunque su implementación puede ser
+ trivial, no toma ningun valor como parámetro.
+ No devuelve ningun valor.
 \end_layout
 
 \begin_layout Subsection
-validar
+Observador
 \end_layout
 
-\begin_layout Subsection
-validar campos
+\begin_layout Paragraph
+
+\series medium
+Esta clase es una interfaz que es implementada por la clase abstracta Formulario
+Extensible que es padre de los 3 tipos de Formularios (Simple, Por Fichas
+ y Árbol) los cuales heredaran las propiedades y métodos de esta interfaz.
+ 
 \end_layout
 
-\begin_layout Subsection
-guardar
+\begin_layout Paragraph
+
+\series medium
+Define los métodos que deben declaran los formularios que quieran usar la
+ recepción y la gestion de Eventos.
 \end_layout
 
-\begin_layout Subsection
-limpiar
+\begin_layout Subsubsection
+procesarEventoValidar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite definir las tareas que hace un Formulario Extensible
+ cuando recibe un Evnento, debe ser implementado obligatoriamente aunque
+ su implementación puede ser trivial, no toma ningun valor como parámetro.
+ No devuelve ningun valor.
 \end_layout
 
 \begin_layout Section
+Clases para manejo de Eventos
+\end_layout
+
+\begin_layout Subsection
+Evento
+\end_layout
+
+\begin_layout Subsection
+EventoPulsarBoton
+\end_layout
+
+\begin_layout Subsection
+EventoValidar
+\end_layout
+
+\begin_layout Subsection
+EventoCambiarValor
+\end_layout
+
+\begin_layout Subsection
+EventoSelNodo
+\end_layout
+
+\begin_layout Subsection
+GestorEventos
+\end_layout
+
+\begin_layout Section
+Clases de los Formularios Extensibles
+\end_layout
+
+\begin_layout Subsection
 Formulario
 \end_layout
 
-\begin_layout Paragraph
-
-\series medium
-Esta es una clase abstracta que es la clase base de la librería de formularios
- extensibles.
- Hereda de JFrame con lo que obtiene sus propiedades y métodos.
-\end_layout
-
-\begin_layout Section
+\begin_layout Subsection
 FormularioExtensible
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 FormularioSimple
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 FormularioPorFichas
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 FormularioArbol
 \end_layout
 
-\begin_layout Section
-FactoriaFormularios
+\begin_layout Subsection
+FactoriaFormularioEventos
 \end_layout
 
-\begin_layout Section
-ListaObservadoresEventos
-\end_layout
-
-\begin_layout Section
-PanelBotones
+\begin_layout Subsection
+PanelBotonesEventos
 \end_layout
 
 \end_body

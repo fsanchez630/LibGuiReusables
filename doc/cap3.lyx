@@ -903,7 +903,7 @@ Desde el punto de vista del desarrollador de aplicaciones, éste pedirá diálog
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos
 \end_layout
 
@@ -1009,7 +1009,7 @@ Desde el punto de vista del diseñador de GUIs, la librería debe permitir
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos
 \end_layout
 
@@ -1144,14 +1144,14 @@ Caso de Uso: ACCIONES DEL USUARIO
 \begin_layout Paragraph
 
 \series medium
-Desde el punto de vista del Usuario, la librería inicia las acciones recursiva
+Desde el punto de vista del Usuario, la librería inicia las acciones recursivas
  de validación , guardado o limpieza de los datos de los Formularios cuando
  se ha pulsado el Boton Aceptar o Boton Cancelar.
 \end_layout
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos Boton Aceptar con Validacion correcta
 \end_layout
 
@@ -1166,20 +1166,14 @@ Evolución típica de los acontecimientos Boton Aceptar con Validacion correcta
 
 \series medium
 3)Se realizan las tareas recursivas de Validacion => 4)Se realizan las tareas
- recursivas de Validacion
+ recursivas de Guardado
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-5)Se realizan las tareas recursivas de Guardado => 6)Se realizan las tareas
- recursivas de Validacion
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-7)Se presenta mensaje de Operación Realizada.
+5)Se realizan las tareas recursivas de Limpieza => 6)Se presenta mensaje
+ de Operación Realizada.
 \end_layout
 
 \begin_layout Paragraph
@@ -1204,7 +1198,7 @@ Evolución típica de los acontecimientos Boton Aceptar con Validacion incorrect
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos Boton Cancelar
 \end_layout
 
