@@ -226,6 +226,13 @@ Se explicara detalladamente la función de cada una de estas Clases junto
 Aspectos generales del código fuente de la librería 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Interfaces de la Libreria
 \end_layout
@@ -258,8 +265,15 @@ recuperarValorExterno
 
 \series medium
 Este método permite cambiar valor a un componente de un Formulario Extensible
- desde otro Formulario Externo, toma como parámetros un String que es el
- identificador y un campo genérico Object.
+ desde otro Formulario Externo.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador y un campo genérico
+ Object.
  No devuelve ningún valor.
 \end_layout
 
@@ -270,8 +284,14 @@ cambiarValor
 \begin_layout Paragraph
 
 \series medium
-Este método permite cambiar el valor a un componente de un Formulario Extensible
-, toma como parámetros un String que es el identificador y un campo genérico
+Este método permite cambiar el valor a un componente de un Formulario Extensible.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador y un campo genérico
  Object.
  No devuelve ningún valor.
  
@@ -285,7 +305,14 @@ obtenerValor
 
 \series medium
 Este método permite recuperar el valor de un componente de un Formulario
- Extensible, toma como parámetros un String que es el identificador.
+ Extensible.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador.
  Devuelve un campo genérico Object.
 \end_layout
 
@@ -310,15 +337,6 @@ Define los métodos recursivos de validación, guardado y limpieza de datos
  Estos métodos se ejecutan cuando se pulsan los botones Aceptar o Cancelar.
 \end_layout
 
-\begin_layout Paragraph
-\begin_inset Graphics
-	filename recursos/imagenes/Botones.png
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection
 validarCampos
 \end_layout
@@ -327,8 +345,14 @@ validarCampos
 
 \series medium
 Este método permite hacer las validaciones de un Formulario Extensible debe
- ser implementado obligaoriamente aunque su implementación puede ser trivial,
- no toma ningun valor como parámetro.
+ ser implementado obligaoriamente aunque su implementación puede ser trivial.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningun valor como parámetro.
  Debe devolver un booleano con valor cierto en caso de validación correcta.
  
 \end_layout
@@ -342,7 +366,13 @@ guardarFormulario
 \series medium
 Este método permite hacer las tareas de guardado de un Formulario Extensible,
  debe ser implementado obligatoriamente aunque su implementación puede ser
- trivial, no toma ningun valor como parámetro.
+ trivial.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningun valor como parámetro.
  No devuelve ningun valor.
 \end_layout
 
@@ -355,7 +385,14 @@ limpiarFormulario
 \series medium
 Este método permite hacer las tareas de limpieza de un Formulario Extensible,
  debe ser implementado obligatoriamente aunque su implementación puede ser
- trivial, no toma ningun valor como parámetro.
+ trivial.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningun valor como parámetro.
  No devuelve ningun valor.
 \end_layout
 
@@ -387,9 +424,85 @@ procesarEventoValidar
 
 \series medium
 Este método permite definir las tareas que hace un Formulario Extensible
- cuando recibe un Evnento, debe ser implementado obligatoriamente aunque
- su implementación puede ser trivial, no toma ningun valor como parámetro.
+ cuando recibe un Evento de tipo Validar.
+ Normalmente esta asociado a la ejecucion de la validacion de un formulario
+ al pulsar el boton Aceptar.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoValidar.
  No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoPulsarBoton
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite definir las tareas que hace un Formulario Extensible
+ cuando recibe un Evento de tipo Pulsar Boton.
+ Normalmente esta asociado a la a la pulsación del boton Aceptar/Cancelar.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoPulsarBoton.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoCambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite definir las tareas que hace un Formulario Extensible
+ cuando recibe un Evento de tipo Cambiar Valor.
+ Normalmente esta asociado al cambo de valor de un componente que se quiere
+ notificar a otro componente.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoCambiarValor.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoSelNodo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite definir las tareas que hace un Formulario Extensible
+ cuando recibe un Evento de tipo Seleccion Nodo.
+ Normalmente esta asociado a una navegacion con vista de Arbol.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoSelNodo.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -400,24 +513,314 @@ Clases para manejo de Eventos
 Evento
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta define la propiedades basicas de un evento.
+ Las propiedades que define son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+\end_layout
+
 \begin_layout Subsection
 EventoPulsarBoton
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades basicas de un evento
+ de pulsación de Boton.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
 \end_layout
 
 \begin_layout Subsection
 EventoValidar
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de selección
+ de nodo en una vista de navegacion por Arbol.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+ Define la propedad Correcto de tipo bolean que permite almacenar si la
+ validación es correcta o no.
+\end_layout
+
 \begin_layout Subsection
 EventoCambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de cambio
+ de valor en un Objeto.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
 \end_layout
 
 \begin_layout Subsection
 EventoSelNodo
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de selección
+ de nodo en una vista de navegacion por Arbol.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+\end_layout
+
 \begin_layout Subsection
 GestorEventos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase gestiona una lista de objetos que implementan la clase Observador
+ a los que notifica Eventos.
+ La responsabilidad de esta clase es la de servir de mediador entre los
+ Eventos y los Observadores.
+\end_layout
+
+\begin_layout Subsubsection
+addObservador
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar un nuevo Observador a la lista de Observadores
+ del Gestor de Eventos.
+ El Observador se agrega para la notificación de un tipo de Evento.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String para el tipo de Evento y un Observador a
+ agregar.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+removeObservador
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite quitar un Observador de la lista de Observadores del
+ Gestor de Eventos.
+ El Observador se puede quitar de todos los tipo de notificación o de un
+ tipo de Evento.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Si se quiere quitar de la notificacion de un tipo de de Evento toma como
+ parámetros un String para el tipo de Evento y un Observador.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Para quitar de la notificacion de cualquier tipo de de Evento toma como
+ parámetro un el Observador.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+notificarEvento
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite notificar un Evento de un tipo a la lista de Observadores
+ del Gestor de Eventos.
+ A cada Observador de ese tipo de Evento se le manda un mensaje de procesarEvent
+o enviando como parametro el Evento recibido.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String para el tipo de Evento y un Evento a notficar.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,float=p,basicstyle={\normalsize\ttfamily},breaklines=true,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:notificarEvento"
+
+\end_inset
+
+notificarEvento
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public void notificarEvento(String TipoEvento, Evento evt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        ArrayList<Observador> listaObs = Observadores.get(TipoEvento);
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (Observador obs : listaObs) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            switch (TipoEvento) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "Validar":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoValidar((EventoValidar) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "PulsarBoton":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoPulsarBoton((EventoPulsarBoton) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "CambiarValor":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoCambiarValor((EventoCambiarValor) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "SelNodo":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoSelNodo((EventoSelNodo) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                default:
+\end_layout
+
+\begin_layout Plain Layout
+
+                    throw new UnsupportedOperationException("Not supported
+ yet.");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -428,8 +831,26 @@ Clases de los Formularios Extensibles
 Formulario
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta define la propiedades basicas de un Formulario.
+ Las propiedades que define son formularioPadre de tipo JFrame para esta
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+\end_layout
+
 \begin_layout Subsection
 FormularioExtensible
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta define la propiedades basicas de un evento.
+ Las propiedades que define son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
 \end_layout
 
 \begin_layout Subsection

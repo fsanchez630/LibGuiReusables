@@ -513,24 +513,307 @@ Clases para manejo de Eventos
 Evento
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta define la propiedades basicas de un evento.
+ Las propiedades que define son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+\end_layout
+
 \begin_layout Subsection
 EventoPulsarBoton
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades basicas de un evento
+ de pulsación de Boton.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
 \end_layout
 
 \begin_layout Subsection
 EventoValidar
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de selección
+ de nodo en una vista de navegacion por Arbol.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+ Define la propedad Correcto de tipo bolean que permite almacenar si la
+ validación es correcta o no.
+\end_layout
+
 \begin_layout Subsection
 EventoCambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de cambio
+ de valor en un Objeto.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
 \end_layout
 
 \begin_layout Subsection
 EventoSelNodo
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Esta clase derivada de Evento define la propiedades de un evento de selección
+ de nodo en una vista de navegacion por Arbol.
+ Las propiedades que hereda son tipoEvento de tipo String para diferenciar
+ el tipo de evento y la propiedad Origen de tipo Object que sirve para guardar
+ el objeto origen del evento.
+\end_layout
+
 \begin_layout Subsection
 GestorEventos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase gestiona una lista de objetos que implementan la clase Observador
+ a los que notifica Eventos.
+ La responsabilidad de esta clase es la de servir de mediador entre los
+ Eventos y los Observadores.
+\end_layout
+
+\begin_layout Subsubsection
+addObservador
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar un nuevo Observador a la lista de Observadores
+ del Gestor de Eventos.
+ El Observador se agrega para la notificación de un tipo de Evento.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String para el tipo de Evento y un Observador a
+ agregar.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+removeObservador
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite quitar un Observador de la lista de Observadores del
+ Gestor de Eventos.
+ El Observador se puede quitar de todos los tipo de notificación o de un
+ tipo de Evento.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Si se quiere quitar de la notificacion de un tipo de de Evento toma como
+ parámetros un String para el tipo de Evento y un Observador.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Para quitar de la notificacion de cualquier tipo de de Evento toma como
+ parámetro un el Observador.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Subsubsection
+notificarEvento
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite notificar un Evento de un tipo a la lista de Observadores
+ del Gestor de Eventos.
+ A cada Observador de ese tipo de Evento se le manda un mensaje de procesarEvent
+o enviando como parametro el Evento recibido.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String para el tipo de Evento y un Evento a notficar.
+ No devuelve ningun valor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java,float=p,basicstyle={\normalsize\ttfamily},breaklines=true,tabsize=4"
+inline false
+status collapsed
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:notificarEvento"
+
+\end_inset
+
+notificarEvento
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public void notificarEvento(String TipoEvento, Evento evt) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        ArrayList<Observador> listaObs = Observadores.get(TipoEvento);
+\end_layout
+
+\begin_layout Plain Layout
+
+        for (Observador obs : listaObs) {
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            switch (TipoEvento) {
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "Validar":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoValidar((EventoValidar) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "PulsarBoton":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoPulsarBoton((EventoPulsarBoton) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "CambiarValor":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoCambiarValor((EventoCambiarValor) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                case "SelNodo":
+\end_layout
+
+\begin_layout Plain Layout
+
+                    obs.procesarEventoSelNodo((EventoSelNodo) evt);
+\end_layout
+
+\begin_layout Plain Layout
+
+                    break;
+\end_layout
+
+\begin_layout Plain Layout
+
+                default:
+\end_layout
+
+\begin_layout Plain Layout
+
+                    throw new UnsupportedOperationException("Not supported
+ yet.");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -546,6 +829,15 @@ Clases de los Formularios Extensibles
 
 \begin_layout Subsection
 Formulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta es la base de los Formularios Extensibles y define
+ la propiedades basicas de un Formulario.
+ Las propiedades que define son formularioPadre de tipo JFrame para establecer
+ el Formulario padre del Formulario actual.
 \end_layout
 
 \begin_layout Subsection
