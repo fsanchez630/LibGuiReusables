@@ -665,158 +665,6 @@ Toma como parámetros un String para el tipo de Evento y un Evento a notificar.
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=Java,float=p,basicstyle={\normalsize\ttfamily},breaklines=true,tabsize=4"
-inline false
-status collapsed
-
-\begin_layout Plain Layout
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:notificarEvento"
-
-\end_inset
-
-notificarEvento
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-public void notificarEvento(String TipoEvento, Evento evt) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        ArrayList<Observador> listaObs = Observadores.get(TipoEvento);
-\end_layout
-
-\begin_layout Plain Layout
-
-        for (Observador obs : listaObs) {
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-            switch (TipoEvento) {
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "Validar":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoValidar((EventoValidar) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "PulsarBoton":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoPulsarBoton((EventoPulsarBoton) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "CambiarValor":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoCambiarValor((EventoCambiarValor) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "SelNodo":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoSelNodo((EventoSelNodo) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                default:
-\end_layout
-
-\begin_layout Plain Layout
-
-                    throw new UnsupportedOperationException("Not supported
- yet.");
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -851,7 +699,7 @@ FormularioSimple
 \begin_layout Paragraph
 
 \series medium
-Esta clase representa el Formulario más sencillo de la jerarquia de Formularios
+Esta clase representa el Formulario más sencillo de la jerarquía de Formularios
  Extensibles.
  Solo puede tener un máximo de 2 hijos.
  Implementa las interfaces Comunicable, Validable, Observador.
@@ -912,15 +760,15 @@ configurarFormulario
 \begin_layout Paragraph
 
 \series medium
-Este método permite configurar la visualizacion del formulario actual.
- Llama al metodo configurarFormulario de la clase padre FormularioExtensible.
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve un booleno para indicar si todo ha ido correctamente.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
 \end_layout
 
 \begin_layout Subsection
@@ -989,15 +837,15 @@ configurarFormulario
 \begin_layout Paragraph
 
 \series medium
-Este método permite configurar la visualizacion del formulario actual.
- Llama al metodo configurarFormulario de la clase padre FormularioExtensible.
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve un booleno para indicar si todo ha ido correctamente.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
 \end_layout
 
 \begin_layout Subsection
@@ -1008,11 +856,32 @@ FormularioArbol
 
 \series medium
 Esta clase representa el Formulario que permite una navegación de los Formulario
-s Extensibles por pestañas.
+s Extensibles por Árbol.
  Implementa las interfaces Comunicable, Validable, Observador.
  Las propiedades que define son panelPrincipal de tipo JPanel que es el
- contenedor principal del Formulario y panelPorFichas de tipo JTabbedPane
- que representa la navegación por pestañas.
+ contenedor principal del Formulario, panelScroll de tipo JScrollPane que
+ representa la navegación por Árbol acompañado de árbol de tipo JTree que
+ contiene los nodos de los Formularios Extensibles.
+ Se define también nodoRaiz de tipo DefaultMutableTreeNode que representa
+ el nodo padre de la estructura del Árbol.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase define la subclase InfoNodo que representa los nodos del árbol
+ con la información de los Formularios Extensibles.
+ Las propiedades que define son nombreNodo de tipo String que es el nombre
+ que aparece en el árbol y formularioNodo de tipo FormularioExtensible que
+ representa el Formulario Extensible que se guarda.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Cada vez que se cambia la selección del nodo del árbol se lanza un evento
+ EventoSelNodo que el GestorEventos se encarga de notificar al Formulario
+ Extensible correspondiente para que ejecute el método procesarEventoSelNodo.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1025,8 +894,8 @@ addHijoExtensible
 Este método permite agregar un hijo de tipo FormularioExtensible al formulario
  actual.
  Se guarda la altura, anchura , titulo, se asigna como padre el formulario
- actual y se agrega una nueva pestaña al panelPorFichas con el Formulario
- hijo.
+ actual y se agrega una nuevo nodo hijo al árbol con el Formulario hijo.
+ El nodo hijo se agrega al nodo del Formulario padre.
 \end_layout
 
 \begin_layout Paragraph
@@ -1047,8 +916,9 @@ addListaHijosExtensibles
 Este método permite agregar una lista de hijos de tipo FormularioExtensible
  al formulario actual.
  Para cada FormularioExtensible de la lista se guarda la altura, anchura
- , titulo , se asigna como padre el formulario actual y se agrega una nueva
- pestaña al panelPorFichas con el Formulario hijo
+ , titulo , se asigna como padre el formulario actual y se agrega una nuevo
+ nodo hijo al árbol con el Formulario hijo.
+ Todos los nodos hijos se agregan al nodo del Formulario padre.
 \end_layout
 
 \begin_layout Paragraph
@@ -1066,15 +936,37 @@ configurarFormulario
 \begin_layout Paragraph
 
 \series medium
-Este método permite configurar la visualizacion del formulario actual.
- Llama al metodo configurarFormulario de la clase padre FormularioExtensible.
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
+ Si todo es correcto, configura también la visualización de la estructura
+ de árbol con todos los nodos hijos que se han almacenado y muestra en el
+ panel principal el Formulario Extensible del nodo raíz.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve un booleno para indicar si todo ha ido correctamente.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoSelNodo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite recupera el nodo seleccionado de la estructura del árbol
+ y lo visualiza en el panel principal del árbol.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoSelNodo que permite recuperar la estructura
+ del árbol y el nodo seleccionado.
+ No devuelve ningún valor.
 \end_layout
 
 \begin_layout Subsection
@@ -1084,7 +976,7 @@ FactoriaFormularioExtensible
 \begin_layout Paragraph
 
 \series medium
-Esta clase representa la factoria de Formularios Extensibles y usa el patrón
+Esta clase representa la factoría de Formularios Extensibles y usa el patrón
  Singleton que solo permite una instancia única de la clase y tiene un construct
 or privado .
  Las propiedades que define son FABRICA de tipo FabricaFormularioExtensible
@@ -1115,7 +1007,7 @@ crearInstancia
 \begin_layout Paragraph
 
 \series medium
-Este método privado permite crear una instancia de la Factoria de Formularios
+Este método privado permite crear una instancia de la Factoría de Formularios
  Extensibles si no existía previamente.
 \end_layout
 
@@ -1133,7 +1025,7 @@ getInstancia
 \begin_layout Paragraph
 
 \series medium
-Este método permite crear una instancia de la Factoria de Formularios Extensible
+Este método permite crear una instancia de la Factoría de Formularios Extensible
 s si no existía previamente.
 \end_layout
 
@@ -1141,7 +1033,7 @@ s si no existía previamente.
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve la instancia unica FABRICA de tipo FabricaFormularioExtensible.
+ Devuelve la instancia única FABRICA de tipo FabricaFormularioExtensible.
 \end_layout
 
 \begin_layout Subsection

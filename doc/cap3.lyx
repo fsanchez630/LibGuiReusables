@@ -1440,7 +1440,7 @@ En este diagrama de secuencia se muestra el funcionamiento del Botón Aceptar.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1682,16 +1682,16 @@ name "fig:Figura 3.10"
 status open
 
 \begin_layout Plain Layout
-
+Diagrama
 \series medium
-Botón Cancelar
+ Botón Cancelar
 \end_layout
 
 \end_inset
 
-
+Diagrama
 \series medium
-Botón Cancelar
+ Botón Cancelar
 \end_layout
 
 \end_inset

@@ -851,7 +851,7 @@ FormularioSimple
 \begin_layout Paragraph
 
 \series medium
-Esta clase representa el Formulario más sencillo de la jerarquia de Formularios
+Esta clase representa el Formulario más sencillo de la jerarquía de Formularios
  Extensibles.
  Solo puede tener un máximo de 2 hijos.
  Implementa las interfaces Comunicable, Validable, Observador.
@@ -867,31 +867,9 @@ addHijoExtensible
 \begin_layout Paragraph
 
 \series medium
-Este método permite agregar una lista de hijos de tipo FormularioExtensible
- al formulario actual.
- Se guarda la altura, anchura , titulo y se asigna como padre el formulario
- actual sino se supera el máximo de hijos permitidos.
- Cuando se supera el máximo de hijos lanza una Exception.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-Toma como parámetros una lista de FormularioExtensible y un String para
- el título del Formulario.
- No devuelve ningún valor.
-\end_layout
-
-\begin_layout Subsubsection
-addListaHijosExtensibles
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
 Este método permite agregar un hijo de tipo FormularioExtensible al formulario
  actual.
- Se guarda la altura, anchura , titulo y se asigna como padre el formulario
+ Se guarda la altura, anchura, titulo y se asigna como padre el formulario
  actual sino se supera el máximo de hijos permitidos.
  Cuando se supera el máximo de hijos lanza una Exception.
 \end_layout
@@ -905,21 +883,44 @@ Toma como parámetros un FormularioExtensible y un String para el título
 \end_layout
 
 \begin_layout Subsubsection
+addListaHijosExtensibles
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar una lista de hijos de tipo FormularioExtensible
+ al formulario actual.
+ Para cada FormularioExtensible de la lista se guarda la altura, anchura,
+ titulo y se asigna como padre el formulario actual sino se supera el máximo
+ de hijos permitidos.
+ Cuando se supera el máximo de hijos lanza una Exception.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros una lista de FormularioExtensible y un String para
+ el título del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
 configurarFormulario
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este método permite configurar la visualizacion del formulario actual.
- Llama al metodo configurarFormulario de la clase padre FormularioExtensible.
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve un booleno para indicar si todo ha ido correctamente.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
 \end_layout
 
 \begin_layout Subsection
@@ -929,13 +930,12 @@ FormularioPorFichas
 \begin_layout Paragraph
 
 \series medium
-Esta clase representa el Formulario que permite una navegación de los formulario
- por pestañas.
- .
+Esta clase representa el Formulario que permite una navegación de los Formulario
+s Extensibles por pestañas.
  Implementa las interfaces Comunicable, Validable, Observador.
  Las propiedades que define son panelPrincipal de tipo JPanel que es el
- contenedor principal del Formulario y MAXHIJOS que es una constante con
- valor 2.
+ contenedor principal del Formulario y panelPorFichas de tipo JTabbedPane
+ que representa la navegación por pestañas.
 \end_layout
 
 \begin_layout Subsubsection
@@ -945,33 +945,11 @@ addHijoExtensible
 \begin_layout Paragraph
 
 \series medium
-Este método permite agregar una lista de hijos de tipo FormularioExtensible
- al formulario actual.
- Se guarda la altura, anchura , titulo y se asigna como padre el formulario
- actual sino se supera el máximo de hijos permitidos.
- Cuando se supera el máximo de hijos lanza una Exception.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-Toma como parámetros una lista de FormularioExtensible y un String para
- el título del Formulario.
- No devuelve ningún valor.
-\end_layout
-
-\begin_layout Subsubsection
-addListaHijosExtensibles
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
 Este método permite agregar un hijo de tipo FormularioExtensible al formulario
  actual.
- Se guarda la altura, anchura , titulo y se asigna como padre el formulario
- actual sino se supera el máximo de hijos permitidos.
- Cuando se supera el máximo de hijos lanza una Exception.
+ Se guarda la altura, anchura , titulo, se asigna como padre el formulario
+ actual y se agrega una nueva pestaña al panelPorFichas con el Formulario
+ hijo.
 \end_layout
 
 \begin_layout Paragraph
@@ -983,25 +961,164 @@ Toma como parámetros un FormularioExtensible y un String para el título
 \end_layout
 
 \begin_layout Subsubsection
+addListaHijosExtensibles
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar una lista de hijos de tipo FormularioExtensible
+ al formulario actual.
+ Para cada FormularioExtensible de la lista se guarda la altura, anchura
+ , titulo , se asigna como padre el formulario actual y se agrega una nueva
+ pestaña al panelPorFichas con el Formulario hijo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros una lista de FormularioExtensible y un String para
+ el título del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
 configurarFormulario
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Este método permite configurar la visualizacion del formulario actual.
- Llama al metodo configurarFormulario de la clase padre FormularioExtensible.
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve un booleno para indicar si todo ha ido correctamente.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
 \end_layout
 
 \begin_layout Subsection
 FormularioArbol
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase representa el Formulario que permite una navegación de los Formulario
+s Extensibles por Árbol.
+ Implementa las interfaces Comunicable, Validable, Observador.
+ Las propiedades que define son panelPrincipal de tipo JPanel que es el
+ contenedor principal del Formulario, panelScroll de tipo JScrollPane que
+ representa la navegación por Árbol acompañado de árbol de tipo JTree que
+ contiene los nodos de los Formularios Extensibles.
+ Se define también nodoRaiz de tipo DefaultMutableTreeNode que representa
+ el nodo padre de la estructura del Árbol.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase define la subclase InfoNodo que representa los nodos del árbol
+ con la información de los Formularios Extensibles.
+ Las propiedades que define son nombreNodo de tipo String que es el nombre
+ que aparece en el árbol y formularioNodo de tipo FormularioExtensible que
+ representa el Formulario Extensible que se guarda.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Cada vez que se cambia la selección del nodo del árbol se lanza un evento
+ EventoSelNodo que el GestorEventos se encarga de notificar al Formulario
+ Extensible correspondiente para que ejecute el método procesarEventoSelNodo.
+\end_layout
+
+\begin_layout Subsubsection
+addHijoExtensible
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar un hijo de tipo FormularioExtensible al formulario
+ actual.
+ Se guarda la altura, anchura , titulo, se asigna como padre el formulario
+ actual y se agrega una nuevo nodo hijo al árbol con el Formulario hijo.
+ El nodo hijo se agrega al nodo del Formulario padre.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un FormularioExtensible y un String para el título
+ del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+addListaHijosExtensibles
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar una lista de hijos de tipo FormularioExtensible
+ al formulario actual.
+ Para cada FormularioExtensible de la lista se guarda la altura, anchura
+ , titulo , se asigna como padre el formulario actual y se agrega una nuevo
+ nodo hijo al árbol con el Formulario hijo.
+ Todos los nodos hijos se agregan al nodo del Formulario padre.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros una lista de FormularioExtensible y un String para
+ el título del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+configurarFormulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite configurar la visualización del formulario actual.
+ Llama al método configurarFormulario de la clase padre FormularioExtensible.
+ Si todo es correcto, configura también la visualización de la estructura
+ de árbol con todos los nodos hijos que se han almacenado y muestra en el
+ panel principal el Formulario Extensible del nodo raíz.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoSelNodo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite recupera el nodo seleccionado de la estructura del árbol
+ y lo visualiza en el panel principal del árbol.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoSelNodo que permite recuperar la estructura
+ del árbol y el nodo seleccionado.
+ No devuelve ningún valor.
 \end_layout
 
 \begin_layout Subsection
