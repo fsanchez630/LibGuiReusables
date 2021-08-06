@@ -665,158 +665,6 @@ Toma como parámetros un String para el tipo de Evento y un Evento a notificar.
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=Java,float=p,basicstyle={\normalsize\ttfamily},breaklines=true,tabsize=4"
-inline false
-status collapsed
-
-\begin_layout Plain Layout
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "lis:notificarEvento"
-
-\end_inset
-
-notificarEvento
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-public void notificarEvento(String TipoEvento, Evento evt) {
-\end_layout
-
-\begin_layout Plain Layout
-
-        ArrayList<Observador> listaObs = Observadores.get(TipoEvento);
-\end_layout
-
-\begin_layout Plain Layout
-
-        for (Observador obs : listaObs) {
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-            switch (TipoEvento) {
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "Validar":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoValidar((EventoValidar) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "PulsarBoton":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoPulsarBoton((EventoPulsarBoton) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "CambiarValor":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoCambiarValor((EventoCambiarValor) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                case "SelNodo":
-\end_layout
-
-\begin_layout Plain Layout
-
-                    obs.procesarEventoSelNodo((EventoSelNodo) evt);
-\end_layout
-
-\begin_layout Plain Layout
-
-                    break;
-\end_layout
-
-\begin_layout Plain Layout
-
-                default:
-\end_layout
-
-\begin_layout Plain Layout
-
-                    throw new UnsupportedOperationException("Not supported
- yet.");
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-            }
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-        }
-\end_layout
-
-\begin_layout Plain Layout
-
-    }
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -842,6 +690,387 @@ Esta clase abstracta es la base de los Formularios Extensibles y define
 
 \begin_layout Subsection
 FormularioExtensible
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta clase abstracta contiene la mayoría de la funcionalidad que heredaran
+ las clases derivadas Simple, PorFichas y Árbol.
+ Implementa la interface Observador para manejar eventos, implementa interface
+ Validable para validación, guardado y limpieza de los Formulario, implementa
+ interface Comunicable para comunicación entre componentes.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Las propiedades que define son nombreContenedor de tipo String para establecer
+ el nombre del contenedor del Formulario Extensible actual, hayBotones de
+ tipo Booleano que indica si el formulario tiene botones Aceptar/Cancelar,
+ hijosExtensibles de tipo lista de FormularioExtensible que es la lista
+ de hijos del Formulario Extensible actual, gestorEventos de tipo GestorEventos
+ que sirve para notificar eventos al Formulario Extensible actual, panelBotones
+ de tipo PanelBotonesEventos que representa el panel con los botones Aceptar/Can
+celar, minAltura de tipo int que sirve para configurar la mínima altura
+ del Formulario Extensible actual y minAnchura de tipo int que sirve para
+ configurar la mínima anchura del Formulario Extensible actual.
+\end_layout
+
+\begin_layout Subsubsection
+addHijoExtensible
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este es el patron del método que permite agregar un hijo de tipo FormularioExten
+sible al formulario actual y cada clase derivada debe definir su cuerpo.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un FormularioExtensible y un String para el título
+ del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+addListaHijosExtensibles
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este es el patron del método que permite agregar una lista de hijos de tipo
+ FormularioExtensible al formulario actual y cada clase derivada debe definir
+ su cuerpo.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros una lista de FormularioExtensible y un String para
+ el título del Formulario.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+configurarFormulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite configurar la visualización del formulario actual.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ Devuelve un booleano para indicar si todo ha ido correctamente.
+\end_layout
+
+\begin_layout Subsubsection
+addPanelBotones
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método permite agregar un PanelBotonesEventos con los botones Aceptar/Cance
+lar al Formulario Extensible actual.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+aceptar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método procesa la accion del botón Acepta del Formulario Extensible
+ actual.
+ Llama al método validar del Formulario Extensible actual que devuelve un
+ EventoValidar que se notifica al GestorEventos.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+cancelar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método procesa la accion del botón Cancelar del Formulario Extensible
+ actual.
+ Muestra un dialogo de 
+\begin_inset Quotes eld
+\end_inset
+
+operacion cancelada
+\begin_inset Quotes erd
+\end_inset
+
+ y llama al método limpiar del Formulario Extensible actual.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+validar
+\end_layout
+
+\begin_layout Subsubsection
+guardar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método procesa la accion recursiva del guardado de los Formularios.
+ Para cada Formulario Extensible de la Lista de Hijos realiza una llamada
+ al metodo guardar.
+ Finaliza el recorrido de los hijos 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+limpiar
+\end_layout
+
+\begin_layout Subsubsection
+validarCampos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Validable permite hacer las validaciones de
+ un Formulario Extensible debe ser implementado obligatoriamente aunque
+ su implementación puede ser trivial.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ Debe devolver un booleano con valor cierto en caso de validación correcta.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+guardarFormulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Validable permite hacer las tareas de guardado
+ de un Formulario Extensible, debe ser implementado obligatoriamente aunque
+ su implementación puede ser trivial.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+limpiarFormulario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Validable permite hacer las tareas de limpieza
+ de un Formulario Extensible, debe ser implementado obligatoriamente aunque
+ su implementación puede ser trivial.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+recuperarValorExterno
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Comunicable permite cambiar valor a un componente
+ de un Formulario Extensible desde otro Formulario Externo.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador y un campo genérico
+ Object.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+cambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Comunicable permite cambiar el valor a un componente
+ de un Formulario Extensible.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador y un campo genérico
+ Object.
+ No devuelve ningún valor.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+obtenerValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Comunicable permite recuperar el valor de un
+ componente de un Formulario Extensible.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetros un String que es el identificador.
+ Devuelve un campo genérico Object.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoValidar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Observador permite definir las tareas que hace
+ un Formulario Extensible cuando recibe un Evento de tipo Validar.
+ Normalmente esta asociado a la ejecución de la validación de un formulario
+ al pulsar el botón Aceptar.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoValidar.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoPulsarBoton
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Observador permite definir las tareas que hace
+ un Formulario Extensible cuando recibe un Evento de tipo Pulsar Botón.
+ Normalmente esta asociado a la a la pulsación del botón Aceptar/Cancelar.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoPulsarBoton.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoCambiarValor
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Observador permite definir las tareas que hace
+ un Formulario Extensible cuando recibe un Evento de tipo Cambiar Valor.
+ Normalmente esta asociado al cambo de valor de un componente que se quiere
+ notificar a otro componente.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoCambiarValor.
+ No devuelve ningún valor.
+\end_layout
+
+\begin_layout Subsubsection
+procesarEventoSelNodo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método de la Interface Observador permite definir las tareas que hace
+ un Formulario Extensible cuando recibe un Evento de tipo Selección Nodo.
+ Normalmente esta asociado a una navegación con vista de Árbol.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Toma como parámetro un EventoSelNodo.
+ No devuelve ningún valor.
 \end_layout
 
 \begin_layout Subsection
@@ -1128,7 +1357,7 @@ FactoriaFormularioExtensible
 \begin_layout Paragraph
 
 \series medium
-Esta clase representa la factoria de Formularios Extensibles y usa el patrón
+Esta clase representa la factoría de Formularios Extensibles y usa el patrón
  Singleton que solo permite una instancia única de la clase y tiene un construct
 or privado .
  Las propiedades que define son FABRICA de tipo FabricaFormularioExtensible
@@ -1159,7 +1388,7 @@ crearInstancia
 \begin_layout Paragraph
 
 \series medium
-Este método privado permite crear una instancia de la Factoria de Formularios
+Este método privado permite crear una instancia de la Factoría de Formularios
  Extensibles si no existía previamente.
 \end_layout
 
@@ -1177,7 +1406,7 @@ getInstancia
 \begin_layout Paragraph
 
 \series medium
-Este método permite crear una instancia de la Factoria de Formularios Extensible
+Este método permite crear una instancia de la Factoría de Formularios Extensible
 s si no existía previamente.
 \end_layout
 
@@ -1185,7 +1414,7 @@ s si no existía previamente.
 
 \series medium
 No toma ningún valor como parámetro.
- Devuelve la instancia unica FABRICA de tipo FabricaFormularioExtensible.
+ Devuelve la instancia única FABRICA de tipo FabricaFormularioExtensible.
 \end_layout
 
 \begin_layout Subsection
