@@ -105,8 +105,51 @@
 Fundamentos teoricos
 \end_layout
 
-\begin_layout Standard
-Aqui va la descripcion del capitulo
+\begin_layout Paragraph
+
+\series medium
+Este capitulo tiene como cometido realizar una introducción que sitúe el
+ contexto del proyecto, y ayude al lector no experimentado en la materia,
+ a ubicarse y poder entender con mayor claridad, los temas tratados en el
+ texto.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hará una breve introducción a la programación orientada a Objetos.
+ En ella se comentan sus conceptos básicos, las caracteristicas y sus beneficios.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de esta corta introducción se detalla la importancia de la reusabilidad
+ y los beneficios que se consiguen con tecnicas para desarrollo de software
+ reusable.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Seguidamente se pasa a explicar algunos detalles de los patrones de diseño,
+ comentando sus tipos y los patrones que son relevantes en el diseño de
+ la Librería.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuación se explican las Interfaces Graficas de Usuario, comentando
+ ademas el Modelo.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se comentan detalles del Entorno de Desarrollo de la Librería,
+ con una descripción corta de Java, Swing y Netbeans.
 \end_layout
 
 \begin_layout Section
@@ -986,11 +1029,7 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software,
 \end_layout
 
 \begin_layout Paragraph
-Modelo
-\end_layout
-
-\begin_layout Paragraph
-
+Modelo 
 \series medium
 El modelo es un conjunto de clases que representan la información del mundo
  real que el sistema debe reflejar.
@@ -1004,11 +1043,7 @@ El modelo es un conjunto de clases que representan la información del mundo
 \end_layout
 
 \begin_layout Paragraph
-Vista
-\end_layout
-
-\begin_layout Paragraph
-
+Vista 
 \series medium
 Las vistas son las encargadas de la representación de los datos, contenidos
  en el modelo, al usuario.
@@ -1018,17 +1053,17 @@ Las vistas son las encargadas de la representación de los datos, contenidos
 \end_layout
 
 \begin_layout Paragraph
-Controlador
-\end_layout
-
-\begin_layout Paragraph
-
+Controlador 
 \series medium
 El controlador es el encargado de interpretar y dar sentido a las instrucciones
  que realiza el usuario, realizando actuaciones sobre el modelo.
  Si se realiza algún cambio, comienza a actuar, tanto si la modificación
  se produce en una vista o en el modelo.
  Interactúa con el Modelo a través de una referencia al propio Modelo.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
@@ -1043,7 +1078,7 @@ status open
 \begin_inset Graphics
 	filename recursos/imagenes/mvc.jpg
 	lyxscale 25
-	width 20col%
+	width 80col%
 	height 20pheight%
 
 \end_inset
@@ -1071,7 +1106,7 @@ MVC
 
 \end_inset
 
-IDE
+MVC
 \end_layout
 
 \end_inset

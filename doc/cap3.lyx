@@ -108,7 +108,36 @@ Análisis y diseño del Sistema
 \begin_layout Paragraph
 
 \series medium
-Aquí va la descripción del capitulo
+Este capitulo tiene como cometido explicar dos fases típicas de todo desarrollo
+ de software, como son las fases de Análisis y Diseño del sistema bajo construcc
+ión.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se enumeran los requisitos del proyecto.
+ Después de la lista de requisitos se detalla la estimación de costes y
+ tiempos del proyecto.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuación de la estimación de costes y tiempos del proyecto se muestran
+ los diagramas UML de varios casos de Uso con la evolución típica de los
+ acontecimientos en cada uno de ellos.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se incluyen los diagramas UML del sistema.
+ Primero se puede ver el Diagrama de Clases con la estructura de las clases
+ de la Librería.
+ Seguidamente se muestran los diagramas de secuencia de los métodos recursivos
+ de validación , guardado y limpieza.
 \end_layout
 
 \begin_layout Standard

@@ -149,6 +149,13 @@ Finalmente se comenta la estructura general de la memoria con la lista de
  este documento.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introducción
 \end_layout
@@ -298,8 +305,8 @@ status open
 \begin_inset Graphics
 	filename recursos/imagenes/ide.jpg
 	lyxscale 50
-	width 100col%
-	height 75pheight%
+	width 90col%
+	height 65pheight%
 
 \end_inset
 
@@ -344,7 +351,7 @@ IDE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -397,7 +404,7 @@ Vista codificación
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

@@ -108,7 +108,43 @@ Análisis y diseño del Sistema
 \begin_layout Paragraph
 
 \series medium
-Aquí va la descripción del capitulo
+Este capitulo tiene como cometido explicar dos fases típicas de todo desarrollo
+ de software, como son las fases de Análisis y Diseño del sistema bajo construcc
+ión
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hará una breve introducción que sirva de contexto.
+ En ella se comenta como funciona normalmente la tarea del desarrollo de
+ Software y la importancia que tienen las GUI (interfaces graficas de Usuario)
+ en muchos de los proyectos de desarrollo.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de la lista de requisitos se detalla la estimacion de costes y tiempos
+ del proyecto.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuacion de la estimacion de costes y tiempos del proyecto seguidamente
+ se muestran los daigramas de varios caos de Uso.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se incluyen los diagramas UML del sistema.
+ Primero se puede ver el Diagrama de Clases con la estructura de las clases
+ de la Librería.
+ Seguidamente se muestran los diagramas de secuencia de los metodos recursivos
+ de validacion , guardado y limpieza.
 \end_layout
 
 \begin_layout Standard
@@ -376,6 +412,13 @@ mientos realizados por el usuario.
  de documentación, como pueden ser Javadoc o Doxygen.
  13.
  El software producido debe ser de código abierto, bajo la licencia GPL
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -773,19 +816,26 @@ El diseñador de GUIs interactuá con la vista diseño, la librería permite
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename recursos/uml/UseCase Diagram2.jpg
 	lyxscale 50
-	width 60page%
-	height 60page%
+	width 90page%
+	height 80pheight%
 
 \end_inset
 
@@ -867,12 +917,12 @@ name "fig:Figura 3.2"
 status open
 
 \begin_layout Plain Layout
-Libreria Formulario Extensibles
+Librería Formulario Extensibles
 \end_layout
 
 \end_inset
 
-Libreria Formulario Extensibles
+Librería Formulario Extensibles
 \end_layout
 
 \end_inset
@@ -886,8 +936,6 @@ Libreria Formulario Extensibles
 \end_layout
 
 \begin_layout Subsection
-
-\bar under
 Caso de Uso: LIBRERÍA FORMULARIOS EXTENSIBLES
 \end_layout
 
@@ -903,14 +951,14 @@ Desde el punto de vista del desarrollador de aplicaciones, éste pedirá diálog
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-1) Pide a la Liberia un Formulario Vacío (Simple, Por Fichas, Árbol) =>
+1) Pide a la Librería un Formulario Vacío (Simple, Por Fichas, Árbol) =>
  2) Se devuelve una instancia del tipo de formulario
 \end_layout
 
@@ -989,9 +1037,6 @@ Diseño Gui
 \end_layout
 
 \begin_layout Subsection
-
-\series bold
-\bar under
 Caso de Uso: DISEÑO DE LA GUI DE LA APLICACIÓN
 \end_layout
 
@@ -1009,7 +1054,7 @@ Desde el punto de vista del diseñador de GUIs, la librería debe permitir
 
 \begin_layout Paragraph
 
-\series medium
+\bar under
 Evolución típica de los acontecimientos
 \end_layout
 
@@ -1033,7 +1078,7 @@ Evolución típica de los acontecimientos
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1135,83 +1180,74 @@ Esquema Botones
 \end_layout
 
 \begin_layout Subsection
-
-\series bold
-\bar under
 Caso de Uso: ACCIONES DEL USUARIO
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Desde el punto de vista del Usuario, la librería inicia las acciones recursiva
+Desde el punto de vista del Usuario, la librería inicia las acciones recursivas
  de validación , guardado o limpieza de los datos de los Formularios cuando
- se ha pulsado el Boton Aceptar o Boton cancelar.
+ se ha pulsado el Botón Aceptar o Botón Cancelar.
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Evolución típica de los acontecimientos Botón Aceptar con Validación correcta
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Evolución típica de los acontecimientos Boton Aceptar con Validacion correcta
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-1)El usuario introduce cambios => 2)El usuario pulsa Boton Aceptar para
+1)El usuario introduce cambios => 2)El usuario pulsa Botón Aceptar para
  confirmar los cambios realizados
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-3)Se realizan las tareas recursivas de Validacion => 4)Se realizan las tareas
- recursivas de Validacion
+3)Se realizan las tareas recursivas de Validación => 4)Se realizan las tareas
+ recursivas de Guardado
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-5)Se realizan las tareas recursivas de Guardado => 6)Se realizan las tareas
- recursivas de Validacion
+5)Se realizan las tareas recursivas de Limpieza => 6)Se presenta mensaje
+ de Operación Realizada.
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Evolución típica de los acontecimientos Botón Aceptar con Validación incorrecta
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-7)Se presenta mensaje de Operación Realizada.
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-Evolución típica de los acontecimientos Boton Aceptar con Validacion incorrecta
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
-1)El usuario introduce cambios => 2)El usuario pulsa Boton Aceptar para
+1)El usuario introduce cambios => 2)El usuario pulsa Botón Aceptar para
  confirmar los cambios realizados
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-3)Se realizan las tareas recursivas de Validacion => 4)Se presenta mensaje
+3)Se realizan las tareas recursivas de Validación => 4)Se presenta mensaje
  de Datos Incorrectos
 \end_layout
 
 \begin_layout Paragraph
 
-\series medium
-Evolución típica de los acontecimientos Boton Cancelar
+\bar under
+Evolución típica de los acontecimientos Botón Cancelar
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-1)El usuario introduce cambios => 2)El usuario pulsa Boton Cancelar para
+1)El usuario introduce cambios => 2)El usuario pulsa Botón Cancelar para
  rechazar los cambios realizados
 \end_layout
 
@@ -1238,7 +1274,7 @@ Diagramas UML del Sistema
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1365,6 +1401,24 @@ GestorEventos: Clase que notifica Eventos a un Objeto Observador.
 Evento: Clase abstracta que es padre de los tipos de Evento de la jerarquía
 \end_layout
 
+\begin_layout Itemize
+EventoCambioValor: Clase para representar un evento de cambio de valor en
+ un Objeto.
+\end_layout
+
+\begin_layout Itemize
+EventoPulsarBoton: Clase para representar un evento de botón pulsado.
+\end_layout
+
+\begin_layout Itemize
+EventoSelNodo: Clase para representar un evento de selección de Nodo en
+ un Árbol.
+\end_layout
+
+\begin_layout Itemize
+EventoValidar: Clase para representar un evento de Validación.
+\end_layout
+
 \begin_layout Paragraph
 
 \bar under
@@ -1399,68 +1453,288 @@ Observador: Interface que define los métodos que debe implementar un Objeto
 \end_layout
 
 \begin_layout Subsection
-Diagramas de los metodos Recursivos para Validación, Guardado y Limpieza.
+Diagramas de los métodos Recursivos para Validación, Guardado y Limpieza.
 \end_layout
 
 \begin_layout Subsubsection
-Metodo Validar
-\end_layout
-
-\begin_layout Subsubsection
-Metodo Aceptar
+Botón Aceptar
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Se describe el diagrama de secuencia del metodo aceptar de la interface
- Validable.
+En este diagrama de secuencia se muestra el funcionamiento del Botón Aceptar.
+ Se lanza un evento pulsar botón, que se notifica a través del gestor de
+ Eventos.
+ Esto provoca que se ejecute el método aceptar.
+ Seguidamente se realiza la validación recursiva de los Formularios que
+ puede lanzar un evento validar Correcto o Incorrecto.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename recursos/uml/Diagrama secuencia Aceptar.jpg
-	width 17cm
-	height 17cm
-	keepAspectRatio
-	rotateOrigin leftTop
+	lyxscale 50
+	width 90page%
+	height 60pheight%
+	rotateAngle 90
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.7"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diagrama Botón Aceptar
+\end_layout
+
+\end_inset
+
+Diagrama Botón Aceptar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Subsubsection
-Metodo Cancelar
+Evento Validar Correcto
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Se describe el diagrama de secuencia del metodo cancelar de la interface
- Validable.
+En este diagrama de secuencia se muestra el funcionamiento del Evento Validar
+ Correcto que se notifica a través del gestor de Eventos.
+ Esto provoca que se realice las operaciones recursivas de guardado y seguidamen
+te la limpieza de los Formularios.
+ Se muestra un dialogo con un mensaje de Operación Realizada.
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename recursos/uml/diagrama secuencia Cancelar.jpg
-	width 17cm
-	height 17cm
+	filename recursos/uml/diagrama secuencia evento Validar Correcto.jpg
+	lyxscale 50
+	width 80page%
+	height 66pheight%
+	rotateAngle 90
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.8"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Evento Validar Correcto
+\end_layout
+
+\end_inset
+
+
+\series medium
+Evento Validar Correcto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Evento Validar Incorrecto
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En este diagrama de secuencia se muestra el funcionamiento del Evento Validar
+ Incorrecto que se notifica a través del gestor de Eventos.
+ Esto provoca que se muestre un dialogo con un mensaje de Validación Incorrecta.
+\end_layout
+
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/diagrama secuencia evento Validar Incorrecto.jpg
+	lyxscale 50
+	width 80page%
+	height 70pheight%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.9"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Evento Validar Incorrecto
+\end_layout
+
+\end_inset
+
+
+\series medium
+Evento Validar Incorrecto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Botón Cancelar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En este diagrama de secuencia se muestra el funcionamiento del Botón Cancelar.
+ Se lanza un evento pulsar botón, que se notifica a través del gestor de
+ Eventos.
+ Esto provoca que se ejecute el método cancelar.
+ Seguidamente se realiza la operación recursiva de limpieza de los Formularios.
+ Se muestra un dialogo con un mensaje de Operación Cancelada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/uml/diagrama secuencia Cancelar.jpg
+	lyxscale 50
+	width 80page%
+	height 68pheight%
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 3.10"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Diagrama
+\series medium
+ Botón Cancelar
+\end_layout
+
+\end_inset
+
+Diagrama
+\series medium
+ Botón Cancelar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 

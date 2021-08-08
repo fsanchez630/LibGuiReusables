@@ -102,11 +102,61 @@
 \begin_body
 
 \begin_layout Chapter
-Fundamentos teoricos
+Fundamentos teóricos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este capitulo tiene como cometido realizar una introducción que sitúe el
+ contexto del proyecto, y ayude al lector no experimentado en la materia,
+ a ubicarse y poder entender con mayor claridad, los temas tratados en el
+ texto.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hará una breve introducción a la programación orientada a Objetos.
+ En ella se comentan sus conceptos básicos, las características y sus beneficios.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de esta corta introducción se detalla la importancia de la reusabilidad
+ y los beneficios que se consiguen con técnicas para desarrollo de software
+ reusable.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Seguidamente se pasa a explicar algunos detalles de los patrones de diseño,
+ comentando sus tipos y los patrones que son relevantes en el diseño de
+ la Librería.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuación se explican las Interfaces Graficas de Usuario, comentando
+ ademas su importancia dentro del Modelo-vista-controlador (MVC).
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se comentan detalles del Entorno de Desarrollo de la Librería,
+ con una descripción corta de Java, Swing y Netbeans.
 \end_layout
 
 \begin_layout Standard
-Aqui va la descripcion del capitulo
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
