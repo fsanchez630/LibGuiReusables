@@ -122,53 +122,6 @@ Primero se hace una descripción general del código fuente de la librería
 \begin_layout Paragraph
 
 \series medium
-Seguidamente se comentaran las Clases que forman parte de la Librería, que
- son:
-\end_layout
-
-\begin_layout Enumerate
-Comunicable
-\end_layout
-
-\begin_layout Enumerate
-Validable
-\end_layout
-
-\begin_layout Enumerate
-Formulario
-\end_layout
-
-\begin_layout Enumerate
-FormularioExtensible
-\end_layout
-
-\begin_layout Enumerate
-FormularioSimple
-\end_layout
-
-\begin_layout Enumerate
-FormularioPorFichas
-\end_layout
-
-\begin_layout Enumerate
-FormularioArbol
-\end_layout
-
-\begin_layout Enumerate
-FactoriaFormularios
-\end_layout
-
-\begin_layout Enumerate
-ListaObservadoresEventos
-\end_layout
-
-\begin_layout Enumerate
-PanelBotones
-\end_layout
-
-\begin_layout Paragraph
-
-\series medium
 Se explicara detalladamente la función de cada una de estas Clases junto
  con los métodos principales que contienen.
 \end_layout
@@ -184,12 +137,34 @@ Se explicara detalladamente la función de cada una de estas Clases junto
 Descripción de la aplicación de prueba
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+La aplicación de prueba tiene como objetivo documentar un Experimento de
+ un Laboratorio.
+ Tiene como conceptos Experimento , Laboratorio , Responsable y las Pruebas.
+ Las Pruebas tienen 2 clases derivadas: Prueba Básica y Prueba Ampliada.
+\end_layout
+
 \begin_layout Section
 Formularios diseñados para la aplicación de prueba
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+En esta sección se muestran los formularios diseñados para la aplicación
+ y una descripción de la función que desempeñan.
+\end_layout
+
 \begin_layout Subsection
 Formulario Prueba
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa una Prueba y contiene 5 campos editables.
 \end_layout
 
 \begin_layout Standard
@@ -197,7 +172,7 @@ Formulario Prueba
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -246,12 +221,19 @@ Formulario Prueba
 Formulario PruebaBasica
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa una Prueba Básica que es una ampliación de la
+ Prueba y contiene 2 campos editables.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -298,6 +280,13 @@ Formulario PruebaBasica
 
 \begin_layout Subsection
 Formulario PruebaAmpliada
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa una Prueba Ampliada que es una ampliación de
+ la Prueba y contiene 5 campos editables.
 \end_layout
 
 \begin_layout Standard
@@ -354,6 +343,12 @@ Formulario PruebaAmpliada
 Formulario Responsable
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa un Responsable y contiene 5 campos editables.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -406,6 +401,12 @@ Formulario Responsable
 
 \begin_layout Subsection
 Formulario Laboratorio
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa un Laboratorio y contiene 5 campos editables.
 \end_layout
 
 \begin_layout Standard
@@ -462,6 +463,12 @@ Formulario Laboratorio
 Formulario Experimento
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Este Formulario representa un Experimento y contiene 5 campos editables.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -516,8 +523,37 @@ Formulario Experimento
 Descripción del código fuente de la aplicación de prueba
 \end_layout
 
+\begin_layout Standard
+A continuación de comenta el código fuente de la aplicación de prueba, con
+ pantallazos de los Formulario obtenidos en tiempode ejecución.
+\end_layout
+
 \begin_layout Subsection
 MenuPrincipal
+\end_layout
+
+\begin_layout Standard
+Esta clase es la principal de la aplicación de prueba.
+ Muestra un menu con varias botones que permitiran probar la integración
+ de los Formularios diseñados.
+\end_layout
+
+\begin_layout Description
+- Crear Prueba Básica: Esta opción permite integrar en
+\series medium
+ una sola página (simple) los Formulario Prueba y 
+\end_layout
+
+\begin_layout Description
+- Crear Prueba Ampliada
+\end_layout
+
+\begin_layout Description
+- Crear Laboratorio
+\end_layout
+
+\begin_layout Description
+- Crear Experimento
 \end_layout
 
 \begin_layout Standard
@@ -740,6 +776,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename recursos/formularios/CrearLaboratorio1.JPG
+	lyxscale 75
+	scale 75
 
 \end_inset
 
@@ -787,6 +825,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename recursos/formularios/CrearLaboratorio2.JPG
+	lyxscale 75
+	scale 75
 
 \end_inset
 
@@ -841,6 +881,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename recursos/formularios/CrearExperimento.JPG
+	lyxscale 75
+	scale 69
 
 \end_inset
 
@@ -878,9 +920,6 @@ Formulario crearExperimento
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -891,6 +930,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename recursos/formularios/CrearExperimento1.JPG
+	lyxscale 75
+	scale 69
 
 \end_inset
 
@@ -903,7 +944,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Figura 5.13-1"
+name "fig:Figura 5.14"
 
 \end_inset
 
@@ -912,17 +953,12 @@ name "fig:Figura 5.13-1"
 status open
 
 \begin_layout Plain Layout
-Formulario crearExperimento
+Formulario crearExperimento 1
 \end_layout
 
 \end_inset
 
-Formulario crearExperimento
-\end_layout
-
-\end_inset
-
-
+Formulario crearExperimento 1
 \end_layout
 
 \end_inset
@@ -930,7 +966,9 @@ Formulario crearExperimento
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Float figure
 placement H
 wide false
@@ -940,7 +978,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename recursos/formularios/CrearExperimento.JPG
+	filename recursos/formularios/CrearExperimento21.JPG
+	lyxscale 75
+	scale 69
 
 \end_inset
 
@@ -953,7 +993,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Figura 5.13-2"
+name "fig:Figura 5.15"
 
 \end_inset
 
@@ -962,17 +1002,12 @@ name "fig:Figura 5.13-2"
 status open
 
 \begin_layout Plain Layout
-Formulario crearExperimento
+Formulario crearExperimento 21
 \end_layout
 
 \end_inset
 
-Formulario crearExperimento
-\end_layout
-
-\end_inset
-
-
+Formulario crearExperimento 21
 \end_layout
 
 \end_inset
@@ -980,17 +1015,21 @@ Formulario crearExperimento
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename recursos/formularios/CrearExperimento.JPG
+	filename recursos/formularios/CrearExperimento22.JPG
+	lyxscale 75
+	scale 69
 
 \end_inset
 
@@ -1003,7 +1042,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Figura 5.13-3"
+name "fig:Figura 5.16"
 
 \end_inset
 
@@ -1012,17 +1051,12 @@ name "fig:Figura 5.13-3"
 status open
 
 \begin_layout Plain Layout
-Formulario crearExperimento
+Formulario crearExperimento 22
 \end_layout
 
 \end_inset
 
-Formulario crearExperimento
-\end_layout
-
-\end_inset
-
-
+Formulario crearExperimento 22
 \end_layout
 
 \end_inset
@@ -1030,17 +1064,21 @@ Formulario crearExperimento
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename recursos/formularios/CrearExperimento.JPG
+	filename recursos/formularios/CrearExperimento31.JPG
+	lyxscale 75
+	scale 69
 
 \end_inset
 
@@ -1053,7 +1091,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Figura 5.13-4"
+name "fig:Figura 5.17"
 
 \end_inset
 
@@ -1062,12 +1100,61 @@ name "fig:Figura 5.13-4"
 status open
 
 \begin_layout Plain Layout
-Formulario crearExperimento
+Formulario crearExperimento 31
 \end_layout
 
 \end_inset
 
-Formulario crearExperimento
+Formulario crearExperimento 31
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/CrearExperimento32.JPG
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.18"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Formulario crearExperimento 32
+\end_layout
+
+\end_inset
+
+Formulario crearExperimento 32
 \end_layout
 
 \end_inset
