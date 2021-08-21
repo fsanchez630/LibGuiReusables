@@ -1,0 +1,1267 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\floatname{algorithm}{Algoritmo}
+\floatname{table}{Tabla}
+
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\let\sv@endpart\@endpart
+\def\@endpart{\thispagestyle{empty}\sv@endpart}
+\makeatother
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Fundamentos teóricos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este capitulo tiene como cometido realizar una introducción que sitúe el
+ contexto del proyecto, y ayude al lector no experimentado en la materia,
+ a ubicarse y poder entender con mayor claridad, los temas tratados en el
+ texto.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Primero se hará una breve introducción a la programación orientada a Objetos.
+ En ella se comentan sus conceptos básicos, las características y sus beneficios.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Después de esta corta introducción se detalla la importancia de la reusabilidad
+ y los beneficios que se consiguen con técnicas para desarrollo de software
+ reusable.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Seguidamente se pasa a explicar algunos detalles de los patrones de diseño,
+ comentando sus tipos y los patrones que son relevantes en el diseño de
+ la Librería.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A continuación se explican las Interfaces Graficas de Usuario, comentando
+ ademas su importancia dentro del Modelo-vista-controlador (MVC).
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se comentan detalles del Entorno de Desarrollo de la Librería,
+ con una descripción corta de Java, Swing y Netbeans.
+\end_layout
+
+\begin_layout Section
+Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La Programación Orientada a es un paradigma de programación que usa objetos
+ y sus interacciones para diseñar aplicaciones y programas.
+ Está basado en varias técnicas, incluyendo herencia, modularidad, polimorfismo,
+ y encapsulamiento.
+ Su uso se popularizó a principios de la década de 1990.
+ Actualmente son muchos los lenguajes de programación que soportan la orientació
+n a objetos.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El término de Programación Orientada a Objetos indica más una forma de diseño
+ y una metodología de desarrollo de software que un lenguaje de programación,
+ ya que en realidad se puede aplicar el Diseño Orientado a Objetos, a cualquier
+ tipo de lenguaje de programación.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se puede hablar de Programación Orientada a Objetos cuando se reúnen las
+ características de: abstracción, encapsulación, herencia y polimorfismo;
+ y los conceptos básicos que las forman: objetos, mensajes, clases, instancias
+ y métodos.
+\end_layout
+
+\begin_layout Subsection
+Conceptos Básicos de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+objeto
+\series default
+ es una encapsulación abstracta de información, junto con los métodos o
+ procedimientos para manipularla.
+ Un objeto contiene operaciones que definen su comportamiento y variables
+ que definen su estado entre las llamadas a las operaciones.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+clase
+\series default
+ equivale a la generalización o abstracción de un tipo específico de objetos.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+mensaje
+\series default
+ representa una acción a tomar por un determinado objeto.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Una 
+\series bold
+instancia
+\series default
+ es la concrección de una clase.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Un 
+\series bold
+método
+\series default
+ consiste en la implementación en una clase de un protocolo de respuesta
+ a los mensajes dirigidos a los objetos de la misma.
+ La respuesta a tales mensajes puede incluir el envío por el método de mensajes
+ al propio objeto y aun a otros, también como el cambio del estado interno
+ del objeto.
+ 
+\end_layout
+
+\begin_layout Subsection
+Caracteristicas de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Subsubsection
+Abstracción
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Son las características especificas de un objeto, aquellas que lo distinguen
+ de los demás tipos de objetos y que logran definir límites conceptuales
+ respecto a quien está haciendo dicha abstracción del objeto.
+ Se enfoca en la visión externa de un objeto, separa el comportamiento específic
+o de un objeto, a esta división que realiza se le conoce como la barrera
+ de abstracción, la cuál se consigue aplicando el principio de mínimo compromiso
+; que se refiere al proceso por el cuál la interfaz de un objeto muestra
+ su comportamiento específico y nada más, absolutamente nada más.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una interfaz de objeto permite crear código con el cuál se específica que
+ métodos serán implementados por una clase sin necesidad de definir que
+ harán estos métodos, dichos métodos deben ser públicos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Las clases abstractas, como su nombre lo indica, son algo abstracto, no
+ representan algo específico y las podemos usar para crear otras clases.
+ No pueden ser instanciadas, por lo que no podemos crear nuevos objetos
+ con ellas.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Encapsulación
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se refiere a la capacidad de agrupar y condensar en un entorno con límites
+ bien definidos distintos elementos.
+ La encapsulación se encarga de mantener ocultos los procesos internos que
+ necesita para hacer lo que sea que haga, dándole al programador acceso
+ sólo a lo que necesita.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Típicamente, el encapsulamiento es utilizado para esconder detalles de la
+ puesta en práctica no importantes de otros objetos.
+ Entonces, los detalles de la puesta en práctica pueden cambiar en cualquier
+ tiempo sin afectar otras partes del programa.
+\end_layout
+
+\begin_layout Subsubsection
+Herencia
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se aplica sobre las clases.
+ O sea, de alguna forma las clases pueden tener descendencia, y ésta heredará
+ algunas características de las clases “padres”.
+ Si disponemos las clases con un formato de árbol genealógico, tenderemos
+ lo que se denomina una estructura jerarquizada de clases.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La POO promueve en gran medida que las relaciones entre objetos se basen
+ en construcciones jerárquicas.
+ Esto es, las clases pueden heredar diferencialmente de otras clases (denominada
+s “superclases”) determinadas características, mientras que, a la vez, pueden
+ definir las suyas propias.
+ Tales clases pasan, así, a denominarse “subclases” de aquéllas.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La herencia se implementa mediante un mecanismo que se denomina derivación
+ de clases: las superclases pasan a llamarse clases base, mientras que las
+ subclases se constituyen en clases derivadas.
+ El mecanismo de herencia está fuertemente relacionado con la 
+\series default
+reutilización del código
+\series medium
+ en POO.
+ Una clase derivada posibilita, el fácil uso de código ya creado en cualquiera
+ de las clases base ya existentes.
+
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/JERARQUIA.png
+	lyxscale 50
+	width 50page%
+	height 20pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 2.1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Ejemplo Herencia
+\end_layout
+
+\end_inset
+
+Ejemplo Herencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Polimorfismo
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Esta propiedad, como su mismo nombre sugiere múltiples formas, se refiere
+ a la posibilidad de acceder a un variado rango de funciones distintas a
+ través del mismo interfaz.
+ O sea, que, en la práctica, un mismo identificador puede tener distintas
+ formas (distintos cuerpos de función, distintos comportamientos) dependiendo,
+ en general, del contexto en el que se halle inserto.
+ El polimorfismo se puede establecer mediante la 
+\series default
+sobrecarga
+\series medium
+ de identificadores y operadores, la ligadura dinámica y las funciones virtuales.
+ El término sobrecarga se refiere al uso del mismo identificador u operador
+ en distintos contextos y con distintos significados.
+ 
+\end_layout
+
+\begin_layout Subsection
+Beneficios de Programación Orientada a Objetos
+\end_layout
+
+\begin_layout Enumerate
+Reutilización del código.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Convierte cosas complejas en estructuras simples reproducibles.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Evita la duplicación de código.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Permite trabajar en equipo gracias al encapsulamiento ya que minimiza la
+ posibilidad de duplicar funciones cuando varias personas trabajan sobre
+ un mismo objeto al mismo tiempo.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Al estar la clase bien estructurada permite la corrección de errores en
+ varios lugares del código.
+\end_layout
+
+\begin_layout Enumerate
+Protege la información a través de la encapsulación, ya que solo se puede
+ acceder a los datos del objeto a través de propiedades y métodos privados.
+ 
+\end_layout
+
+\begin_layout Enumerate
+La abstracción nos permite construir sistemas más complejos y de una forma
+ más sencilla y organizada.
+ 
+\end_layout
+
+\begin_layout Section
+Reusabilidad
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Realmente es un conjunto de patrones y otras técnicas de la programación
+ orientada a objeto que facilitan la reutilización de Sofware.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+A traves de estas tecnicas de Reusabilidad se consiguen grandes beneficios:
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Confiabilidad
+\series default
+: el software de mayor calidad y fiabilidad.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Eficiencia
+\series default
+: mejores algoritmos y estructuras de datos posibles.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ahorro de tiempo
+\series default
+: las aplicaciones se pueden construir más rápido.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Disminución del esfuerzo de mantenimiento
+\series default
+: menor esfuerzo de mantenimiento que el desarrollador de aplicaciones tiene
+ que realizar 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+La consistencia
+\series default
+: la información se mantiene consistente y correcta 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inversión
+\series default
+: permite ahorrar el coste de desarrollar un software similar desde cero.
+ 
+\end_layout
+
+\begin_layout Section
+Patrones de diseño
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Es una solución general y reutilizable aplicable a diferentes problemas
+ de diseño de software.
+ Se trata de plantillas que identifican problemas en el sistema y proporcionan
+ soluciones apropiadas a problemas generales a los que se han enfrentado
+ los desarrolladores durante un largo periodo de tiempo, a través de prueba
+ y error.Java es un lenguaje de programación basado en clases y orientado
+ a objetos.
+ Existen diversos índices de lenguajes de programación y dependiendo el
+ que tomemos como referencia puede considerarse el lenguaje más popular,
+ o uno de los 3 más populares que existen en el mundo.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John
+ Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado
+ Design Patterns, elementos de software orientado a objetos reutilizables.
+ Con este trabajo se inició el concepto de patrón de diseño en el desarrollo
+ de software y recoge 23 patrones de diseño comunes.
+ Cada uno de ellos define la solución para resolver un determinado problema,
+ facilitando además la reutilización del código fuente.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones de diseño ayudan a estar seguro de la validez de tu código,
+ ya que son soluciones que funcionan y han sido probados por muchísimos
+ desarrolladores siendo menos propensos a errores.
+ 
+\end_layout
+
+\begin_layout Subsection
+Tipos de patrones de diseño
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Existen diversas maneras de agrupar los patrones de diseño.
+ Quizá la más extendida es agruparlos según su propósito.
+ En este caso tendríamos las siguientes categorías:
+\end_layout
+
+\begin_layout Subsubsection
+Patrones Creacionales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Como su nombre indica, estos patrones vienen a solucionar o facilitar las
+ tareas de creación o instanciación de objetos.
+ Estos patrones hacen hincapié en la encapsulación de la lógica de la instanciac
+ión, ocultando los detalles concretos de cada objeto y permitiéndonos trabajar
+ con abstracciones.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Algunos de los patrones creacionales más conocidos son: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Factory
+\series default
+: Desacoplar la lógica de creación de la lógica de negocio, evitando al
+ cliente conocer detalles de la instanciación de los objetos de los que
+ depende.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abstract Factory
+\series default
+: Nos provee una interfaz que delega la creación de una serie de objetos
+ relacionados sin necesidad de especificar cuáles son las implementaciones
+ concretas.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Factory Method
+\series default
+: Expone un método de creación, delegando en las subclases la implementación
+ de este método.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Builder
+\series default
+: Separa la creación de un objeto complejo de su estructura, de tal forma
+ que el mismo proceso de construcción nos puede servir para crear representacion
+es diferentes.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Patrones estructurales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones estructurales nos ayudan a definir la forma en la que los objetos
+ se componen.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones estructurales más habituales son:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Adapter
+\series default
+: Nos ayuda a definir una clase intermedia que sirve para que dos clases
+ con diferentes interfaces puedan comunicarse.
+ Esta clase actúa como mediador, haciendo que la clase A pueda ejecutar
+ métodos de la clase B sin conocer detalles de su implementación.
+ También se conoce como Wrapper.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Decorator
+\series default
+: Permite añadir funcionalidad extra a un objeto (decora el objeto) sin
+ modificar el comportamiento del resto de instancias.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Facade
+\series default
+: Una fachada es un objeto que crea una interfaz simplificada para tratar
+ con otra parte del código más compleja.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Composite
+\series default
+: Permite componer objetos en estructuras de árbol y trabajar con esas estructur
+as como si fueran objetos individuales.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Patrones comportamentales
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los patrones comportamentales nos ayudan a definir la forma en la que los
+ objetos interactúan entre ellos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Algunos de los más conocidos (por citar unos pocos) son: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Command
+\series default
+: Son objetos que encapsulan una acción y los parámetros que necesitan para
+ ejecutarse.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Observer
+\series default
+: Los objetos son capaces de suscribirse a una serie de eventos que otro
+ objeto va a emitir, y serán avisados cuando esto ocurra.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Strategy
+\series default
+: Permite la selección del algoritmo que ejecuta cierta acción en tiempo
+ de ejecución.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Template Method
+\series default
+: Especifica el esqueleto de un algoritmo, permitiendo a las subclases definir
+ cómo implementan el comportamiento real.
+ 
+\end_layout
+
+\begin_layout Subsection
+Patrones relevantes para el diseño de la Libreria
+\end_layout
+
+\begin_layout Subsubsection
+Patrón Factory Method
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El patrón de diseño Factory Method nos permite la creación de un subtipo
+ determinado por medio de una clase de Factoría, la cual oculta los detalles
+ de creación del objeto.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El objeto real creados es enmascarado detrás de una interface común entre
+ todos los objetos que pueden ser creado, con la finalidad de que estos
+ pueden variar sin afectar la forma en que el cliente interactúa con ellos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Es normal que un Factory pueda crear varios subtipos de una determinada
+ interface y que todos los objetos concretos fabricados hagan una tarea
+ similar pero con detalles de implementación diferentes.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La intención del Factory Method es tener una clase a la cual delegar la
+ responsabilidad de la creación de los objetos, para que no sea el mismo
+ programador el que decida que clase instanciará, si no que delegará esta
+ responsabilidad al Factory confiando en que este le regresará la clase
+ adecuada para trabajar.
+\end_layout
+
+\begin_layout Subsubsection
+Patrón Composite
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El concepto básico del patrón Composite consiste en representar objetos
+ simples y sus containers (o contenedores, también llamados colecciones
+ en algunos lenguajes, o sea: grupos de objetos) en una clase abstracta
+ de manera que puedan ser tratados uniformemente.
+ Este tipo de estructura se conoce como jerarquía parte-todo (en inglés: part-wh
+ole hierarchy), en la que un objeto es siempre, o una parte de un todo,
+ o un todo compuesto por varias partes.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El patrón Composite requiere mínimo de tres componentes : 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Component: Generalmente es una interface o clase abstracta la cual tiene las
+ operaciones mínimas que serán utilizadas, este componente deberá ser extendido
+ por los otros dos componentes Leaf y Composite.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Leaf: El leaf u hoja representa la parte más simple o pequeña de toda la
+ estructura y este extiende o hereda de Component.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Composite: los Composite tiene los métodos add y remove los cuales nos permiten
+ agregar objetos de tipo Component, Sin embargo como hablamos anteriormente,
+ el Componente es por lo general un Interface o Clase abstracta  por lo
+ que podremos agregamos objetos de tipo Composite o Leaf.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La finalidad del patrón Composite es, como en todos los patrones “GoF”, mejorar
+ la gestión de problemas de diseño recurrentes en la programación orientada
+ a objetos.
+ El resultado deseado es un software flexible, caracterizado por objetos
+ fácilmente implementables, intercambiables, reutilizables y testeables.
+ A tal efecto, el patrón de diseño Composite describe un método según el
+ cual los objetos simples y complejos pueden ser tratados de la misma manera.
+ De este modo, se puede crear una estructura de objetos fácilmente inteligible q
+ue permite al cliente un acceso altamente eficiente.
+ Además, también se minimiza la probabilidad de error en el código.
+\end_layout
+
+\begin_layout Subsubsection
+Patrón Observer
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El patrón de diseño Observer, es uno de los patrones de diseño de software más
+ populares.
+ Esta herramienta ofrece la posibilidad de definir una dependencia uno a
+ uno entre dos o más objetos para transmitir todos los cambios de un objeto
+ concreto de la forma más sencilla y rápida posible.
+ Para conseguirlo, puede registrarse en un objeto (observado) cualquier
+ otro objeto, que funcionará como observador.
+ El primer objeto, también llamado sujeto, informa a los observadores registrado
+s cada vez que es modificado.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El patrón Observer trabaja con dos tipos de actores: por un lado, el sujeto,
+ es decir, el objeto cuyo estado quiere vigilarse a largo plazo.
+ Por otro lado, están los objetos observadores, que han de ser informados
+ de cualquier cambio en el sujeto.
+ El patrón de diseño Observer se implementa sobre todo en aplicaciones basadas
+ en componentes cuyo estado, por un lado, es muy observado por otros componentes
+ y, por otro, es modificado regularmente.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Algunos de los casos de aplicación típicos de este patrón son las GUI (interface
+s gráficas de usuario), que actúan como interfaz de comunicaciónde manejo
+ sencillo entre los usuarios y el programa.
+ Cada vez que se modifican los datos, estos deben actualizarse en todos
+ los componentes de la GUI.
+ Esta situación es perfecta para la aplicación de la estructura sujeto-observado
+r del patrón Observer.
+ Incluso los programas que trabajan con conjuntos de datos en formato visual
+ (ya sean tablas clásicas o diagramas gráficos) pueden beneficiarse de la
+ estructura de este patrón de diseño.
+\end_layout
+
+\begin_layout Subsubsection
+Patrón Indireccion
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Problema
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+¿Dónde asignar responsabilidades para evitar/reducir el acoplamiento directo
+ entre elementos y mejorar la reutilización?
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Solución
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Asigne la responsabilidad a un objeto que medie entre los elementos.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Forma parte de un conjunto de patrones o principios de diseño conocidos
+ como GRASP.
+ Se trata de asignar la responsabilidad a un objeto intermedio para mediar
+ entre otros componentes o servicios, para que no estén directamente acoplados.
+ El intermediario es el encargado de recibir mensajes desde una de las entidades
+, o enviar mensajes hacia la otra entidad, de forma bidireccional.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Sirve de base a muchos otros patrones que aplican el mismo concepto, como
+ puede ser el patrón Adaptador, o incluso el mismo patrón Observador.
+\end_layout
+
+\begin_layout Section
+Interfaces graficas de Usuario
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La GUI es una interfaz de usuario que permite a los usuarios comunicarse
+ con el ordenador.
+ Suele estar basada en la interacción a través del ratón y el teclado (aunque
+ el control a través de gestos es cada vez más común): al mover el ratón,
+ el puntero se desplaza en la pantalla.
+ La señal del dispositivo se transmite al ordenador, que luego la traduce
+ en un movimiento equivalente en la pantalla.
+ Por ejemplo, si un usuario hace clic en un determinado icono de programa
+ en el menú, se ejecuta la instrucción correspondiente y se abre el programa.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una GUI combina el diseño visual y las funciones de programación.
+ Por esto, ofrece botones, menús desplegables, campos de navegación, campos
+ de búsqueda, iconos y widgets.
+ Los desarrolladores deben tener siempre en cuenta la facilidad de uso.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La GUI suele ser un trabajo en conjunto entre desarrolladores y diseñadores
+ que buscan la mejor manera de que el usuario pueda interactuar con el programa
+ mediante elementos visuales fáciles de comprender.
+ 
+\end_layout
+
+\begin_layout Subsection
+Modelo–Vista–Controlador
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Modelo-vista-controlador (MVC) es un patrón de arquitectura de software,
+ que separa los datos y principalmente lo que es la lógica de negocio de
+ una aplicación de su representación y el módulo encargado de gestionar
+ los eventos y las comunicaciones.
+ Para ello MVC propone la construcción de tres componentes distintos que
+ son el modelo, la vista y el controlador, es decir, por un lado define
+ componentes para la representación de la información, y por otro lado para
+ la interacción del usuario.
+\end_layout
+
+\begin_layout Paragraph
+Modelo 
+\series medium
+El modelo es un conjunto de clases que representan la información del mundo
+ real que el sistema debe reflejar.
+ Es la parte encargada de representar la lógica de negocio de una aplicación.
+ Así, por ejemplo, un sistema de administración de datos geográficos tendrá
+ un modelo que representara la altura, coordenadas de posición, distancia,
+ etc.
+ sin tomar en cuenta ni la forma en la que esa información va a ser mostrada
+ ni los mecanismos que hacen que esos datos estén dentro del modelo, es
+ decir, sin tener relación con ninguna otra entidad dentro de la aplicación.
+\end_layout
+
+\begin_layout Paragraph
+Vista 
+\series medium
+Las vistas son las encargadas de la representación de los datos, contenidos
+ en el modelo, al usuario.
+ La relación entre las vistas y el modelo son de muchas a uno, es decir
+ cada vista se asocia a un modelo, pero pueden existir muchas vistas asociadas
+ al mismo modelo.
+\end_layout
+
+\begin_layout Paragraph
+Controlador 
+\series medium
+El controlador es el encargado de interpretar y dar sentido a las instrucciones
+ que realiza el usuario, realizando actuaciones sobre el modelo.
+ Si se realiza algún cambio, comienza a actuar, tanto si la modificación
+ se produce en una vista o en el modelo.
+ Interactúa con el Modelo a través de una referencia al propio Modelo.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/imagenes/mvc.jpg
+	lyxscale 25
+	width 80col%
+	height 20pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 2.2"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+MVC
+\end_layout
+
+\end_inset
+
+MVC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Entorno de Desarrollo de la Librería (Java/Swing/Netbeans)
+\end_layout
+
+\begin_layout Subsection
+Java
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Java es un lenguaje de programación basado en clases y orientado a objetos.
+ Existen diversos índices de lenguajes de programación y dependiendo el
+ que tomemos como referencia puede considerarse el lenguaje más popular,
+ o uno de los 3 más populares que existen en el mundo.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Su objetivo es, permitir que los desarrolladores de aplicaciones escriban
+ el código una sola vez y que ese código pueda se ejecutado en cualquier
+ lugar, esto es lo que denominan WORA (Write once, run anywhere? / Escribe
+ una vez, corre en cualquier lugar).
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Java ofrece muchas características atractivas:
+\end_layout
+
+\begin_layout Enumerate
+Un lenguaje independiente de la plataforma.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Una amplia biblioteca estándar que facilita la codificación.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Puede crear una aplicación independiente completa utilizando Java.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Java admite la asignación automática de memoria y la desasignación (llamada
+ recolección de basura).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Ofrece un gran rendimiento ya que Java admite multiproceso y concurrencia,
+ lo que lo convierte en un lenguaje altamente interactivo y receptivo.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Seguro y simple.
+\end_layout
+
+\begin_layout Subsection
+Swing
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+El paquete Swing es parte de la JFC (Java Foundation Classes) en la plataforma
+ Java.
+ La JFC provee facilidades para ayudar a la gente a construir GUIs.
+ Swing abarca componentes como botones, tablas, marcos, etc...
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Posee las siguientes características principales:
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Independencia de plataforma.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Extensibilidad: es una arquitectura altamente particionada: los usuarios
+ pueden proveer sus propias implementaciones modificadas para sobrescribir
+ las implementaciones por defecto.
+ Se puede extender clases existentes proveyendo alternativas de implementación
+ para elementos esenciales.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series medium
+Personalizable: dado el modelo de representación programático del framework
+ de Swing, el control permite representar diferentes estilos de apariencia.
+ 
+\end_layout
+
+\begin_layout Subsection
+Netbeans
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Netbeans es un IDE (Integrated Development Environment) o entorno de desarrollo
+ integrado, que es gratuito y de código abierto.
+ Netbeans sirve para el desarrollo de aplicaciones web, corporativas, de
+ escritorio y móviles que utilizan plataformas como Java y HTML5, entre
+ otras.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+NetBeans es un proyecto de código abierto de gran éxito con una gran base
+ de usuarios, una comunidad en constante crecimiento.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La plataforma NetBeans permite que las aplicaciones sean desarrolladas a
+ partir de un conjunto de componentes de software llamados módulos.
+ Un módulo es un archivo Java que contiene clases de java escritas para
+ interactuar con las APIs de NetBeans y un archivo especial (manifest file)
+ que lo identifica como módulo.
+ Las aplicaciones construidas a partir de módulos pueden ser extendidas
+ agregándole nuevos módulos.
+ Debido a que los módulos pueden ser desarrollados independientemente, las
+ aplicaciones basadas en la plataforma NetBeans pueden ser extendidas fácilmente
+ por otros desarrolladores de software.
+\end_layout
+
+\end_body
+\end_document

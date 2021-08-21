@@ -1,0 +1,158 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\end_preamble
+\use_default_options true
+\master maestro-pfg.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+\size larger
+Resumen
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+\noindent
+
+\series medium
+El desarrollo del Software nunca ha sido una tarea sencilla.
+ Se ha requerido al menos de un editor de texto, donde escribir el programa,
+ y de un compilador o intérprete que diera los pasos necesarios con el conjunto
+ de ficheros del programa para que éste se pudiera ejecutar.
+ Además, la práctica totalidad de los programas hoy en día disponen de un
+ Interfaz Grafica (GUI) , que consiste en un conjunto de ventanas y menús
+ que permiten al usuario interactuar con el software y proporcionarle una
+ experiencia lo más satisfactoria posible.
+\end_layout
+
+\begin_layout Paragraph
+\noindent
+
+\series medium
+Actualmente la codificación de programas y la creación de las Interfaces
+ graficas se pueden crear a través de los Entornos Integrados de desarrollo
+ (IDE) en su vista de Codificación y en la vista de Diseño, respectivamente.
+ Esto guarda una estrecha relación con el estilo de arquitectura de software
+ denominado Modelo Vista Controlador (MVC), que separa los datos de usuario
+ de una aplicación, la interfaz de usuario, y la lógica de control en tres
+ componentes diferentes.
+ De esta forma, se distinguen dos roles principales: el diseñador de GUI
+ y el desarrollador de aplicaciones.
+ Mediante este proyecto se pretende hacer la tarea de ambos roles mas sencilla.
+\end_layout
+
+\begin_layout Paragraph
+\noindent
+Palabras clave 
+\end_layout
+
+\begin_layout Paragraph
+\noindent
+
+\series medium
+Librería | Reusabilidad |Interfaces gráficas de usuario(GUI) | Java | Swing
+ | NetBeans
+\end_layout
+
+\end_body
+\end_document
