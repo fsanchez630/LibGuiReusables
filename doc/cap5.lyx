@@ -126,13 +126,6 @@ Se explicara detalladamente la función de cada una de estas Clases junto
  con los métodos principales que contienen.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Descripción de la aplicación de prueba
 \end_layout
@@ -474,7 +467,7 @@ Este Formulario representa un Experimento y contiene 5 campos editables.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -514,6 +507,13 @@ Formulario Experimento
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -1035,6 +1035,11 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\series medium
+inc
+\series default
+
 \begin_inset Graphics
 	filename recursos/formularios/CrearExperimento21.JPG
 	lyxscale 75
@@ -1178,7 +1183,7 @@ Formulario crearExperimento 31
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1225,28 +1230,569 @@ Formulario crearExperimento 32
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Funcionamiento de la aplicación de prueba
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+En esta sección se muestrar varios ejemplos de las pruebas del funcionamiento
+ de la aplicación de prueba y las trazas de la ejecución.
+\end_layout
+
+\begin_layout Subsection
+aceptar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se muestra la ejecución de Crear Prueba Ampliada al pulsar el boton Aceptar.
+ La validación se hace de forma recursiva.
+\end_layout
+
+\begin_layout Subsection
+
+\series medium
+validación incorrecta
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se muestra la ejecución de Crear Prueba Ampliada con validación incorrecta.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Traza del programa
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+aceptar class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+validar class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+Validar Campos class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+validar class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+Validar Campos class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
 \begin_layout Standard
-La memoria de esta proyecto se estructura en los siguientes capítulos:
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/validar PruebaAmpliada1.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
-Introducción general y objetivos
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.19"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+validar Prueba Ampliada 1
 \end_layout
 
-\begin_layout Enumerate
-<añadir los demás capítulos>
+\end_inset
+
+validar Prueba Ampliada 1
 \end_layout
 
-\begin_layout Enumerate
-Conclusiones y trabajos futuros
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/validar PruebaAmpliada2.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.20"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+validar Prueba Ampliada 2
+\end_layout
+
+\end_inset
+
+validar Prueba Ampliada 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series medium
+validación Correcta
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se muestra la ejecución de Crear Prueba Ampliada con validación Correcta.
+ La validación y el guardado se hace de forma recursiva.
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Traza del programa
+\end_layout
+
+\begin_layout Itemize
+aceptar class TestLibGuiReusables.CrearPruebaAmpliada frame0
+\end_layout
+
+\begin_layout Itemize
+validar class TestLibGuiReusables.CrearPruebaAmpliada frame0
+\end_layout
+
+\begin_layout Itemize
+Validar Campos class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+validar class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Itemize
+Validar Campos class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Itemize
+validar class TestLibGuiReusables.PruebaAmpliada frame2 
+\end_layout
+
+\begin_layout Itemize
+Validar Campos class TestLibGuiReusables.PruebaAmpliada frame2 
+\end_layout
+
+\begin_layout Itemize
+guardar class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+guardar class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Itemize
+guardar class TestLibGuiReusables.PruebaAmpliada frame2
 \end_layout
 
 \begin_layout Standard
-<Comentar los capítulos>
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/validar PruebaAmpliada3.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.21"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+validar Prueba Ampliada 3
+\end_layout
+
+\end_inset
+
+validar Prueba Ampliada 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/validar PruebaAmpliada4.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.22"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+validar Prueba Ampliada 4
+\end_layout
+
+\end_inset
+
+validar Prueba Ampliada 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+cancelar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se muestra la ejecución de Crear Prueba Ampliada al pulsar el boton Cancelar.
+ La limpieza se hace de forma recursiva.
+\end_layout
+
+\begin_layout Paragraph
+
+\bar under
+Traza del programa
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+cancelar class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+limpiar class TestLibGuiReusables.CrearPruebaAmpliada frame0 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+limpiar class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Itemize
+
+\series medium
+limpiar class TestLibGuiReusables.PruebaAmpliada frame2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/validar PruebaAmpliada5.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.23"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+validar Prueba Ampliada 
+\series medium
+cancelar
+\end_layout
+
+\end_inset
+
+validar Prueba Ampliada 
+\series medium
+cancelar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+datos enlazados
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Se muestra la ejecución de Crear Experimento al modificar el valor del campo
+ de tipo JSpinner(Personas en experimento en la página Experimento) se produce
+ una actualización del valor del campo de tipo JSlider( Personas en Laboratorio
+ en la página Laboratorio) .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/datos Enlazados 1.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.24"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Datos Enlazados 1
+\end_layout
+
+\end_inset
+
+
+\series medium
+Datos Enlazados 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/formularios/datos Enlazados 2.jpg
+	lyxscale 75
+	scale 69
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura 5.24-1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+Datos Enlazados 2
+\end_layout
+
+\end_inset
+
+
+\series medium
+Datos Enlazados 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
