@@ -144,13 +144,13 @@ Funcionalidades requeridas para el Desarrollador
 \bar under
 Solicitud de Formularios vacíos
 \bar default
-: A través de la 
+: A traves de la 
 \series default
 FactoriaFormularioExtensible
 \series medium
- se permite crear Formularios del tipo que se desea, con la estructura mínima:
+ se pemite crear Formularios del tipo que se desea, con la estructura mínima:
  botones para aceptar la edición y rechazarla, contenedor apropiado con
- distribución y vista de árbol cuando son Formularios con vista de árbol.
+ distribución y vista de árbol cuando son Formularios con vista de arbol.
 \end_layout
 
 \begin_layout Paragraph
