@@ -172,7 +172,7 @@ TestLibGuiReusables (Programa de pruebas de la Librería de Interfaces graficas
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -217,6 +217,13 @@ Carpetas de Proyectos
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Importar la librería
 \end_layout
@@ -226,7 +233,7 @@ Importar la librería
 \series medium
 Dentro de NetBeans se debe abrir un proyecto existente o crear uno nuevo.
  En la vista de proyectos debemos seleccionar el nodo de Bibliotecas y pinchar
- con el boton derecho y pulsar 
+ con el botón derecho y pulsar 
 \begin_inset Quotes eld
 \end_inset
 
@@ -394,6 +401,13 @@ Librería Agregada
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Instalar Templates de la librería
 \end_layout
@@ -401,18 +415,11 @@ Instalar Templates de la librería
 \begin_layout Paragraph
 
 \series medium
-Dentro de NetBeans se debe abrir un proyecto existente o crear uno nuevo.
- En la vista de proyectos debemos seleccionar el nodo de Bibliotecas y pinchar
- con el boton derecho y pulsar 
-\begin_inset Quotes eld
-\end_inset
-
-Add Jar/Folder
-\begin_inset Quotes erd
-\end_inset
-
-.
- Seleccionamos la ruta del archivo y se agrega al proyecto.
+Dentro de NetBeans se debe usar el menú Tools y seleccionar la opción Plugins.
+ A continuación seleccionamos la ruta del archivo 'templates.nbm' y agregamos
+ el plugin.
+ Puede que aparezca un aviso al no estar firmado digitalmente.
+ Procedemos a instalar y a reiniciar el IDE.
 \end_layout
 
 \begin_layout Standard
@@ -427,7 +434,7 @@ status open
 \begin_inset Graphics
 	filename recursos/manual/plugins.jpg
 	width 50page%
-	height 33pheight%
+	height 30pheight%
 
 \end_inset
 
@@ -531,7 +538,7 @@ status open
 \begin_inset Graphics
 	filename recursos/manual/agregar_plugins_aviso.jpg
 	width 50page%
-	height 33pheight%
+	height 30pheight%
 
 \end_inset
 
@@ -571,6 +578,13 @@ Aviso Plugins
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Usar Templates de la librería
 \end_layout
@@ -578,18 +592,12 @@ Usar Templates de la librería
 \begin_layout Paragraph
 
 \series medium
-Dentro de NetBeans se debe abrir un proyecto existente o crear uno nuevo.
- En la vista de proyectos debemos seleccionar el nodo de Bibliotecas y pinchar
- con el boton derecho y pulsar 
-\begin_inset Quotes eld
-\end_inset
-
-Add Jar/Folder
-\begin_inset Quotes erd
-\end_inset
-
-.
- Seleccionamos la ruta del archivo y se agrega al proyecto.
+Una vez finalizada la instalación de los templates, ya podemos usarlos.
+ Debemos seleccionar un paquete para agregar nuevo fichero con la opción
+ 'New'.
+ A continuación seleccionamos la opción 'Other' y dentro 'Swing GUI Forms'.
+ Se nos mostraran los Formularios propios de la librería, para agregar uno
+ nuevo vacío.
 \end_layout
 
 \begin_layout Standard
@@ -696,6 +704,13 @@ Nuevo archivo
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Importar los iconos de los Formularios en la Paleta
 \end_layout
@@ -703,18 +718,13 @@ Importar los iconos de los Formularios en la Paleta
 \begin_layout Paragraph
 
 \series medium
-Dentro de NetBeans se debe abrir un proyecto existente o crear uno nuevo.
- En la vista de proyectos debemos seleccionar el nodo de Bibliotecas y pinchar
- con el boton derecho y pulsar 
-\begin_inset Quotes eld
-\end_inset
-
-Add Jar/Folder
-\begin_inset Quotes erd
-\end_inset
-
-.
- Seleccionamos la ruta del archivo y se agrega al proyecto.
+Accedemos a la vista diseño para visualizar la Paleta, pulsamos el botón
+ derecho del ratón y se nos muestra el menú donde debemos seleccionar 'Palette
+ Manager'.
+ A continuación debemos agregar componentes de un archivo JAR, seleccionamos
+ la ruta del archivo y nos aparecerá una lista de componentes.
+ Seleccionamos los Formularios y los agregamos a la categoría que deseemos.
+ Aquí se han agregado a una nueva Categoría llamada 'Custom'.
 \end_layout
 
 \begin_layout Standard
@@ -722,7 +732,7 @@ Add Jar/Folder
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -774,7 +784,7 @@ Gestor Paleta
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -826,7 +836,7 @@ Selección Componentes
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center

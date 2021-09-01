@@ -115,15 +115,31 @@ Este capitulo aborda la fase de implementación y construcción de la Librería
 \begin_layout Paragraph
 
 \series medium
-Primero se hace una descripción general del código fuente de la librería
- explicando algunos detalles generales de la implementación.
+Primero se hace una pequeña descripción de la aplicación de prueba comentando
+ sus conceptos.
+ 
 \end_layout
 
 \begin_layout Paragraph
 
 \series medium
-Se explicara detalladamente la función de cada una de estas Clases junto
- con los métodos principales que contienen.
+Seguidamente se muestran los formularios diseñados para la aplicación de
+ prueba, cada uno con un pantallazo y una breve explicación.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Finalmente se comenta el funcionamiento de la aplicación de prueba, con
+ las acciones de botón Aceptar y Cancelar, ademas de la comunicación de
+ componentes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -158,6 +174,13 @@ Formulario Prueba
 
 \series medium
 Este Formulario representa una Prueba y contiene 5 campos editables.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -221,6 +244,13 @@ Este Formulario representa una Prueba Básica que es una ampliación de la
  Prueba y contiene 2 campos editables.
 \end_layout
 
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -280,6 +310,13 @@ Formulario PruebaAmpliada
 \series medium
 Este Formulario representa una Prueba Ampliada que es una ampliación de
  la Prueba y contiene 5 campos editables.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -342,6 +379,13 @@ Formulario Responsable
 Este Formulario representa un Responsable y contiene 5 campos editables.
 \end_layout
 
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -400,6 +444,13 @@ Formulario Laboratorio
 
 \series medium
 Este Formulario representa un Laboratorio y contiene 5 campos editables.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -462,6 +513,13 @@ Formulario Experimento
 Este Formulario representa un Experimento y contiene 5 campos editables.
 \end_layout
 
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -513,9 +571,6 @@ Formulario Experimento
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
 
 \end_layout
 
@@ -534,7 +589,7 @@ MenuPrincipal
 
 \begin_layout Standard
 Esta clase es la principal de la aplicación de prueba.
- Muestra un menú con varias botones que permitiran probar la integración
+ Muestra un menú con varias botones que permitirán probar la integración
  de los Formularios diseñados.
 \end_layout
 
@@ -553,14 +608,21 @@ Esta clase es la principal de la aplicación de prueba.
 \begin_layout Itemize
 - Crear Laboratorio: Esta opción permite integrar en
 \series medium
- una vista arbol el Formulario Laboratorio y Formulario Responsable.
+ una vista árbol el Formulario Laboratorio y Formulario Responsable.
 \end_layout
 
 \begin_layout Itemize
 - Crear Experimento: Esta opción permite integrar en
 \series medium
- una vista arbol el Formulario Experimento agregandole todos los objetos
+ una vista árbol el Formulario Experimento agregándole todos los objetos
  anteriores.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -568,7 +630,7 @@ Esta clase es la principal de la aplicación de prueba.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -613,6 +675,13 @@ Formulario MenuPrincipal
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 crearPruebaBasica
 \end_layout
@@ -625,12 +694,19 @@ Esta clase integra en una sola página (simple) el Formulario Prueba y Formulari
  Se muestra el Formulario resultante con los botones Aceptar y Cancelar.
 \end_layout
 
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -675,6 +751,13 @@ Formulario crearPruebaBasica
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 crearPruebaAmpliada
 \end_layout
@@ -691,7 +774,14 @@ Esta clase integra en una vista con pestañas el Formulario Prueba y Formulario
 \begin_layout Paragraph
 
 \series medium
-Este pantallazo muestra la pestaña de los Datos Basicos.
+Este pantallazo muestra la pestaña de los Datos Básicos.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -744,10 +834,24 @@ Formulario crearPruebaAmpliada 1
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 
 \series medium
 Este pantallazo muestra la pestaña de los Datos Ampliados.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -755,7 +859,7 @@ Este pantallazo muestra la pestaña de los Datos Ampliados.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -800,6 +904,13 @@ Formulario crearPruebaAmpliada 2
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 crearLaboratorio
 \end_layout
@@ -807,10 +918,17 @@ crearLaboratorio
 \begin_layout Paragraph
 
 \series medium
-Esta clase integra en una vista con arbol el Formulario Laboratorio y Formulario
+Esta clase integra en una vista con árbol el Formulario Laboratorio y Formulario
  Responsable.
  Se muestran las vistas de los objetos agregados del Formulario resultante
  (Laboratorio y Responsable) con los botones Aceptar y Cancelar.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -867,7 +985,7 @@ Formulario crearLaboratorio 1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -914,6 +1032,13 @@ Formulario crearLaboratorio 2
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 crearExperimento
 \end_layout
@@ -921,11 +1046,18 @@ crearExperimento
 \begin_layout Paragraph
 
 \series medium
-Esta clase integra en una vista con arbol el Formulario Experimento y todos
+Esta clase integra en una vista con árbol el Formulario Experimento y todos
  los objetos asociados.
  Se muestran las vistas de los objetos agregados del Formulario resultante
  (Experimento, Prueba Básica , Prueba Ampliada y Laboratorio) con los botones
  Aceptar y Cancelar.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1035,11 +1167,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\series medium
-inc
-\series default
-
 \begin_inset Graphics
 	filename recursos/formularios/CrearExperimento21.JPG
 	lyxscale 75
@@ -1244,8 +1371,20 @@ Funcionamiento de la aplicación de prueba
 \begin_layout Paragraph
 
 \series medium
-En esta sección se muestrar varios ejemplos de las pruebas del funcionamiento
+En esta sección se muestran varios ejemplos de las pruebas del funcionamiento
  de la aplicación de prueba y las trazas de la ejecución.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una de las características que posee la librería, es la de realizar la edición
+ de información de sus diálogos de forma indivisible, es decir, en un solo
+ paso.
+ Esto es lo que se conoce como ’transacción atómica’, propiedad mediante
+ la cuál la librería habilita que, cuando el usuario decide aceptar o rechazar
+ los cambios realizados, todo el proceso se produce en una sola acción.
 \end_layout
 
 \begin_layout Subsection
@@ -1255,7 +1394,7 @@ aceptar
 \begin_layout Paragraph
 
 \series medium
-Se muestra la ejecución de Crear Prueba Ampliada al pulsar el boton Aceptar.
+Se muestra la ejecución de Crear Prueba Ampliada al pulsar el botón Aceptar.
  La validación se hace de forma recursiva.
 \end_layout
 
@@ -1306,6 +1445,13 @@ validar class TestLibGuiReusables.Prueba frame1
 
 \series medium
 Validar Campos class TestLibGuiReusables.Prueba frame1 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1468,6 +1614,13 @@ guardar class TestLibGuiReusables.Prueba frame1
 guardar class TestLibGuiReusables.PruebaAmpliada frame2
 \end_layout
 
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 placement H
@@ -1583,7 +1736,7 @@ cancelar
 \begin_layout Paragraph
 
 \series medium
-Se muestra la ejecución de Crear Prueba Ampliada al pulsar el boton Cancelar.
+Se muestra la ejecución de Crear Prueba Ampliada al pulsar el botón Cancelar.
  La limpieza se hace de forma recursiva.
 \end_layout
 
@@ -1615,6 +1768,13 @@ limpiar class TestLibGuiReusables.Prueba frame1
 
 \series medium
 limpiar class TestLibGuiReusables.PruebaAmpliada frame2
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1683,7 +1843,15 @@ datos enlazados
 Se muestra la ejecución de Crear Experimento al modificar el valor del campo
  de tipo JSpinner(Personas en experimento en la página Experimento) se produce
  una actualización del valor del campo de tipo JSlider( Personas en Laboratorio
- en la página Laboratorio) .
+ en la página Laboratorio).
+ Este es un ejemplo del mecanismo de paso de mensajes de la librería.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

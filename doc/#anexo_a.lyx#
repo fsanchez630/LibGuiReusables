@@ -120,7 +120,7 @@ appendixname}{Anexo}
 \end_layout
 
 \begin_layout Chapter
-Manual de uso
+Manual de configuración
 \end_layout
 
 \begin_layout Paragraph
@@ -172,7 +172,7 @@ TestLibGuiReusables (Programa de pruebas de la Librería de Interfaces graficas
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -217,6 +217,13 @@ Carpetas de Proyectos
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Importar la librería
 \end_layout
@@ -224,8 +231,7 @@ Importar la librería
 \begin_layout Paragraph
 
 \series medium
-Pasos para importar la librería: Dentro de NetBeans se debe abrir un proyecto
- existente o crear uno nuevo.
+Dentro de NetBeans se debe abrir un proyecto existente o crear uno nuevo.
  En la vista de proyectos debemos seleccionar el nodo de Bibliotecas y pinchar
  con el boton derecho y pulsar 
 \begin_inset Quotes eld
@@ -236,7 +242,7 @@ Add Jar/Folder
 \end_inset
 
 .
- Seleccionamos la ruta dely se agrega 
+ Seleccionamos la ruta del archivo y se agrega al proyecto.
 \end_layout
 
 \begin_layout Standard
@@ -289,6 +295,9 @@ Nuevo Proyecto
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -338,6 +347,9 @@ Agregar JAR Librería
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -389,16 +401,484 @@ Librería Agregada
 
 \end_layout
 
-\begin_layout Section
-Instalar el Templates de la librería
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection
-<Primera subsección anexo>
+\begin_layout Section
+Instalar Templates de la librería
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Dentro de NetBeans se debe usar el menu Tools y seleccionar la opcion Plugins.
+ A continuacion seleccionamos la ruta del archivo 'templates.nbm' y agregamos
+ el plugin.
+ Puede que aparezca un aviso al no estar firmado digitalmente.
+ Procedemos a instalar y a reniciar el IDE.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/plugins.jpg
+	width 50page%
+	height 30pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.5"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Herramientas Plugins
+\end_layout
+
+\end_inset
+
+Herramientas Plugins
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/agregar_plugins.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.6"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Agregar nuevo Plugin
+\end_layout
+
+\end_inset
+
+Agregar nuevo Plugin
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/agregar_plugins_aviso.jpg
+	width 50page%
+	height 30pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.7"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Aviso plugins
+\end_layout
+
+\end_inset
+
+Aviso Plugins
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Importar los Formularios en la Paleta
+Usar Templates de la librería
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Una vez finalizada la instalacion de los templates, ya podemos usarlos.
+ Debemos seleccionar un paquete para agregar nuevo fichero con la opcion
+ 'New'.
+ A continuación seleccionamos la opcion 'Other' y dentro 'Swing GUI Forms'.
+ Se nos mostraran los Formularios propios de la libreria, para agregar uno
+ nuevo vacio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/agregar nuevo archivo.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.8"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Agregar nuevo archivo
+\end_layout
+
+\end_inset
+
+Agregar nuevo archivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/nuevo archivo.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.9"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Nuevo archivo
+\end_layout
+
+\end_inset
+
+Nuevo archivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Importar los iconos de los Formularios en la Paleta
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Accedemos a la vista diseño para visualizar la Paleta, pulsamos el boton
+ derecho del raton y se nos muestra el menu donde debemos seleccionar 'Palette
+ Manager'.
+ A continuacion debemos seleccionar agregar componentes de un archivo JAR
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/gestor_paleta.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.10"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Gestor Paleta
+\end_layout
+
+\end_inset
+
+Gestor Paleta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/componentes.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.11"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Selección Componentes
+\end_layout
+
+\end_inset
+
+Selección Componentes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename recursos/manual/componentes_agregados.jpg
+	width 50page%
+	height 33pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Figura A.12"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Componentes agregados
+\end_layout
+
+\end_inset
+
+Componentes agregados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
