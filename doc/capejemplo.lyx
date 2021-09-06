@@ -127,6 +127,18 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
+<Ejemplo biblio 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "eckel03"
+literal "true"
+
+\end_inset
+
+>
+\end_layout
+
+\begin_layout Standard
 <Ejemplo referencia a sección 
 \begin_inset CommandInset ref
 LatexCommand ref

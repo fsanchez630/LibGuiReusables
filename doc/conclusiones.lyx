@@ -263,6 +263,15 @@ Edición de datos de forma atómica
  Permiten que estas operaciones se realicen de un único paso.
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+\bar under
+Sistema estándar de documentación
+\bar default
+: Se ha usado Javadoc para realizar la documentación del proyecto.
+\end_layout
+
 \begin_layout Section
 Trabajos futuros
 \end_layout

@@ -152,6 +152,13 @@ Finalmente se comentan detalles del Entorno de Desarrollo de la Librería,
  con una descripción corta de Java, Swing y Netbeans.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Programación Orientada a Objetos
 \end_layout
@@ -324,8 +331,21 @@ Se aplica sobre las clases.
 \begin_layout Paragraph
 
 \series medium
-La POO promueve en gran medida que las relaciones entre objetos se basen
- en construcciones jerárquicas.
+La 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "POO"
+description "Programación Orientada a Objetos"
+literal "true"
+
+\end_inset
+
+
+\series medium
+POO promueve en gran medida que las relaciones entre objetos se basen en
+ construcciones jerárquicas.
  Esto es, las clases pueden heredar diferencialmente de otras clases (denominada
 s “superclases”) determinadas características, mientras que, a la vez, pueden
  definir las suyas propias.
@@ -563,8 +583,21 @@ Es una solución general y reutilizable aplicable a diferentes problemas
 
 \series medium
 En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John
- Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado
- Design Patterns, elementos de software orientado a objetos reutilizables.
+ Vlissides, a los que llamaron Gang of Four (
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "GoF"
+description "Gang of Four"
+literal "true"
+
+\end_inset
+
+
+\series medium
+GoF), publicaron un libro titulado Design Patterns, elementos de software
+ orientado a objetos reutilizables.
  Con este trabajo se inició el concepto de patrón de diseño en el desarrollo
  de software y recoge 23 patrones de diseño comunes.
  Cada uno de ellos define la solución para resolver un determinado problema,
@@ -1189,8 +1222,20 @@ Swing
 \begin_layout Paragraph
 
 \series medium
-El paquete Swing es parte de la JFC (Java Foundation Classes) en la plataforma
- Java.
+El paquete Swing es parte de la 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "JFC"
+description "Java Foundation Classes"
+literal "true"
+
+\end_inset
+
+
+\series medium
+JFC (Java Foundation Classes) en la plataforma Java.
  La JFC provee facilidades para ayudar a la gente a construir GUIs.
  Swing abarca componentes como botones, tablas, marcos, etc...
 \end_layout
@@ -1254,8 +1299,21 @@ NetBeans es un proyecto de código abierto de gran éxito con una gran base
 La plataforma NetBeans permite que las aplicaciones sean desarrolladas a
  partir de un conjunto de componentes de software llamados módulos.
  Un módulo es un archivo Java que contiene clases de java escritas para
- interactuar con las APIs de NetBeans y un archivo especial (manifest file)
- que lo identifica como módulo.
+ interactuar con las 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "API"
+description "Application Programing Interfaces"
+literal "true"
+
+\end_inset
+
+
+\series medium
+APIs de NetBeans y un archivo especial (manifest file) que lo identifica
+ como módulo.
  Las aplicaciones construidas a partir de módulos pueden ser extendidas
  agregándole nuevos módulos.
  Debido a que los módulos pueden ser desarrollados independientemente, las

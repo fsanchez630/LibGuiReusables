@@ -226,6 +226,85 @@ Se explicara detalladamente la función de cada una de estas Clases junto
 Aspectos generales del código fuente de la librería 
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+La libreria consta de 3 interfaces que son implementadas por los Formularios
+ Extensibles:
+\end_layout
+
+\begin_layout Description
+Comunicable: 
+\series medium
+Define los métodos que deben declaran los formularios que quieran usar las
+ comunicación por mensajes de la librería.
+\end_layout
+
+\begin_layout Description
+Validable: 
+\series medium
+Define los métodos recursivos de validación, guardado y limpieza de datos
+ que deben declaran los formularios reusables.
+ Estos métodos se ejecutan cuando se pulsan los botones Aceptar o Cancelar.
+\end_layout
+
+\begin_layout Description
+Observador: 
+\series medium
+Define los métodos que deben declaran los formularios que quieran usar la
+ recepción y la gestión de Eventos.
+ Usa el patron de diseño Observer.
+ Los objetos que son observables son los eventos y los observadores son
+ los Formularios Extensibles.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Los Fomulario Extensibles son una jerarquia de clases que usan el patrón
+ de diseño Composite.
+ Pemite agregar hijos y tratarlos de manera uniforme.
+\end_layout
+
+\begin_layout Description
+Formulario: Clase abstracta base de la jerarquia de Formularios Extensibles.
+\end_layout
+
+\begin_layout Description
+FormularioExtensible: Clase abstracta padre de la jerarquia de Formularios
+ Extensibles.
+
+\series medium
+ Tiene las operaciones mínimas que serán utilizadas, este componente es
+ extendido por las otras 3 clases.
+ Representa la parte Component dentro del patrón de diseño.
+ 
+\end_layout
+
+\begin_layout Description
+FormularioSimple: 
+\series medium
+Clase que representa la parte más simple o pequeña de toda la estructura
+ y este extiende de Component.
+ Representa la parte Composite dentro del patrón de diseño.
+ Puede ser tanto hoja como nodo.
+\end_layout
+
+\begin_layout Description
+FormularioPorFichas:
+\end_layout
+
+\begin_layout Description
+FormularioArbol:
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+La representa la factoría de Formularios Extensibles.
+ 
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -725,7 +804,7 @@ addHijoExtensible
 \begin_layout Paragraph
 
 \series medium
-Este es el patron del método que permite agregar un hijo de tipo FormularioExten
+Este es el patrón del método que permite agregar un hijo de tipo FormularioExten
 sible al formulario actual y cada clase derivada debe definir su cuerpo.
  
 \end_layout
@@ -745,7 +824,7 @@ addListaHijosExtensibles
 \begin_layout Paragraph
 
 \series medium
-Este es el patron del método que permite agregar una lista de hijos de tipo
+Este es el patrón del método que permite agregar una lista de hijos de tipo
  FormularioExtensible al formulario actual y cada clase derivada debe definir
  su cuerpo.
  
@@ -803,7 +882,7 @@ aceptar
 \begin_layout Paragraph
 
 \series medium
-Este método procesa la accion del botón Acepta del Formulario Extensible
+Este método procesa la acción del botón Aceptar del Formulario Extensible
  actual.
  Llama al método validar del Formulario Extensible actual que devuelve un
  EventoValidar que se notifica al GestorEventos.
@@ -823,13 +902,13 @@ cancelar
 \begin_layout Paragraph
 
 \series medium
-Este método procesa la accion del botón Cancelar del Formulario Extensible
+Este método procesa la acción del botón Cancelar del Formulario Extensible
  actual.
  Muestra un dialogo de 
 \begin_inset Quotes eld
 \end_inset
 
-operacion cancelada
+operación cancelada
 \begin_inset Quotes erd
 \end_inset
 
@@ -847,6 +926,33 @@ No toma ningún valor como parámetro.
 validar
 \end_layout
 
+\begin_layout Paragraph
+
+\series medium
+Este método procesa la acción recursiva de la validación de los Formularios.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Comienza con una llamada al método validarCampos.
+ Si la validación fue correcta para cada Formulario Extensible de la Lista
+ de Hijos realiza una llamada al método validar y si alguna validación no
+ es correcta finaliza devolviendo un EventoValidar con valor de validación
+ incorrecta.
+ Si todas las validaciones son correctas finaliza devolviendo un EventoValidar
+ con valor de validación correcta.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ Devuelve un EventoValidar que indicará si la validación ha ido correcta
+ o no.
+\end_layout
+
 \begin_layout Subsubsection
 guardar
 \end_layout
@@ -854,10 +960,10 @@ guardar
 \begin_layout Paragraph
 
 \series medium
-Este método procesa la accion recursiva del guardado de los Formularios.
+Este método procesa la acción recursiva del guardado de los Formularios.
  Para cada Formulario Extensible de la Lista de Hijos realiza una llamada
- al metodo guardar.
- Finaliza el recorrido de los hijos 
+ al método guardar.
+ Este método finaliza con una llamada al método guardarFormulario.
 \end_layout
 
 \begin_layout Paragraph
@@ -869,6 +975,22 @@ No toma ningún valor como parámetro.
 
 \begin_layout Subsubsection
 limpiar
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+Este método procesa la acción recursiva de limpieza de los Formularios.
+ Para cada Formulario Extensible de la Lista de Hijos realiza una llamada
+ al método limpiar.
+ Este método finaliza con una llamada al método limpiarFormulario.
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+No toma ningún valor como parámetro.
+ No devuelve ningún valor.
 \end_layout
 
 \begin_layout Subsubsection

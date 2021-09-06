@@ -119,8 +119,20 @@ Este capitulo tiene como cometido explicar de una forma general la motivación
 \series medium
 Primero se hará una breve introducción que sirva de contexto.
  En ella se comenta como funciona normalmente la tarea del desarrollo de
- Software y la importancia que tienen las GUI (interfaces graficas de Usuario)
- en muchos de los proyectos de desarrollo.
+ Software y la importancia que tienen las 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "GUI"
+description "Interfaces graficas de Usuario"
+literal "true"
+
+\end_inset
+
+
+\series medium
+GUI (interfaces graficas de Usuario) en muchos de los proyectos de desarrollo.
 \end_layout
 
 \begin_layout Paragraph
@@ -256,9 +268,21 @@ La introducción de la posibilidad de disponer de la vista de diseño en los
  las aplicaciones de forma más rápida, con menos esfuerzo, y ofrecer programas
  de mayor calidad.
  Guarda una estrecha relación con el estilo de arquitectura de software
- denominado Modelo Vista Controlador (MVC), que separa los datos de usuario
- de una aplicación, la interfaz de usuario, y la lógica de control en tres
- componentes diferentes.
+ denominado Modelo Vista Controlador (
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MVC"
+description "Modelo Vista Controlador"
+literal "true"
+
+\end_inset
+
+
+\series medium
+MVC), que separa los datos de usuario de una aplicación, la interfaz de
+ usuario, y la lógica de control en tres componentes diferentes.
 \end_layout
 
 \begin_layout Enumerate
@@ -518,7 +542,20 @@ Objetivos
 \series medium
 El objetivo principal del proyecto es crear una librería con la jerarquía
  de interfaces graficas que integre interfaces graficas de objetos asociados,
- resolviéndolo en Java/Swing con el IDE Netbeans.
+ resolviéndolo en Java/Swing con el 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "IDE"
+description "Entorno Integrado de desarrollo"
+literal "true"
+
+\end_inset
+
+
+\series medium
+IDE Netbeans.
  
 \end_layout
 
@@ -632,8 +669,20 @@ Análisis y diseño del sistema
 \series medium
 Se corresponde con dos fases típicas de todo desarrollo de software, como
  son las fases de Análisis y Diseño del sistema bajo construcción.
- Se usara el lenguaje de modelado UML, para representar algunos tipos de
- diagramas.
+ Se usara el lenguaje de modelado 
+\series default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UML"
+description "Lenguage de modelado unificado"
+literal "true"
+
+\end_inset
+
+
+\series medium
+UML, para representar algunos tipos de diagramas.
  (casos de uso, clases, interacción)
 \end_layout
 
@@ -659,6 +708,17 @@ Experimentación y pruebas
 En este apartado se comentan los experimentos y pruebas a los que se ha
  visto sometido la librería.
  Se detalla el funcionamiento del programa de pruebas pedido y realizado.
+\end_layout
+
+\begin_layout Paragraph
+Conclusiones y trabajos futuros 
+\end_layout
+
+\begin_layout Paragraph
+
+\series medium
+En este apartado se comentan las conclusiones obtenidas a lo largo del proyecto.
+ Ademas se enumeran algunas posibles mejoras y ampliaciones a realizar.
 \end_layout
 
 \end_body
